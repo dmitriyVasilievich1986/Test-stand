@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,13 +56,14 @@ namespace test_stand
             { "temperature", new byte[6] },
             { "entu", new byte[6] }
         };
+        public static Dictionary<string, All_Controls> Controls = new Dictionary<string, All_Controls>();
         
         public static float Current_Norm = 0;
         public static bool Current_Check = false;
-
-        public static byte Dout_Din16 = 0x14;
+        
+        public static Addres_Controls Dout_Din16 = new Addres_Controls(0x14);
+        public static Addres_Controls Dout_Control = new Addres_Controls(0x13);
         public static byte Dout_Din32 = 0x15;
-        public static byte DoutControl = 0x13;
         public static byte Current_PSC = 0x11;
         public static byte Module = 1;
         public static byte v12 = 0x10;
@@ -72,5 +74,18 @@ namespace test_stand
         public static Excell_Work EW = new Excell_Work();
 
         public static void ModuleName(string name) { Name = name; Addres = @"C:\asd\" + Name.ToString() + @".xlsx"; }
+
+        public class Addres_Controls
+        {
+            private byte add;
+
+            public Addres_Controls(byte Addres) { add = Addres; }
+
+            public byte Addres
+            {
+                get { return add; }
+                set { add = value; }
+            }
+        }
     }
 }

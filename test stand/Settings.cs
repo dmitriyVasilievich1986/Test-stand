@@ -18,14 +18,14 @@ namespace test_stand
         {
             InitializeComponent();
             Dout1.Text = Data_Transit.Dout_Din16.ToString();
-            Dout2.Text = Data_Transit.DoutControl.ToString();
+            //Dout2.Text = Data_Transit.DoutControl.ToString();
             TBMTU5.Text = Data_Transit.v12.ToString();
             TBPSC.Text = Data_Transit.Current_PSC.ToString();
 
             On.Click += new System.EventHandler(this.Power_On);
             Off.Click += new System.EventHandler(this.Power_Off);
-            Dout1.KeyDown += (s, e) => { if (e.KeyCode == Keys.Enter) { Data_Transit.Dout_Din16 = Convert.ToByte(Dout1.Text); } };
-            Dout2.KeyDown += (s, e) => { if (e.KeyCode == Keys.Enter) { Data_Transit.DoutControl = Convert.ToByte(Dout2.Text); } };
+            Dout1.KeyDown += (s, e) => { if (e.KeyCode == Keys.Enter) { Data_Transit.Dout_Din16.Addres = Convert.ToByte(Dout1.Text); } };
+            Dout2.KeyDown += (s, e) => { if (e.KeyCode == Keys.Enter) { Data_Transit.Dout_Control.Addres = Convert.ToByte(Dout2.Text); } };
             TBPSC.KeyDown += (s, e) => { if (e.KeyCode == Keys.Enter) { Data_Transit.Current_PSC = Convert.ToByte(TBPSC.Text); } };
             TBMTU5.KeyDown += (s, e) => { if (e.KeyCode == Keys.Enter) { Data_Transit.v12 = Convert.ToByte(TBMTU5.Text); } };
             CBCurrent_Check.TextChanged += (s, e) =>
@@ -38,13 +38,13 @@ namespace test_stand
         private void Power_On(object sender, EventArgs e)
         {
             if (!Data_Transit.PortControl.Port.IsOpen) return;
-            Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.DoutControl, 0x10, 0, 0x51, 00, 02, 04, 0, 01, 0, 1 });
+            Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x10, 0, 0x51, 00, 02, 04, 0, 01, 0, 1 });
         }
 
         private void Power_Off(object sender, EventArgs e)
         {
             if (!Data_Transit.PortControl.Port.IsOpen) return;
-            Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.DoutControl, 0x10, 0, 0x51, 00, 02, 04, 0, 00, 0, 0 });
+            Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x10, 0, 0x51, 00, 02, 04, 0, 00, 0, 0 });
         }
     }
 }

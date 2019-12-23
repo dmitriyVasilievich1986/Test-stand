@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="All_Controls.cs" />
     <Compile Include="All_Tests.cs" />
     <Compile Include="Data_Transit.cs" />
     <Compile Include="Modul_Settings.cs">

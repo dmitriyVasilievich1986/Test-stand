@@ -76,23 +76,23 @@ namespace test_stand
             int column = await Data_Transit.EW.Column("Ток потребления");
             if (column >= 250) return 0;
             
-            Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.DoutControl, 0x10, 0, Data_Transit.Registers["current"][3], 0, 04, 8, 0, 0, 0, 0, 0, 0, 0, 0 });
+            //Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.DoutControl, 0x10, 0, Data_Transit.Registers["current"][3], 0, 04, 8, 0, 0, 0, 0, 0, 0, 0, 0 });
             while (Data_Transit.PortControl.Data_Interrupt != null) await Task.Delay(500);
 
             for (int a = 0; a < Data_Transit.port; a++)
             {
-                Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.DoutControl, 0x06, 0, Data_Transit.Registers["current"][a], 0, 1 });
+                //Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.DoutControl, 0x06, 0, Data_Transit.Registers["current"][a], 0, 1 });
                 while (Data_Transit.PortControl.Data_Interrupt != null) await Task.Delay(1000);
 
                 if (Data_Transit.Results["current"][0] > Data_Transit.Current_Norm + .1 ||
                     Data_Transit.Results["current"][0] < Data_Transit.Current_Norm - .1)  norm++;
                 Data_Transit.EW.Result_Save(Data_Transit.Results["current"][0], column);                     
 
-                Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.DoutControl, 0x06, 0, Data_Transit.Registers["current"][a], 0, 0 });
+                //Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.DoutControl, 0x06, 0, Data_Transit.Registers["current"][a], 0, 0 });
                 while (Data_Transit.PortControl.Data_Interrupt != null) await Task.Delay(500);
             }
 
-            Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.DoutControl, 0x10, 0, Data_Transit.Registers["current"][3], 0, 04, 8, 0, 1, 0, 1, 0, 1, 0, 1 });
+            //Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.DoutControl, 0x10, 0, Data_Transit.Registers["current"][3], 0, 04, 8, 0, 1, 0, 1, 0, 1, 0, 1 });
             while (Data_Transit.PortControl.Data_Interrupt != null) await Task.Delay(500);
             Data_Transit.EW.Close_Excell();
 

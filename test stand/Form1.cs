@@ -54,41 +54,72 @@ namespace test_stand
                 if (e.KeyCode == Keys.D4) { StartTest.PerformClick(); }
                 if (e.KeyCode == Keys.Space) { StartTest_Click(null, null); }
                 if (e.KeyCode == Keys.S) { Open_Child_Form(new Settings()); Open_Window = "form4"; }
-                if (e.KeyCode == Keys.D) { Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.DoutControl, 0x10, 0, 0x51, 00, 02, 04, 0, 0, 0, 0 }); }
+                if (e.KeyCode == Keys.D) { Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x10, 0, 0x51, 00, 02, 04, 0, 0, 0, 0 }); }
             };
 
             this.StartPosition = FormStartPosition.CenterScreen;
+
+            byte Din_Start = 0x5f;
+            byte start = 6;
+            foreach (Button a in PnlKF.Controls)
+            {
+                Data_Transit.Controls.Add(a.Name.ToLower(), new All_Controls(a, Data_Transit.Dout_Control, Din_Start--, start--));
+            }
+            Din_Start = 0x57;
+            start = 14;
+            foreach (Button a in Pnl_TC.Controls)
+            {
+                Data_Transit.Controls.Add(a.Name.ToLower(), new All_Controls(a, Data_Transit.Dout_Control, Din_Start--, start--));
+            }
+            Din_Start = 0x58;
+            start = 15;
+            foreach (Button a in PnlDin8.Controls)
+            {
+                Data_Transit.Controls.Add(a.Name.ToLower(), new All_Controls(a, Data_Transit.Dout_Din16, Din_Start--, start--));
+            }
+            Din_Start = 0x5c;
+            start = 3;
+            foreach (Button a in PnlDin12.Controls)
+            {
+                Data_Transit.Controls.Add(a.Name.ToLower(), new All_Controls(a, Data_Transit.Dout_Din16, Din_Start--, start--));
+            }
+            Din_Start = 0x60;
+            start = 7;
+            foreach (Button a in PnlDin16.Controls)
+            {
+                Data_Transit.Controls.Add(a.Name.ToLower(), new All_Controls(a, Data_Transit.Dout_Din16, Din_Start--, start--));
+            }
 
             Data_Transit.PortControl.Receive_Event += PortControl_DataReceived;
             Data_Transit.PortChanelA.Receive_Event += PortChanelA_DataReceived;
 
             form6.Owner = this;
 
-            //din//
-            byte Din_Start = 0x51;
-            byte[] temporal = new byte[16];
-            for (Int16 x = 0; x < 16; x++) temporal[x] = Din_Start++;
-            Data_Transit.Registers.Add("din", temporal);
-            //kf//
-            Din_Start = 0x5d;
-            temporal = new byte[3];
-            for (Int16 x = 0; x < 3; x++) temporal[x] = Din_Start++;
-            Data_Transit.Registers.Add("kf", temporal);
-            //tc//
-            Din_Start = 0x55;
-            temporal = new byte[3];
-            for (Int16 x = 0; x < 3; x++) temporal[x] = Din_Start++;
-            Data_Transit.Registers.Add("tc", temporal);
-            //tu//
-            Din_Start = 0x61;
-            temporal = new byte[3];
-            for (Int16 x = 0; x < 3; x++) temporal[x] = Din_Start++;
-            Data_Transit.Registers.Add("tu", temporal);
-            //current//
-            Din_Start = 0x5c;
-            temporal = new byte[4];
-            for (Int16 x = 0; x < 4; x++) temporal[x] = Din_Start--;
-            Data_Transit.Registers.Add("current", temporal);
+            ////din//
+            //Din_Start = 0x51;
+            //byte[] temporal = new byte[16];
+            //for (Int16 x = 0; x < 16; x++) temporal[x] = Din_Start++;
+            //Data_Transit.Registers.Add("din", temporal);
+            ////kf//
+            //Din_Start = 0x5d;
+            //temporal = new byte[3];
+            //for (Int16 x = 0; x < 3; x++) temporal[x] = Din_Start++;
+            //Data_Transit.Registers.Add("kf", temporal);
+            ////tc//
+            //Din_Start = 0x55;
+            //temporal = new byte[3];
+            //for (Int16 x = 0; x < 3; x++) temporal[x] = Din_Start++;
+            //Data_Transit.Registers.Add("tc", temporal);
+            ////tu//
+            //Din_Start = 0x61;
+            //temporal = new byte[3];
+            //for (Int16 x = 0; x < 3; x++) temporal[x] = Din_Start++;
+            //Data_Transit.Registers.Add("tu", temporal);
+            ////current//
+            //Din_Start = 0x5c;
+            //temporal = new byte[4];
+            //for (Int16 x = 0; x < 4; x++) temporal[x] = Din_Start--;
+            //Data_Transit.Registers.Add("current", temporal);
             
 
 
@@ -172,7 +203,7 @@ namespace test_stand
                     catch (Exception) {}
                     if (Data_Transit.Current_Check && Data_Transit.Results["current"][0] > (Data_Transit.Current_Norm + .015)) 
                     {
-                        Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.DoutControl, 0x10, 0, Data_Transit.Registers["current"][3], 0, 04, 8, 0, 0, 0, 0, 0, 0, 0, 0 });
+                        Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x10, 0, 0x59, 00, 04, 08, 0, 0, 0, 0, 0, 0, 0, 0 });
                         MessageBox.Show("Превышен ток потребления блока", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }));                
@@ -191,58 +222,24 @@ namespace test_stand
                 }));
             } // 12v
 
-            if (Data_Transit.PortControl.Data_Receive[0] == Data_Transit.DoutControl && Data_Transit.PortControl.Data_Receive[1] == 0x02)
+            if (Data_Transit.PortControl.Data_Receive[1] == 0x02)
             {
                 BeginInvoke((MethodInvoker)(() =>
                 {
-                    if ((Data_Transit.PortControl.Data_Receive[4] & 1 << 3) != 0)  BtnCurent1.BackColor = Color.Red;
-                    else BtnCurent1.BackColor = Color.FromArgb(106, 27, 154);
-                    int a = 7;
-                    foreach (Button Btn in Pnl_TC.Controls)
+                    if (Data_Transit.Dout_Control.Addres == Data_Transit.PortControl.Data_Receive[0] &&
+                    (Data_Transit.PortControl.Data_Receive[4] & 15) != 0) BtnCurent1.BackColor = Color.Red;
+                    else if(Data_Transit.Dout_Control.Addres == Data_Transit.PortControl.Data_Receive[0] &&
+                    (Data_Transit.PortControl.Data_Receive[4] & 15) == 0) BtnCurent1.BackColor = Color.FromArgb(106, 27, 154); 
+                    foreach (string a in Data_Transit.Controls.Keys)
                     {
-                        if ((Data_Transit.PortControl.Data_Receive[3] & 1 << a - 1) != 0)  Btn.BackColor = Color.Red;
-                        else Btn.BackColor = Color.LightGray;
-                        a--;
-                    } // tc
-                    a = 7;
-                    foreach (Button Btn in PnlKF.Controls)
-                    {
-                        if ((Data_Transit.PortControl.Data_Receive[4] & 1 << a - 1) != 0) Btn.BackColor = Color.Red;
-                        else Btn.BackColor = Color.LightGray;
-                        a--;
-                    } //kf
-                }));
-            } // dout control
-
-            if (Data_Transit.PortControl.Data_Receive[0] == Data_Transit.Dout_Din16 && Data_Transit.PortControl.Data_Receive[1] == 0x02)
-            {
-                BeginInvoke((MethodInvoker)(() =>
-                {
-                    int a = 8;
-                    foreach (Button Btn in PnlDIN8.Controls)
-                    {
-                        if ((Data_Transit.PortControl.Data_Receive[3] & 1 << a - 1) != 0) Btn.BackColor = Color.Red;
-                        else Btn.BackColor = Color.LightGray;
-                        a--;
-                    }
-                    
-                    a = 12;
-                    foreach (Button Btn in PnlDin12.Controls)
-                    {
-                        if ((Data_Transit.PortControl.Data_Receive[4] & 1 << a - 9) != 0) Btn.BackColor = Color.Red;
-                        else Btn.BackColor = Color.LightGray;
-                        a--;
-                    }
-
-                    a = 16;
-                    foreach (Button Btn in PnlDin16.Controls)
-                    {
-                        if ((Data_Transit.PortControl.Data_Receive[4] & 1 << a - 9) != 0) Btn.BackColor = Color.Red;
-                        else Btn.BackColor = Color.LightGray;
-                        a--;
+                        if(Data_Transit.Controls[a].Dout.Addres == Data_Transit.PortControl.Data_Receive[0])
+                        {
+                            Data_Transit.Controls[a].Checkout((short)((short)(Data_Transit.PortControl.Data_Receive[3] << 8) |
+                             (short)Data_Transit.PortControl.Data_Receive[4]));
+                        }
                     }
                 }));
-            } // dout din16
+            }
         }
 
         public void PortChanelA_DataReceived()
@@ -284,7 +281,7 @@ namespace test_stand
             BeginInvoke((MethodInvoker)(() =>
             {
                 int a = 8;
-                foreach(Button Btn in PnlDIN8.Controls)
+                foreach(Button Btn in PnlDin8.Controls)
                 {
                     Btn.Text = $"Din{a.ToString()}: {Data_Transit.Results["din"][a-1]:0.0}";
                     a--;
@@ -378,26 +375,26 @@ namespace test_stand
                 }
             }
 
-            if (Data_Transit.Registers_Module["din"][5] > 0 || Data_Transit.Name == "Nomodule") PnlDin.Visible = true;
-            else PnlDin.Visible = false;
-            if (Data_Transit.Registers_Module["din"][5] > 24 || Data_Transit.Name == "Nomodule") PnlDin12.Visible = true;
-            else PnlDin12.Visible = false;
-            if (Data_Transit.Registers_Module["din"][5] > 32 || Data_Transit.Name == "Nomodule") PnlDin16.Visible = true;
-            else PnlDin16.Visible = false;
-            if (Data_Transit.Registers_Module["din32"][5] > 0 || Data_Transit.Name == "Nomodule") PnlDin32.Visible = true;
-            else PnlDin32.Visible = false;
-            if (Data_Transit.Registers_Module["kf"][5] > 0 || Data_Transit.Name == "Nomodule") PnlKF.Visible = true;
-            else PnlKF.Visible = false;
-            if (Data_Transit.Registers_Module["tc"][5] > 0 || Data_Transit.Name == "Nomodule") Pnl_TC.Visible = true;
-            else Pnl_TC.Visible = false;
-            if (Data_Transit.Registers_Module["temperature"][5] > 0 || Data_Transit.Name == "Nomodule") Pnl_Temperature.Visible = true;
-            else Pnl_Temperature.Visible = false;
-            if (Data_Transit.Registers_Module["tu"][5] > 0 || Data_Transit.Name == "Nomodule") PnlTU.Visible = true;
-            else PnlTU.Visible = false;
-            if (Data_Transit.Registers_Module["tu"][5] >= 3 || Data_Transit.Name == "Nomodule") PnlTURF.Visible = true;
-            else PnlTURF.Visible = false;
-            if (Data_Transit.Registers_Module["power"][5] >= 3 || Data_Transit.Name == "Nomodule") PnlPowerMTU5.Visible = true;
-            else PnlPowerMTU5.Visible = false;
+            //if (Data_Transit.Registers_Module["din"][5] > 0 || Data_Transit.Name == "Nomodule") PnlDin.Visible = true;
+            //else PnlDin.Visible = false;
+            //if (Data_Transit.Registers_Module["din"][5] > 24 || Data_Transit.Name == "Nomodule") PnlDin12.Visible = true;
+            //else PnlDin12.Visible = false;
+            //if (Data_Transit.Registers_Module["din"][5] > 32 || Data_Transit.Name == "Nomodule") PnlDin16.Visible = true;
+            //else PnlDin16.Visible = false;
+            //if (Data_Transit.Registers_Module["din32"][5] > 0 || Data_Transit.Name == "Nomodule") PnlDin32.Visible = true;
+            //else PnlDin32.Visible = false;
+            //if (Data_Transit.Registers_Module["kf"][5] > 0 || Data_Transit.Name == "Nomodule") PnlKF.Visible = true;
+            //else PnlKF.Visible = false;
+            //if (Data_Transit.Registers_Module["tc"][5] > 0 || Data_Transit.Name == "Nomodule") Pnl_TC.Visible = true;
+            //else Pnl_TC.Visible = false;
+            //if (Data_Transit.Registers_Module["temperature"][5] > 0 || Data_Transit.Name == "Nomodule") Pnl_Temperature.Visible = true;
+            //else Pnl_Temperature.Visible = false;
+            //if (Data_Transit.Registers_Module["tu"][5] > 0 || Data_Transit.Name == "Nomodule") PnlTU.Visible = true;
+            //else PnlTU.Visible = false;
+            //if (Data_Transit.Registers_Module["tu"][5] >= 3 || Data_Transit.Name == "Nomodule") PnlTURF.Visible = true;
+            //else PnlTURF.Visible = false;
+            //if (Data_Transit.Registers_Module["power"][5] >= 3 || Data_Transit.Name == "Nomodule") PnlPowerMTU5.Visible = true;
+            //else PnlPowerMTU5.Visible = false;
             foreach (string rec in Data_Transit.Registers_Module.Keys) Data_Transit.Registers_Module[rec][0] = Data_Transit.Module;
 
             if (Open_Window == "form3") Open_Child_Form(new Modul_Settings());
@@ -549,22 +546,14 @@ namespace test_stand
 
         private void Controls_Click(object sender, EventArgs e)
         {
-            Button send = (Button)sender;
-            byte Set = 1;
-            string name = send.Name;
-            name = name.Replace("Di",string.Empty);
-            name = name.Replace("KF", string.Empty);
-            name = name.Replace("TC", string.Empty);
-            name = name.Replace("TU", string.Empty);
-            name = name.Replace("BtnCurent", string.Empty);
+            Data_Transit.Controls[((Button)sender).Name.ToLower()].Data_Transmit();
+        }
 
-            if (send.BackColor == Color.Red) Set = 0;
-            int count = Convert.ToInt32(name) - 1;
-            if (send.Name.Contains("Di")) Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Din16, 0x06, 0,Data_Transit.Registers["din"][count],0,Set});            
-            else if (send.Name.Contains("KF")) Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.DoutControl, 0x06, 0, Data_Transit.Registers["kf"][count], 0, Set });
-            else if (send.Name.Contains("TC")) Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.DoutControl, 0x06, 0, Data_Transit.Registers["tc"][count], 0, Set });
-            else if (send.Name.Contains("TU")) Data_Transit.PortChanelA.Interrupt(new byte[] { Data_Transit.Module, 0x06, 0, Data_Transit.Registers["tu"][count], 0, Set });
-            else if (send.Name.Contains("BtnCurent1")) Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.DoutControl, 0x10, 0, Data_Transit.Registers["current"][3], 0, 04, 8, 0, Set, 0, Set, 0, Set, 0, Set });
+        public void Power_Control(object sender, EventArgs e)
+        {
+            byte set = 1;
+            if (((Button)sender).BackColor == Color.Red) set = 0;
+            Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x10, 0, 0x59, 00, 04, 08, 0, set, 0, set, 0, set, 0, set });
         }
 
         private async void Tests_Click(object sender, EventArgs e)
@@ -573,31 +562,31 @@ namespace test_stand
             string parameters = "";
             byte addres = 0;
 
-            switch (((Button)sender).Name)
-            {
-                case "BtnTests1":
-                    condition = "Проверка КФ";
-                    parameters = "kf";
-                    addres = Data_Transit.DoutControl;
-                    break;
-                case "BtnTests2":
-                    condition = "Проверка ТС";
-                    addres = Data_Transit.DoutControl;
-                    parameters = "tc";
-                    break;
-                case "BtnTests3":
-                    condition = "Проверка Din8";
-                    addres = Data_Transit.Dout_Din16;
-                    parameters = "din";
-                    break;
-            }
-            if (Data_Transit.Registers_Module[parameters][5] == 0) { return; }
-            Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.DoutControl, 0x10, 0, 0x51, 00, 02, 04, 0, 01, 0, 1 }); // подача 220
-            if (await All_Tests.KF_TC_Test(parameters,condition,addres) == 0)
-                MessageBox.Show("Успешно", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                MessageBox.Show("Возникли ошибки", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.DoutControl, 0x10, 0, 0x51, 00, 02, 04, 0, 0, 0, 0 }); 
+            //switch (((Button)sender).Name)
+            //{
+            //    case "BtnTests1":
+            //        condition = "Проверка КФ";
+            //        parameters = "kf";
+            //        addres = Data_Transit.DoutControl;
+            //        break;
+            //    case "BtnTests2":
+            //        condition = "Проверка ТС";
+            //        addres = Data_Transit.DoutControl;
+            //        parameters = "tc";
+            //        break;
+            //    case "BtnTests3":
+            //        condition = "Проверка Din8";
+            //        addres = Data_Transit.Dout_Din16;
+            //        parameters = "din";
+            //        break;
+            //}
+            //if (Data_Transit.Registers_Module[parameters][5] == 0) { return; }
+            //Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.DoutControl, 0x10, 0, 0x51, 00, 02, 04, 0, 01, 0, 1 }); // подача 220
+            //if (await All_Tests.KF_TC_Test(parameters,condition,addres) == 0)
+            //    MessageBox.Show("Успешно", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //else
+            //    MessageBox.Show("Возникли ошибки", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.DoutControl, 0x10, 0, 0x51, 00, 02, 04, 0, 0, 0, 0 }); 
         }
 
         private async void BtnTests4_Click(object sender, EventArgs e)
@@ -653,7 +642,8 @@ namespace test_stand
 
         private async void MyTest()
         {
-            //label3.Text = Data_Transit.Current_Check.ToString();
+            Data_Transit.Controls["kf1"].butt.Text = Convert.ToString(Data_Transit.Controls["kf1"].Dout.Addres);
+            Data_Transit.Controls["kf2"].butt.Text = Convert.ToString(Data_Transit.Dout_Control.Addres);
         }
     }
 }

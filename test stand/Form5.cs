@@ -30,7 +30,7 @@ namespace test_stand
             Test_Condition.Text = "Старт теста...";
 
             this.WindowState = FormWindowState.Minimized;
-            Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.DoutControl, 0x10, 0, 0x51, 00, 02, 04, 0, 01, 0, 1 }); // подача 220
+            //Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.DoutControl, 0x10, 0, 0x51, 00, 02, 04, 0, 01, 0, 1 }); // подача 220
 
             Data_Transit.EW.Open_Excell(Data_Transit.Addres);
             Data_Transit.EW.Line_Number();
@@ -40,16 +40,16 @@ namespace test_stand
             int norm = 0;
 
             norm += await All_Tests.Power_Test();
-            norm += await All_Tests.KF_TC_Test("din", "Проверка Din8", Data_Transit.Dout_Din16);
-            norm += await All_Tests.KF_TC_Test("kf", "Проверка КФ", Data_Transit.DoutControl);
-            norm += await All_Tests.KF_TC_Test("tc", "Проверка ТС", Data_Transit.DoutControl);
+            //norm += await All_Tests.KF_TC_Test("din", "Проверка Din8", Data_Transit.Dout_Din16);
+            //norm += await All_Tests.KF_TC_Test("kf", "Проверка КФ", Data_Transit.DoutControl);
+            //norm += await All_Tests.KF_TC_Test("tc", "Проверка ТС", Data_Transit.DoutControl);
             norm += await All_Tests.Temperature_Test();
             norm += await All_Tests.TU_Test();
             norm += await All_Tests.TC12V_Test(12);
             norm += await All_Tests.EnTU_Test();
             norm += await All_Tests.MTU5_Power_Test();
 
-            Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.DoutControl, 0x10, 0, 0x51, 00, 02, 04, 0, 00, 0, 0 }); // отключение 220
+            //Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.DoutControl, 0x10, 0, 0x51, 00, 02, 04, 0, 00, 0, 0 }); // отключение 220
 
             Data_Transit.EW.Open_Excell(Data_Transit.Addres);
             if (norm > 0)
