@@ -17,17 +17,17 @@ namespace test_stand
         public Settings()
         {
             InitializeComponent();
-            Dout1.Text = Data_Transit.Dout_Din16.ToString();
-            //Dout2.Text = Data_Transit.DoutControl.ToString();
-            TBMTU5.Text = Data_Transit.v12.ToString();
-            TBPSC.Text = Data_Transit.Current_PSC.ToString();
+            Dout1.Text = Data_Transit.Dout_Din16.Addres.ToString();
+            Dout2.Text = Data_Transit.Dout_Control.Addres.ToString();
+            TBMTU5.Text = Data_Transit.v12.Addres.ToString();
+            TBPSC.Text = Data_Transit.Current_PSC.Addres.ToString();
 
             On.Click += new System.EventHandler(this.Power_On);
             Off.Click += new System.EventHandler(this.Power_Off);
             Dout1.KeyDown += (s, e) => { if (e.KeyCode == Keys.Enter) { Data_Transit.Dout_Din16.Addres = Convert.ToByte(Dout1.Text); } };
             Dout2.KeyDown += (s, e) => { if (e.KeyCode == Keys.Enter) { Data_Transit.Dout_Control.Addres = Convert.ToByte(Dout2.Text); } };
-            TBPSC.KeyDown += (s, e) => { if (e.KeyCode == Keys.Enter) { Data_Transit.Current_PSC = Convert.ToByte(TBPSC.Text); } };
-            TBMTU5.KeyDown += (s, e) => { if (e.KeyCode == Keys.Enter) { Data_Transit.v12 = Convert.ToByte(TBMTU5.Text); } };
+            TBPSC.KeyDown += (s, e) => { if (e.KeyCode == Keys.Enter) { Data_Transit.Current_PSC.Addres = Convert.ToByte(TBPSC.Text); } };
+            TBMTU5.KeyDown += (s, e) => { if (e.KeyCode == Keys.Enter) { Data_Transit.v12.Addres = Convert.ToByte(TBMTU5.Text); } };
             CBCurrent_Check.TextChanged += (s, e) =>
             {
                 if (CBCurrent_Check.Text == "Выключена") Data_Transit.Current_Check = false;

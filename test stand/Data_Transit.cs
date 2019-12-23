@@ -26,13 +26,8 @@ namespace test_stand
             { "kf",new int[3]},
             { "tc",new int[3]}
         };
-        public static Dictionary<string, byte[]> Registers_Controls = new Dictionary<string, byte[]>
-        {
-            {"Current_PSC", new byte[]{ 0x11, 0x04, 0x01, 0x0A, 0x00, 0x04 } },
-            {"DoutControl", new byte[]{ 0x13, 0x02, 0x00, 0x01, 0x00, 0x10 } },
-            {"Dout_Din16", new byte[]{ 0x14, 0x02, 0x00, 0x01, 0x00, 0x10 } },
-            {"12V", new byte[]{ 0x10, 0x04, 0x01, 0x08, 0x00, 0x04 } }
-        };
+        public static List<Send> Registers_Controls = new List<Send>();
+        
         public static Dictionary<string, float[]> Results = new Dictionary<string, float[]>
         {
             {"current", new float[2] },
@@ -63,10 +58,10 @@ namespace test_stand
         
         public static Addres_Controls Dout_Din16 = new Addres_Controls(0x14);
         public static Addres_Controls Dout_Control = new Addres_Controls(0x13);
-        public static byte Dout_Din32 = 0x15;
-        public static byte Current_PSC = 0x11;
+        public static Addres_Controls Dout_Din32 = new Addres_Controls(0x15);
+        public static Addres_Controls Current_PSC = new Addres_Controls(0x11);
+        public static Addres_Controls v12 = new Addres_Controls(0x10);
         public static byte Module = 1;
-        public static byte v12 = 0x10;
                 
         public static ModBus_Libra PortControl = new ModBus_Libra(new SerialPort(), Properties.Settings.Default.Port1);
         public static ModBus_Libra PortChanelA = new ModBus_Libra(new SerialPort(), Properties.Settings.Default.Port2);
@@ -85,6 +80,28 @@ namespace test_stand
             {
                 get { return add; }
                 set { add = value; }
+            }
+        }
+
+        public class Send
+        {
+            Addres_Controls AC;
+            byte Command;
+            short Start;
+            short Registers;
+
+            public Send(Addres_Controls ac, byte com, short st, short reg)
+            {
+                AC = ac;
+                Command = com;
+                Start = st;
+                Registers = reg;
+
+            }
+
+            public void Data_Send()
+            {
+                Data_Transit.PortControl.Transmit(new byte[] { AC.Addres, Command, (byte)(Start >> 8), (byte)Start, (byte)(Registers >> 8), (byte)Registers });
             }
         }
     }

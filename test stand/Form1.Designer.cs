@@ -68,11 +68,9 @@
             this.PBMinimizeWindow = new System.Windows.Forms.PictureBox();
             this.PBMaximizeWindow = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.BtnCurent2 = new System.Windows.Forms.Button();
             this.BtnCurent1 = new System.Windows.Forms.Button();
-            this.LblTU = new System.Windows.Forms.Label();
             this.PnlChildForm = new System.Windows.Forms.Panel();
             this.PnlMain = new System.Windows.Forms.Panel();
             this.PnlTC = new System.Windows.Forms.Panel();
@@ -119,6 +117,9 @@
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.Btn12V2 = new System.Windows.Forms.Button();
+            this.Btn12V1 = new System.Windows.Forms.Button();
             this.PnlSideMenu.SuspendLayout();
             this.PnlTests.SuspendLayout();
             this.PnlParameters.SuspendLayout();
@@ -145,6 +146,7 @@
             this.PnlDin16.SuspendLayout();
             this.PnlDin8.SuspendLayout();
             this.PnlDin12.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnPower1
@@ -759,26 +761,14 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(27)))), ((int)(((byte)(154)))));
-            this.panel8.Controls.Add(this.label1);
+            this.panel8.Controls.Add(this.panel3);
             this.panel8.Controls.Add(this.panel6);
-            this.panel8.Controls.Add(this.LblTU);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(27)))), ((int)(((byte)(154)))));
             this.panel8.Location = new System.Drawing.Point(250, 746);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(1048, 122);
             this.panel8.TabIndex = 75;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.LightGray;
-            this.label1.Location = new System.Drawing.Point(507, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "TC 12V:";
             // 
             // panel6
             // 
@@ -825,17 +815,6 @@
             this.BtnCurent1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnCurent1.UseVisualStyleBackColor = false;
             this.BtnCurent1.Click += new System.EventHandler(this.Power_Control);
-            // 
-            // LblTU
-            // 
-            this.LblTU.AutoSize = true;
-            this.LblTU.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LblTU.ForeColor = System.Drawing.Color.LightGray;
-            this.LblTU.Location = new System.Drawing.Point(507, 69);
-            this.LblTU.Name = "LblTU";
-            this.LblTU.Size = new System.Drawing.Size(94, 17);
-            this.LblTU.TabIndex = 2;
-            this.LblTU.Text = "TU Voltage:";
             // 
             // PnlChildForm
             // 
@@ -1507,6 +1486,51 @@
             this.button16.UseVisualStyleBackColor = false;
             this.button16.Click += new System.EventHandler(this.Controls_Click);
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.Btn12V2);
+            this.panel3.Controls.Add(this.Btn12V1);
+            this.panel3.Location = new System.Drawing.Point(575, 10);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(336, 100);
+            this.panel3.TabIndex = 3;
+            // 
+            // Btn12V2
+            // 
+            this.Btn12V2.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.Btn12V2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(27)))), ((int)(((byte)(154)))));
+            this.Btn12V2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn12V2.FlatAppearance.BorderSize = 0;
+            this.Btn12V2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn12V2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Btn12V2.ForeColor = System.Drawing.Color.LightGray;
+            this.Btn12V2.Location = new System.Drawing.Point(0, 45);
+            this.Btn12V2.Name = "Btn12V2";
+            this.Btn12V2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.Btn12V2.Size = new System.Drawing.Size(336, 45);
+            this.Btn12V2.TabIndex = 1;
+            this.Btn12V2.Text = "TU Voltage:";
+            this.Btn12V2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn12V2.UseVisualStyleBackColor = false;
+            // 
+            // Btn12V1
+            // 
+            this.Btn12V1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.Btn12V1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(27)))), ((int)(((byte)(154)))));
+            this.Btn12V1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn12V1.FlatAppearance.BorderSize = 0;
+            this.Btn12V1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn12V1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Btn12V1.ForeColor = System.Drawing.Color.LightGray;
+            this.Btn12V1.Location = new System.Drawing.Point(0, 0);
+            this.Btn12V1.Name = "Btn12V1";
+            this.Btn12V1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.Btn12V1.Size = new System.Drawing.Size(336, 45);
+            this.Btn12V1.TabIndex = 0;
+            this.Btn12V1.Text = "TC 12V:";
+            this.Btn12V1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn12V1.UseVisualStyleBackColor = false;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1532,7 +1556,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.PBMinimizeWindow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBMaximizeWindow)).EndInit();
             this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.PnlChildForm.ResumeLayout(false);
             this.PnlMain.ResumeLayout(false);
@@ -1551,6 +1574,7 @@
             this.PnlDin16.ResumeLayout(false);
             this.PnlDin8.ResumeLayout(false);
             this.PnlDin12.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1582,11 +1606,9 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button BtnCurent2;
         private System.Windows.Forms.Button BtnCurent1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnAllComPort;
         private System.Windows.Forms.Panel PnlDin;
         private System.Windows.Forms.Panel PnlTC;
-        private System.Windows.Forms.Label LblTU;
         private System.Windows.Forms.Panel PnlTURF;
         private System.Windows.Forms.Button TU3;
         private System.Windows.Forms.Panel PnlTU;
@@ -1646,6 +1668,9 @@
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button Btn12V2;
+        private System.Windows.Forms.Button Btn12V1;
     }
 }
 

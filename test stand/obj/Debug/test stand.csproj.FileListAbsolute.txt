@@ -1,18 +1,19 @@
-C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test_stand.Properties.Resources.resources
-C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test stand.csproj.GenerateResource.cache
-C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test stand.csproj.CoreCompileInputs.cache
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test stand.csproj.ResolveComReference.cache
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test_stand.FormMain.resources
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test_stand.Form2.resources
+C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test_stand.Modul_Settings.resources
+C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test_stand.Settings.resources
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test_stand.Form5.resources
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test_stand.Form6.resources
+C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test_stand.Properties.Resources.resources
+C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test stand.csproj.GenerateResource.cache
+C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test stand.csproj.CoreCompileInputs.cache
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\bin\Debug\The Witcher 3.exe.config
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\bin\Debug\The Witcher 3.exe
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\bin\Debug\The Witcher 3.pdb
-C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\The Witcher 3.exe
-C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\The Witcher 3.pdb
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\bin\Debug\ModBus_Library.dll
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\bin\Debug\ModBus_Library.pdb
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test stand.csproj.CopyComplete
-C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test_stand.Modul_Settings.resources
-C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test_stand.Settings.resources
+C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\The Witcher 3.exe
+C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\The Witcher 3.pdb
+C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test stand.csprojAssemblyReference.cache
