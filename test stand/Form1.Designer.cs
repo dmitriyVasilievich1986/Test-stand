@@ -68,6 +68,9 @@
             this.PBMinimizeWindow = new System.Windows.Forms.PictureBox();
             this.PBMaximizeWindow = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.Btn12V2 = new System.Windows.Forms.Button();
+            this.Btn12V1 = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.BtnCurent2 = new System.Windows.Forms.Button();
             this.BtnCurent1 = new System.Windows.Forms.Button();
@@ -84,8 +87,6 @@
             this.PnlTU = new System.Windows.Forms.Panel();
             this.TU2 = new System.Windows.Forms.Button();
             this.TU1 = new System.Windows.Forms.Button();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.Pnl_TC = new System.Windows.Forms.Panel();
             this.TC3 = new System.Windows.Forms.Button();
             this.TC2 = new System.Windows.Forms.Button();
@@ -95,31 +96,26 @@
             this.KF2 = new System.Windows.Forms.Button();
             this.KF1 = new System.Windows.Forms.Button();
             this.PnlDin = new System.Windows.Forms.Panel();
+            this.button16 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.PnlDin16 = new System.Windows.Forms.Panel();
-            this.PnlDin8 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.PnlDin12 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.Btn12V2 = new System.Windows.Forms.Button();
-            this.Btn12V1 = new System.Windows.Forms.Button();
+            this.BtnEnTU = new System.Windows.Forms.Button();
             this.PnlSideMenu.SuspendLayout();
             this.PnlTests.SuspendLayout();
             this.PnlParameters.SuspendLayout();
@@ -130,6 +126,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PBMinimizeWindow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBMaximizeWindow)).BeginInit();
             this.panel8.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
             this.PnlChildForm.SuspendLayout();
             this.PnlMain.SuspendLayout();
@@ -138,15 +135,10 @@
             this.PnlPowerMTU5.SuspendLayout();
             this.PnlTURF.SuspendLayout();
             this.PnlTU.SuspendLayout();
-            this.panel12.SuspendLayout();
             this.Pnl_TC.SuspendLayout();
             this.PnlKF.SuspendLayout();
             this.PnlDin.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.PnlDin16.SuspendLayout();
-            this.PnlDin8.SuspendLayout();
-            this.PnlDin12.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnPower1
@@ -770,6 +762,51 @@
             this.panel8.Size = new System.Drawing.Size(1048, 122);
             this.panel8.TabIndex = 75;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.Btn12V2);
+            this.panel3.Controls.Add(this.Btn12V1);
+            this.panel3.Location = new System.Drawing.Point(575, 10);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(336, 100);
+            this.panel3.TabIndex = 3;
+            // 
+            // Btn12V2
+            // 
+            this.Btn12V2.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.Btn12V2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(27)))), ((int)(((byte)(154)))));
+            this.Btn12V2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn12V2.FlatAppearance.BorderSize = 0;
+            this.Btn12V2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn12V2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Btn12V2.ForeColor = System.Drawing.Color.LightGray;
+            this.Btn12V2.Location = new System.Drawing.Point(0, 45);
+            this.Btn12V2.Name = "Btn12V2";
+            this.Btn12V2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.Btn12V2.Size = new System.Drawing.Size(336, 45);
+            this.Btn12V2.TabIndex = 1;
+            this.Btn12V2.Text = "TU Voltage:";
+            this.Btn12V2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn12V2.UseVisualStyleBackColor = false;
+            // 
+            // Btn12V1
+            // 
+            this.Btn12V1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.Btn12V1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(27)))), ((int)(((byte)(154)))));
+            this.Btn12V1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn12V1.FlatAppearance.BorderSize = 0;
+            this.Btn12V1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn12V1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Btn12V1.ForeColor = System.Drawing.Color.LightGray;
+            this.Btn12V1.Location = new System.Drawing.Point(0, 0);
+            this.Btn12V1.Name = "Btn12V1";
+            this.Btn12V1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.Btn12V1.Size = new System.Drawing.Size(336, 45);
+            this.Btn12V1.TabIndex = 0;
+            this.Btn12V1.Text = "TC 12V:";
+            this.Btn12V1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn12V1.UseVisualStyleBackColor = false;
+            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.BtnCurent2);
@@ -814,7 +851,7 @@
             this.BtnCurent1.Text = "Curent Chanel A:";
             this.BtnCurent1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnCurent1.UseVisualStyleBackColor = false;
-            this.BtnCurent1.Click += new System.EventHandler(this.Power_Control);
+            this.BtnCurent1.Click += new System.EventHandler(this.Controls_Click);
             // 
             // PnlChildForm
             // 
@@ -950,7 +987,7 @@
             // 
             this.PnlTU.Controls.Add(this.TU2);
             this.PnlTU.Controls.Add(this.TU1);
-            this.PnlTU.Controls.Add(this.panel12);
+            this.PnlTU.Controls.Add(this.BtnEnTU);
             this.PnlTU.Dock = System.Windows.Forms.DockStyle.Top;
             this.PnlTU.Location = new System.Drawing.Point(40, 280);
             this.PnlTU.Name = "PnlTU";
@@ -990,26 +1027,6 @@
             this.TU1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.TU1.UseVisualStyleBackColor = false;
             this.TU1.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.Color.LightGray;
-            this.panel12.Controls.Add(this.label2);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(0, 0);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(460, 35);
-            this.panel12.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(39, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 17);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "EnTU";
             // 
             // Pnl_TC
             // 
@@ -1139,15 +1156,300 @@
             // 
             this.PnlDin.AutoScroll = true;
             this.PnlDin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(31)))), ((int)(((byte)(123)))));
-            this.PnlDin.Controls.Add(this.PnlDin16);
-            this.PnlDin.Controls.Add(this.PnlDin12);
-            this.PnlDin.Controls.Add(this.PnlDin8);
+            this.PnlDin.Controls.Add(this.button16);
+            this.PnlDin.Controls.Add(this.button15);
+            this.PnlDin.Controls.Add(this.button14);
+            this.PnlDin.Controls.Add(this.button13);
+            this.PnlDin.Controls.Add(this.button12);
+            this.PnlDin.Controls.Add(this.button11);
+            this.PnlDin.Controls.Add(this.button10);
+            this.PnlDin.Controls.Add(this.button9);
+            this.PnlDin.Controls.Add(this.button8);
+            this.PnlDin.Controls.Add(this.button7);
+            this.PnlDin.Controls.Add(this.button6);
+            this.PnlDin.Controls.Add(this.button5);
+            this.PnlDin.Controls.Add(this.button4);
+            this.PnlDin.Controls.Add(this.button3);
+            this.PnlDin.Controls.Add(this.button2);
+            this.PnlDin.Controls.Add(this.button1);
             this.PnlDin.Dock = System.Windows.Forms.DockStyle.Left;
             this.PnlDin.Location = new System.Drawing.Point(0, 35);
             this.PnlDin.Name = "PnlDin";
             this.PnlDin.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.PnlDin.Size = new System.Drawing.Size(493, 636);
             this.PnlDin.TabIndex = 0;
+            // 
+            // button16
+            // 
+            this.button16.BackColor = System.Drawing.Color.LightGray;
+            this.button16.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button16.FlatAppearance.BorderSize = 0;
+            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button16.Location = new System.Drawing.Point(40, 525);
+            this.button16.Name = "button16";
+            this.button16.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.button16.Size = new System.Drawing.Size(453, 35);
+            this.button16.TabIndex = 24;
+            this.button16.Text = "Din 01:";
+            this.button16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button16.UseVisualStyleBackColor = false;
+            this.button16.Click += new System.EventHandler(this.Controls_Click);
+            // 
+            // button15
+            // 
+            this.button15.BackColor = System.Drawing.Color.LightGray;
+            this.button15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button15.FlatAppearance.BorderSize = 0;
+            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button15.Location = new System.Drawing.Point(40, 490);
+            this.button15.Name = "button15";
+            this.button15.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.button15.Size = new System.Drawing.Size(453, 35);
+            this.button15.TabIndex = 23;
+            this.button15.Text = "Din 01:";
+            this.button15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button15.UseVisualStyleBackColor = false;
+            this.button15.Click += new System.EventHandler(this.Controls_Click);
+            // 
+            // button14
+            // 
+            this.button14.BackColor = System.Drawing.Color.LightGray;
+            this.button14.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button14.FlatAppearance.BorderSize = 0;
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button14.Location = new System.Drawing.Point(40, 455);
+            this.button14.Name = "button14";
+            this.button14.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.button14.Size = new System.Drawing.Size(453, 35);
+            this.button14.TabIndex = 22;
+            this.button14.Text = "Din 01:";
+            this.button14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.Controls_Click);
+            // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.Color.LightGray;
+            this.button13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button13.FlatAppearance.BorderSize = 0;
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button13.Location = new System.Drawing.Point(40, 420);
+            this.button13.Name = "button13";
+            this.button13.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.button13.Size = new System.Drawing.Size(453, 35);
+            this.button13.TabIndex = 21;
+            this.button13.Text = "Din 01:";
+            this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.Controls_Click);
+            // 
+            // button12
+            // 
+            this.button12.BackColor = System.Drawing.Color.LightGray;
+            this.button12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button12.FlatAppearance.BorderSize = 0;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button12.Location = new System.Drawing.Point(40, 385);
+            this.button12.Name = "button12";
+            this.button12.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.button12.Size = new System.Drawing.Size(453, 35);
+            this.button12.TabIndex = 20;
+            this.button12.Text = "Din 01:";
+            this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.Controls_Click);
+            // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.LightGray;
+            this.button11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button11.Location = new System.Drawing.Point(40, 350);
+            this.button11.Name = "button11";
+            this.button11.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.button11.Size = new System.Drawing.Size(453, 35);
+            this.button11.TabIndex = 19;
+            this.button11.Text = "Din 01:";
+            this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.Controls_Click);
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.LightGray;
+            this.button10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button10.Location = new System.Drawing.Point(40, 315);
+            this.button10.Name = "button10";
+            this.button10.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.button10.Size = new System.Drawing.Size(453, 35);
+            this.button10.TabIndex = 18;
+            this.button10.Text = "Din 01:";
+            this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.Controls_Click);
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.LightGray;
+            this.button9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button9.Location = new System.Drawing.Point(40, 280);
+            this.button9.Name = "button9";
+            this.button9.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.button9.Size = new System.Drawing.Size(453, 35);
+            this.button9.TabIndex = 17;
+            this.button9.Text = "Din 01:";
+            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.Controls_Click);
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.LightGray;
+            this.button8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button8.Location = new System.Drawing.Point(40, 245);
+            this.button8.Name = "button8";
+            this.button8.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.button8.Size = new System.Drawing.Size(453, 35);
+            this.button8.TabIndex = 16;
+            this.button8.Text = "Din 01:";
+            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.Controls_Click);
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.LightGray;
+            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button7.Location = new System.Drawing.Point(40, 210);
+            this.button7.Name = "button7";
+            this.button7.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.button7.Size = new System.Drawing.Size(453, 35);
+            this.button7.TabIndex = 15;
+            this.button7.Text = "Din 01:";
+            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.Controls_Click);
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.LightGray;
+            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button6.Location = new System.Drawing.Point(40, 175);
+            this.button6.Name = "button6";
+            this.button6.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.button6.Size = new System.Drawing.Size(453, 35);
+            this.button6.TabIndex = 14;
+            this.button6.Text = "Din 01:";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.Controls_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.LightGray;
+            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button5.Location = new System.Drawing.Point(40, 140);
+            this.button5.Name = "button5";
+            this.button5.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.button5.Size = new System.Drawing.Size(453, 35);
+            this.button5.TabIndex = 13;
+            this.button5.Text = "Din 01:";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.Controls_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.LightGray;
+            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button4.Location = new System.Drawing.Point(40, 105);
+            this.button4.Name = "button4";
+            this.button4.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.button4.Size = new System.Drawing.Size(453, 35);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "Din 01:";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.Controls_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.LightGray;
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button3.Location = new System.Drawing.Point(40, 70);
+            this.button3.Name = "button3";
+            this.button3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.button3.Size = new System.Drawing.Size(453, 35);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "Din 01:";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.Controls_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.LightGray;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button2.Location = new System.Drawing.Point(40, 35);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(453, 35);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Din 01:";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.Controls_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LightGray;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(40, 0);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(453, 35);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Din 01:";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Controls_Click);
             // 
             // panel1
             // 
@@ -1174,362 +1476,21 @@
             this.panel2.Size = new System.Drawing.Size(1048, 35);
             this.panel2.TabIndex = 3;
             // 
-            // PnlDin16
+            // BtnEnTU
             // 
-            this.PnlDin16.Controls.Add(this.button13);
-            this.PnlDin16.Controls.Add(this.button14);
-            this.PnlDin16.Controls.Add(this.button15);
-            this.PnlDin16.Controls.Add(this.button16);
-            this.PnlDin16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlDin16.Location = new System.Drawing.Point(40, 420);
-            this.PnlDin16.Name = "PnlDin16";
-            this.PnlDin16.Size = new System.Drawing.Size(453, 140);
-            this.PnlDin16.TabIndex = 1;
-            // 
-            // PnlDin8
-            // 
-            this.PnlDin8.Controls.Add(this.button1);
-            this.PnlDin8.Controls.Add(this.button2);
-            this.PnlDin8.Controls.Add(this.button3);
-            this.PnlDin8.Controls.Add(this.button4);
-            this.PnlDin8.Controls.Add(this.button5);
-            this.PnlDin8.Controls.Add(this.button6);
-            this.PnlDin8.Controls.Add(this.button7);
-            this.PnlDin8.Controls.Add(this.button8);
-            this.PnlDin8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlDin8.Location = new System.Drawing.Point(40, 0);
-            this.PnlDin8.Name = "PnlDin8";
-            this.PnlDin8.Size = new System.Drawing.Size(453, 280);
-            this.PnlDin8.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LightGray;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(0, 245);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(453, 35);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Din 08:";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.LightGray;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(0, 210);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(453, 35);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Din 07:";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.LightGray;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(0, 175);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(453, 35);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Din 06:";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // PnlDin12
-            // 
-            this.PnlDin12.Controls.Add(this.button9);
-            this.PnlDin12.Controls.Add(this.button10);
-            this.PnlDin12.Controls.Add(this.button11);
-            this.PnlDin12.Controls.Add(this.button12);
-            this.PnlDin12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlDin12.Location = new System.Drawing.Point(40, 280);
-            this.PnlDin12.Name = "PnlDin12";
-            this.PnlDin12.Size = new System.Drawing.Size(453, 140);
-            this.PnlDin12.TabIndex = 2;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.LightGray;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.Location = new System.Drawing.Point(0, 140);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button4.Size = new System.Drawing.Size(453, 35);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Din 05:";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.LightGray;
-            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button5.Location = new System.Drawing.Point(0, 105);
-            this.button5.Name = "button5";
-            this.button5.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button5.Size = new System.Drawing.Size(453, 35);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Din 04:";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.LightGray;
-            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button6.Location = new System.Drawing.Point(0, 70);
-            this.button6.Name = "button6";
-            this.button6.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button6.Size = new System.Drawing.Size(453, 35);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "Din 03:";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.LightGray;
-            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button7.Location = new System.Drawing.Point(0, 35);
-            this.button7.Name = "button7";
-            this.button7.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button7.Size = new System.Drawing.Size(453, 35);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "Din 02:";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.LightGray;
-            this.button8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button8.Location = new System.Drawing.Point(0, 0);
-            this.button8.Name = "button8";
-            this.button8.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button8.Size = new System.Drawing.Size(453, 35);
-            this.button8.TabIndex = 8;
-            this.button8.Text = "Din 01:";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.LightGray;
-            this.button9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button9.Location = new System.Drawing.Point(0, 105);
-            this.button9.Name = "button9";
-            this.button9.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button9.Size = new System.Drawing.Size(453, 35);
-            this.button9.TabIndex = 9;
-            this.button9.Text = "Din 12:";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button10
-            // 
-            this.button10.BackColor = System.Drawing.Color.LightGray;
-            this.button10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button10.Location = new System.Drawing.Point(0, 70);
-            this.button10.Name = "button10";
-            this.button10.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button10.Size = new System.Drawing.Size(453, 35);
-            this.button10.TabIndex = 10;
-            this.button10.Text = "Din 11:";
-            this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.UseVisualStyleBackColor = false;
-            this.button10.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button11
-            // 
-            this.button11.BackColor = System.Drawing.Color.LightGray;
-            this.button11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button11.Location = new System.Drawing.Point(0, 35);
-            this.button11.Name = "button11";
-            this.button11.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button11.Size = new System.Drawing.Size(453, 35);
-            this.button11.TabIndex = 11;
-            this.button11.Text = "Din 10:";
-            this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button11.UseVisualStyleBackColor = false;
-            this.button11.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button12
-            // 
-            this.button12.BackColor = System.Drawing.Color.LightGray;
-            this.button12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button12.Location = new System.Drawing.Point(0, 0);
-            this.button12.Name = "button12";
-            this.button12.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button12.Size = new System.Drawing.Size(453, 35);
-            this.button12.TabIndex = 12;
-            this.button12.Text = "Din 09:";
-            this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button12.UseVisualStyleBackColor = false;
-            this.button12.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button13
-            // 
-            this.button13.BackColor = System.Drawing.Color.LightGray;
-            this.button13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button13.FlatAppearance.BorderSize = 0;
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button13.Location = new System.Drawing.Point(0, 105);
-            this.button13.Name = "button13";
-            this.button13.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button13.Size = new System.Drawing.Size(453, 35);
-            this.button13.TabIndex = 13;
-            this.button13.Text = "Din 16:";
-            this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button13.UseVisualStyleBackColor = false;
-            this.button13.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button14
-            // 
-            this.button14.BackColor = System.Drawing.Color.LightGray;
-            this.button14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button14.FlatAppearance.BorderSize = 0;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button14.Location = new System.Drawing.Point(0, 70);
-            this.button14.Name = "button14";
-            this.button14.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button14.Size = new System.Drawing.Size(453, 35);
-            this.button14.TabIndex = 14;
-            this.button14.Text = "Din 15:";
-            this.button14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button14.UseVisualStyleBackColor = false;
-            this.button14.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button15
-            // 
-            this.button15.BackColor = System.Drawing.Color.LightGray;
-            this.button15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button15.FlatAppearance.BorderSize = 0;
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button15.Location = new System.Drawing.Point(0, 35);
-            this.button15.Name = "button15";
-            this.button15.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button15.Size = new System.Drawing.Size(453, 35);
-            this.button15.TabIndex = 15;
-            this.button15.Text = "Din 14:";
-            this.button15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button15.UseVisualStyleBackColor = false;
-            this.button15.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button16
-            // 
-            this.button16.BackColor = System.Drawing.Color.LightGray;
-            this.button16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button16.FlatAppearance.BorderSize = 0;
-            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button16.Location = new System.Drawing.Point(0, 0);
-            this.button16.Name = "button16";
-            this.button16.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button16.Size = new System.Drawing.Size(453, 35);
-            this.button16.TabIndex = 16;
-            this.button16.Text = "Din 13:";
-            this.button16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button16.UseVisualStyleBackColor = false;
-            this.button16.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.Btn12V2);
-            this.panel3.Controls.Add(this.Btn12V1);
-            this.panel3.Location = new System.Drawing.Point(575, 10);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(336, 100);
-            this.panel3.TabIndex = 3;
-            // 
-            // Btn12V2
-            // 
-            this.Btn12V2.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.Btn12V2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(27)))), ((int)(((byte)(154)))));
-            this.Btn12V2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn12V2.FlatAppearance.BorderSize = 0;
-            this.Btn12V2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn12V2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Btn12V2.ForeColor = System.Drawing.Color.LightGray;
-            this.Btn12V2.Location = new System.Drawing.Point(0, 45);
-            this.Btn12V2.Name = "Btn12V2";
-            this.Btn12V2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.Btn12V2.Size = new System.Drawing.Size(336, 45);
-            this.Btn12V2.TabIndex = 1;
-            this.Btn12V2.Text = "TU Voltage:";
-            this.Btn12V2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn12V2.UseVisualStyleBackColor = false;
-            // 
-            // Btn12V1
-            // 
-            this.Btn12V1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.Btn12V1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(27)))), ((int)(((byte)(154)))));
-            this.Btn12V1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn12V1.FlatAppearance.BorderSize = 0;
-            this.Btn12V1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn12V1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Btn12V1.ForeColor = System.Drawing.Color.LightGray;
-            this.Btn12V1.Location = new System.Drawing.Point(0, 0);
-            this.Btn12V1.Name = "Btn12V1";
-            this.Btn12V1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.Btn12V1.Size = new System.Drawing.Size(336, 45);
-            this.Btn12V1.TabIndex = 0;
-            this.Btn12V1.Text = "TC 12V:";
-            this.Btn12V1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn12V1.UseVisualStyleBackColor = false;
+            this.BtnEnTU.BackColor = System.Drawing.Color.LightGray;
+            this.BtnEnTU.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnEnTU.FlatAppearance.BorderSize = 0;
+            this.BtnEnTU.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEnTU.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BtnEnTU.Location = new System.Drawing.Point(0, 0);
+            this.BtnEnTU.Name = "BtnEnTU";
+            this.BtnEnTU.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.BtnEnTU.Size = new System.Drawing.Size(460, 35);
+            this.BtnEnTU.TabIndex = 3;
+            this.BtnEnTU.Text = "EnTU";
+            this.BtnEnTU.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnEnTU.UseVisualStyleBackColor = false;
             // 
             // FormMain
             // 
@@ -1556,6 +1517,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PBMinimizeWindow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBMaximizeWindow)).EndInit();
             this.panel8.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.PnlChildForm.ResumeLayout(false);
             this.PnlMain.ResumeLayout(false);
@@ -1564,17 +1526,11 @@
             this.PnlPowerMTU5.ResumeLayout(false);
             this.PnlTURF.ResumeLayout(false);
             this.PnlTU.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
             this.Pnl_TC.ResumeLayout(false);
             this.PnlKF.ResumeLayout(false);
             this.PnlDin.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.PnlDin16.ResumeLayout(false);
-            this.PnlDin8.ResumeLayout(false);
-            this.PnlDin12.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1614,7 +1570,6 @@
         private System.Windows.Forms.Panel PnlTU;
         private System.Windows.Forms.Button TU2;
         private System.Windows.Forms.Button TU1;
-        private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Panel Pnl_TC;
         private System.Windows.Forms.Button TC3;
         private System.Windows.Forms.Button TC2;
@@ -1631,7 +1586,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button Module4;
         private System.Windows.Forms.Button StartTest;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button Module6;
         private System.Windows.Forms.Button Module5;
         private System.Windows.Forms.Button Module7;
@@ -1649,28 +1603,26 @@
         private System.Windows.Forms.Button BtnTests4;
         private System.Windows.Forms.Button BtnTests5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel PnlDin16;
-        private System.Windows.Forms.Panel PnlDin12;
-        private System.Windows.Forms.Panel PnlDin8;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button Btn12V2;
+        private System.Windows.Forms.Button Btn12V1;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button Btn12V2;
-        private System.Windows.Forms.Button Btn12V1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnEnTU;
     }
 }
 

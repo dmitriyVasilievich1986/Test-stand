@@ -6,28 +6,38 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO.Ports;
 using ModBus_Library;
+using System.Data.SqlClient;
 
 namespace test_stand
 {
     static public class Data_Transit
     {
+        public static int row = 0;
+
         public static string Data;
         public static string Name = "Nomodule";
-        public static string Addres;
+        public static string Addres = @"C:\asd\Nomodule.xlsx";
         public static string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=user;Integrated Security=True";
+        public static int serial_number = 0;
 
         public static bool EnTU = false;
-        public static int port = 1;
+        public static int port = 3;
+
+        public static List<Send> Registers_Controls = new List<Send>();
+        public static List<Controls_Only> controls_only = new List<Controls_Only>();
+        public static List<Controls_Only> controls_module = new List<Controls_Only>();
+        public static List<Send_Only> port_control_send_data = new List<Send_Only>();
+
+        public static List<Button_Send> port_control_button = new List<Button_Send>();
+        public static List<Button_Result> all_button_result = new List<Button_Result>();
 
         public static Dictionary<string, byte[]> Registers = new Dictionary<string, byte[]>();
         public static Dictionary<string, int[]> Module_Parameters = new Dictionary<string, int[]>
         {
-            { "din",new int[3]},
+            { "din",new int[4]},
             { "kf",new int[3]},
             { "tc",new int[3]}
         };
-        public static List<Send> Registers_Controls = new List<Send>();
-        
         public static Dictionary<string, float[]> Results = new Dictionary<string, float[]>
         {
             {"current", new float[2] },
@@ -51,7 +61,6 @@ namespace test_stand
             { "temperature", new byte[6] },
             { "entu", new byte[6] }
         };
-        public static Dictionary<string, All_Controls> Controls = new Dictionary<string, All_Controls>();
         
         public static float Current_Norm = 0;
         public static bool Current_Check = false;
@@ -61,12 +70,12 @@ namespace test_stand
         public static Addres_Controls Dout_Din32 = new Addres_Controls(0x15);
         public static Addres_Controls Current_PSC = new Addres_Controls(0x11);
         public static Addres_Controls v12 = new Addres_Controls(0x10);
-        public static byte Module = 1;
-                
+        public static Addres_Controls module = new Addres_Controls(0x01);
+
         public static ModBus_Libra PortControl = new ModBus_Libra(new SerialPort(), Properties.Settings.Default.Port1);
         public static ModBus_Libra PortChanelA = new ModBus_Libra(new SerialPort(), Properties.Settings.Default.Port2);
         public static ModBus_Libra PortChanelB = new ModBus_Libra(new SerialPort(), Properties.Settings.Default.Port3);
-        public static Excell_Work EW = new Excell_Work();
+        //public static Excell_Work EW = new Excell_Work();
 
         public static void ModuleName(string name) { Name = name; Addres = @"C:\asd\" + Name.ToString() + @".xlsx"; }
 
@@ -102,6 +111,52 @@ namespace test_stand
             public void Data_Send()
             {
                 Data_Transit.PortControl.Transmit(new byte[] { AC.Addres, Command, (byte)(Start >> 8), (byte)Start, (byte)(Registers >> 8), (byte)Registers });
+            }
+        }
+
+        public static void Last_Row()
+        {
+            using (SqlConnection connection = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=All_Moduls;Integrated Security=True"))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT max([id]) FROM [All_Moduls].[dbo].[module]", connection);
+                Data_Transit.row = (int)command.ExecuteScalar();
+            }
+        }
+
+        public static void Insert_Current(List<(float, bool)> items, string name)
+        {
+            using (SqlConnection connection = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=All_Moduls;Integrated Security=True"))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand($"INSERT INTO [All_Moduls].[dbo].[{name}] (iden", connection);
+                for (int a = 0; a < items.Count; a++)
+                {
+                    command.CommandText += $",{name}{a + 1},result{a + 1}";
+                }
+                command.CommandText += $") VALUES ({row}";
+                for (int a = 0; a < items.Count; a++)
+                {
+                    command.CommandText += $",@float{a},@bool{a}";
+                }
+                command.CommandText += ")";
+                for (int a = 0; a < items.Count; a++)
+                {
+                    command.Parameters.AddWithValue($"@float{a}", items[a].Item1);
+                    command.Parameters.AddWithValue($"@bool{a}", items[a].Item2);
+                }                
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public static void Insert_Module()
+        {
+            using (SqlConnection connection = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=All_Moduls;Integrated Security=True"))
+            {
+                connection.Open();
+                string[] date_split = DateTime.Today.ToShortDateString().Split('.');
+                SqlCommand command = new SqlCommand($"INSERT INTO [All_Moduls].[dbo].[module] (module, sn, data) VALUES ('{Data_Transit.Name}',{Data_Transit.serial_number},'{date_split[2] + "-" + date_split[1] + "-" + date_split[0]}')", connection);
+                command.ExecuteNonQuery();
             }
         }
     }

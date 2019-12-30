@@ -12,7 +12,7 @@ namespace test_stand
     {
         Excel.Application xlApp = new Excel.Application(); //Excel
         Excel.Workbook xlWB; //рабочая книга откуда будем копировать лист  
-        Excel.Worksheet xlSht; //лист Excel
+        public Excel.Worksheet xlSht; //лист Excel
 
         public int Line;
         public string Addres;
@@ -57,20 +57,20 @@ namespace test_stand
 
         public async Task<Int32> Column(string Parameters)
         {
-            Int32 Value = 1;
+            Int32 c = 1;
 
-            await Task.Run(() => {
-                while (Value < 250 && xlSht.Cells[1, Value].Text != Parameters) Value++;
+            await Task.Run(() =>
+            {
+                while (c < 250 && xlSht.Cells[1, c].text != Parameters)  c++;
             });
-
-            return Value;
+            return c;
         }
 
         public async void Line_Number()
         {
             Line = 3;
             int a = await Column("№");
-            while (xlSht.Cells[Line, a].text != "") Line++;
+            //while (xlSht.Cells[Line, a].text != "") Line++;
         }
 
         public void Result_Save(object text, Color color, int Column)

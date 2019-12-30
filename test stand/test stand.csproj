@@ -53,13 +53,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="All_Controls.cs" />
-    <Compile Include="All_Tests.cs" />
     <Compile Include="Data_Transit.cs" />
     <Compile Include="Modul_Settings.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modul_Settings.Designer.cs">
       <DependentUpon>Modul_Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Result.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Result.Designer.cs">
+      <DependentUpon>Result.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs">
       <SubType>Form</SubType>
@@ -103,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modul_Settings.resx">
       <DependentUpon>Modul_Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Result.resx">
+      <DependentUpon>Result.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
