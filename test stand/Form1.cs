@@ -46,7 +46,7 @@ namespace test_stand
                 if (e.KeyCode == Keys.P) { Controls_Click(BtnCurent1, null); }
                 if (e.KeyCode == Keys.Z) { form6.Show(); }
                 if (e.KeyCode == Keys.T) { MyTest(); }
-                if (e.KeyCode == Keys.Escape) { if (Active_Form != null) { Active_Form.Close(); Active_Form = null; PnlMain.Visible = true; Open_Window = "form1"; } }
+                if (e.KeyCode == Keys.Escape) { PnlComPort.Visible = false; PnlModule.Visible = false; PnlParameters.Visible = false; PnlTests.Visible = false; if (Active_Form != null) { Active_Form.Close(); Active_Form = null; PnlMain.Visible = true; Open_Window = "form1";  } }
                 if (e.KeyCode == Keys.A) { BtnAllComPort_Click(null, null); }
                 if (e.KeyCode == Keys.M) { Open_Child_Form(new Modul_Settings()); Open_Window = "form3"; }
                 if (e.KeyCode == Keys.D1) { BtnComPortMenu.PerformClick(); }
@@ -474,6 +474,8 @@ namespace test_stand
 
         private async void StartTest_Click(object sender, EventArgs e)
         {
+            if (!Data_Transit.PortControl.Port.IsOpen || !Data_Transit.PortChanelA.Port.IsOpen || !Data_Transit.PortChanelB.Port.IsOpen)
+                { MessageBox.Show("Не все порты открыты", "ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
             int norm = 0;
             while (norm < 20)
             {

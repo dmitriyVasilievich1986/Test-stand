@@ -43,6 +43,12 @@ namespace test_stand
             if (Data_Transit.serial_number > 0) DR[2] = Data_Transit.serial_number.ToString();
             DT.Rows.Add(DR);
 
+            DR = DT.NewRow();
+            DR[0] = "Полная проверка:";
+            DR[1] = "успешно";
+            foreach (Results_Test rt in al) if (!rt.test_result) { DR[1] = "произошли ошибки"; break; }
+            DT.Rows.Add(DR);
+
             foreach (Results_Test rt in al)
             {
                 DR = DT.NewRow();
@@ -88,6 +94,12 @@ namespace test_stand
         async void Colorized()
         {
             await Task.Delay(100);
+            if (list_of_result.Count > 1) 
+            {
+                dataGridView1.Rows[1].Cells[1].Style.BackColor = Color.Green;
+                foreach (Results_Test rt in list_of_result) if (!rt.test_result) { dataGridView1.Rows[1].Cells[1].Style.BackColor = Color.Red; break; }
+            }
+
             int row = 0;
             foreach(Results_Test rt in list_of_result)
             {
