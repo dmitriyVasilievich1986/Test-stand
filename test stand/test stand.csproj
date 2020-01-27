@@ -176,6 +176,9 @@
   <ItemGroup>
     <None Include="Resources\загружено.jpg" />
     <None Include="Resources\settings-512.png" />
+    <None Include="Resources\HW.png" />
+    <None Include="Resources\HW2.png" />
+    <None Include="Resources\HW3.png" />
     <Content Include="witcher3-101-1024.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -71,9 +71,11 @@
             this.ClientSize = new System.Drawing.Size(1224, 530);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
+            this.KeyPreview = true;
             this.Name = "Result";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Result";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

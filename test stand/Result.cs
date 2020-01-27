@@ -22,7 +22,10 @@ namespace test_stand
             foreach (Results_Test rt in al) { foreach(Tests te in rt.All_Tests) { if (te.test.Count > column_count) column_count = te.test.Count; }}
 
             InitializeComponent();
+            if(Data_Transit.escape) { return; }
             button1.Visible = Data_Transit.serial_number > 0 ? true : false;
+
+            this.KeyDown += (s, e) => { if (e.KeyCode == Keys.Escape) { this.Close(); } };
 
             DataTable DT = new DataTable("result");
             DataColumn DC = new DataColumn("Проверка");
@@ -43,11 +46,14 @@ namespace test_stand
             if (Data_Transit.serial_number > 0) DR[2] = Data_Transit.serial_number.ToString();
             DT.Rows.Add(DR);
 
-            DR = DT.NewRow();
-            DR[0] = "Полная проверка:";
-            DR[1] = "успешно";
-            foreach (Results_Test rt in al) if (!rt.test_result) { DR[1] = "произошли ошибки"; break; }
-            DT.Rows.Add(DR);
+            if (al.Count > 1) 
+            {
+                DR = DT.NewRow();
+                DR[0] = "Полная проверка:";
+                DR[1] = "успешно";
+                foreach (Results_Test rt in al) if (!rt.test_result) { DR[1] = "произошли ошибки"; break; }
+                DT.Rows.Add(DR);
+            }            
 
             foreach (Results_Test rt in al)
             {
@@ -87,7 +93,18 @@ namespace test_stand
                     { foreach (Tests te in rt.All_Tests) { Data_Transit.Insert_Current(te.test, "tc12v"); } }
                 else if (rt.name == "Проверка ТУ")
                     { foreach (Tests te in rt.All_Tests) { Data_Transit.Insert_Current(te.test, "tu"); } }
+                else if (rt.name == "Проверка питания MTU5")
+                    { foreach (Tests te in rt.All_Tests) { Data_Transit.Insert_Current(te.test, "MTU5_Power"); } }
+                else if (rt.name == "Проверка ток 0")
+                    { foreach (Tests te in rt.All_Tests) { Data_Transit.Insert_Current(te.test, "current0"); } }
+                else if (rt.name == "Проверка температуры")
+                    { foreach (Tests te in rt.All_Tests) { Data_Transit.Insert_Current(te.test, "temperature"); } }
+                else if (rt.name == "Проверка ТУ MTU5")
+                    { foreach (Tests te in rt.All_Tests) { Data_Transit.Insert_Current(te.test, "MTU5_TU"); } }
+                else if (rt.name == "Проверка EnTU")
+                    { foreach (Tests te in rt.All_Tests) { Data_Transit.Insert_Current(te.test, "entu"); } }
             }
+            Data_Transit.serial_number = 0;
             this.Close();
         }
 

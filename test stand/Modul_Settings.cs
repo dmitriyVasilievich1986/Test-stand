@@ -27,6 +27,9 @@ namespace test_stand
             Param9.Text = Data_Transit.Module_Parameters["tc"][2].ToString();
             Param10.Text = Data_Transit.Current_Norm.ToString();
             Param11.Text = Data_Transit.module.Addres.ToString();
+            Param12.Text = Data_Transit.TC_12V.ToString();
+            Param13.Text = Data_Transit.exchange_port.ToString();
+            Param14.Text = Data_Transit.port.ToString();
         }
 
         private void Parameters_Change(object sender, KeyEventArgs e)
@@ -96,6 +99,15 @@ namespace test_stand
                     case 11:
                         Data_Transit.module.Addres = Convert.ToByte(Param11.Text);
                         foreach(string rec in Data_Transit.Registers_Module.Keys) Data_Transit.Registers_Module[rec][0] = Data_Transit.module.Addres;
+                        return;
+                    case 12:
+                        Data_Transit.TC_12V = int.Parse(Param12.Text);
+                        return;
+                    case 13:
+                        Data_Transit.exchange_port = int.Parse(Param13.Text);
+                        return;
+                    case 14:
+                        Data_Transit.port = int.Parse(Param14.Text);
                         return;
                 }
                 SqlCommand command = new SqlCommand(sqlExpression, connection);

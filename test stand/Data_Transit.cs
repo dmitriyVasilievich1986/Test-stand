@@ -20,8 +20,13 @@ namespace test_stand
         public static string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=user;Integrated Security=True";
         public static int serial_number = 0;
 
+
         public static bool EnTU = false;
         public static int port = 3;
+        public static int exchange_port = 0;
+        public static int TC_12V = 12;
+        public static bool shift_is_down = false;
+        public static bool escape = true;
 
         public static List<Send> Registers_Controls = new List<Send>();
         public static List<Controls_Only> controls_only = new List<Controls_Only>();
@@ -147,6 +152,20 @@ namespace test_stand
                 }                
                 command.ExecuteNonQuery();
             }
+        }
+
+        public static bool Test_Need(string Parameters)
+        {
+            bool result = false;
+            using (SqlConnection connection = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=All_Moduls;Integrated Security=True"))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand($"SELECT [{Parameters}] FROM [All_Moduls].[dbo].[Tests] where name='{Data_Transit.Name}'", connection);
+                SqlDataReader reader = command.ExecuteReader();
+                reader.Read();
+                result = reader.GetBoolean(0);
+            }
+            return result;
         }
 
         public static void Insert_Module()

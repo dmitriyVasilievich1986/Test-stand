@@ -55,6 +55,13 @@
             this.label15 = new System.Windows.Forms.Label();
             this.Param11 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.Param12 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.Param13 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.Param14 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Param1
@@ -82,9 +89,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(172, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 20);
+            this.label1.Size = new System.Drawing.Size(186, 20);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Din Settings";
+            this.label1.Text = "Основные настройки";
             // 
             // Param3
             // 
@@ -316,12 +323,83 @@
             this.label16.TabIndex = 28;
             this.label16.Text = "Module adres:";
             // 
-            // Form3
+            // Param12
+            // 
+            this.Param12.BackColor = System.Drawing.Color.LightGray;
+            this.Param12.Location = new System.Drawing.Point(592, 101);
+            this.Param12.Name = "Param12";
+            this.Param12.Size = new System.Drawing.Size(121, 20);
+            this.Param12.TabIndex = 32;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label17.Location = new System.Drawing.Point(435, 101);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(73, 20);
+            this.label17.TabIndex = 31;
+            this.label17.Text = "TC 12B:";
+            // 
+            // Param13
+            // 
+            this.Param13.BackColor = System.Drawing.Color.LightGray;
+            this.Param13.Location = new System.Drawing.Point(592, 135);
+            this.Param13.Name = "Param13";
+            this.Param13.Size = new System.Drawing.Size(121, 20);
+            this.Param13.TabIndex = 34;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label18.Location = new System.Drawing.Point(401, 135);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(140, 20);
+            this.label18.TabIndex = 33;
+            this.label18.Text = "RS-485 портов:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label19.Location = new System.Drawing.Point(504, 65);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(161, 20);
+            this.label19.TabIndex = 35;
+            this.label19.Text = "Другие настройки";
+            // 
+            // Param14
+            // 
+            this.Param14.BackColor = System.Drawing.Color.LightGray;
+            this.Param14.Location = new System.Drawing.Point(592, 166);
+            this.Param14.Name = "Param14";
+            this.Param14.Size = new System.Drawing.Size(121, 20);
+            this.Param14.TabIndex = 37;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label20.Location = new System.Drawing.Point(395, 166);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(152, 20);
+            this.label20.TabIndex = 36;
+            this.label20.Text = "Портов питания:";
+            // 
+            // Modul_Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(31)))), ((int)(((byte)(123)))));
             this.ClientSize = new System.Drawing.Size(750, 652);
+            this.Controls.Add(this.Param14);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.Param13);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.Param12);
+            this.Controls.Add(this.label17);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.Param11);
             this.Controls.Add(this.label16);
@@ -349,7 +427,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Param1);
             this.Controls.Add(this.label2);
-            this.Name = "Form3";
+            this.Name = "Modul_Settings";
             this.Text = "Form3";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -385,5 +463,12 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox Param11;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox Param12;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox Param13;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox Param14;
+        private System.Windows.Forms.Label label20;
     }
 }

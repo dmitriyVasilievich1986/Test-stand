@@ -16,5 +16,4 @@ C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\bin\Debug\ModBu
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test stand.csproj.CopyComplete
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\The Witcher 3.exe
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\The Witcher 3.pdb
-C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test stand.csprojAssemblyReference.cache
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test_stand.Result.resources
