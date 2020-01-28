@@ -33,8 +33,6 @@ namespace test_stand
 {
     public partial class FormMain : Form
     {   
-        Form6 form6 = new Form6();
-        
         bool cycle = true;
 
         public FormMain()
@@ -46,7 +44,8 @@ namespace test_stand
             this.KeyDown += (s, e) =>
             {
                 if (e.KeyCode == Keys.P) { Controls_Click(BtnCurent1, null); }
-                if (e.KeyCode == Keys.Z && Data_Transit.shift_is_down)  { form6.Show(); }
+                if (e.KeyCode == Keys.Z && Data_Transit.shift_is_down)  { Data_Transit.shift_is_down = false; Form6 form6 = new Form6(Data_Transit.PortControl); form6.Show(); }
+                if (e.KeyCode == Keys.X && Data_Transit.shift_is_down) { Data_Transit.shift_is_down = false; Form6 form6 = new Form6(Data_Transit.PortChanelA); form6.Show(); }
                 if (e.KeyCode == Keys.T && Data_Transit.shift_is_down)  { MyTest(); }
                 if (e.KeyCode == Keys.Escape)
                 {
@@ -57,11 +56,6 @@ namespace test_stand
                     PnlTests.Visible = false;
                     if (Active_Form != null) { Active_Form.Close(); Active_Form = null; PnlMain.Visible = true; Open_Window = "form1";  }
                     Data_Transit.serial_number = 0;
-                    //Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Din16.Addres, 0x10, 0, 0x51, 00, 16, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
-                    //Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Din32.Addres, 0x10, 0, 0x51, 00, 16, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
-                    //Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x10, 0, 0x5d, 00, 03, 06, 0, 0, 0, 0, 0, 0 });
-                    //Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x10, 0, 0x55, 00, 03, 06, 0, 0, 0, 0, 0, 0 });
-                    //Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x10, 0, 0x51, 00, 02, 04, 0, 0, 0, 0 });
                 }
                 if (e.KeyCode == Keys.A) { BtnAllComPort_Click(null, null); }
                 if (e.KeyCode == Keys.M) { Open_Child_Form(new Modul_Settings()); Open_Window = "form3"; }
@@ -184,7 +178,6 @@ namespace test_stand
             Data_Transit.PortControl.Receive_Event += PortControl_DataReceived;
             Data_Transit.PortChanelA.Receive_Event += PortChanelA_DataReceived;
 
-            form6.Owner = this;
 
             PnlComPort.Visible = false;
             PnlModule.Visible = false;
@@ -529,6 +522,7 @@ namespace test_stand
 
         private async void Tests_Click(object sender, EventArgs e)
         {
+            Data_Transit.serial_number = 0;
             string parameters = "";
             string test_name = "";
 
@@ -554,13 +548,15 @@ namespace test_stand
         }
 
         private async void BtnTests4_Click(object sender, EventArgs e)
-        {            
+        {
+            Data_Transit.serial_number = 0;
             Result result1 = new Result(new List<Results_Test>() { await Power_Test() });
             result1.Show();
         }
 
         private async void StartTest_Click(object sender, EventArgs e)
         {
+            Data_Transit.serial_number = 0;
             if (!Data_Transit.PortControl.Port.IsOpen || !Data_Transit.PortChanelA.Port.IsOpen || !Data_Transit.PortChanelB.Port.IsOpen)
                 { MessageBox.Show("Не все порты открыты", "ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
             int norm = 0;
@@ -596,7 +592,7 @@ namespace test_stand
                 MessageBox.Show("Низкий ток потребления блока", "OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            Data_Transit.shift_is_down = false;
             Form5 form5 = new Form5();
             form5.Show();
 
@@ -814,6 +810,8 @@ namespace test_stand
 
              for (int kf = 0; kf < PCount; kf++)
             {
+                await Task.Delay(100);
+                //co.ToList()[kf].Trasmit_Data(); while (Data_Transit.PortControl.Data_Interrupt != null) await Task.Delay(200);
                 co.ToList()[kf].Trasmit_Data(); while (Data_Transit.PortControl.Data_Interrupt != null) await Task.Delay(200);
                 result.Add_Test($"{test} {kf + 1}");
                 for (int check = 0; check < PCount; check++)
@@ -833,7 +831,8 @@ namespace test_stand
                         { result.Add_Item(cr.ToList()[check].Result, false); result.test_result = false; result.All_Tests[result.All_Tests.Count - 1].test_result = false; }
                     }
                 }
-                while (co.ToList()[kf].button.BackColor == Color.Red) { co.ToList()[kf].Reset(); while (Data_Transit.PortControl.Data_Interrupt != null) await Task.Delay(200); }
+                //while (co.ToList()[kf].button.BackColor == Color.Red) { co.ToList()[kf].Reset(); await Task.Delay(100); while (Data_Transit.PortControl.Data_Interrupt != null) await Task.Delay(200); }
+                co.ToList()[kf].Reset(); while (Data_Transit.PortControl.Data_Interrupt != null) await Task.Delay(200);
                 if (Data_Transit.escape)
                 {
                     Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x10, 0, 0x51, 00, 02, 04, 0, 0, 0, 0 });
@@ -862,7 +861,8 @@ namespace test_stand
 
             for (int kf = 0; kf < Data_Transit.Registers_Module["tu"][5]; kf++)
             {
-                co.ToList()[kf].Trasmit_Data(); await Task.Delay(200); while (Data_Transit.PortChanelA.Data_Interrupt != null) await Task.Delay(1000);
+                //co.ToList()[kf].Trasmit_Data(); await Task.Delay(200); while (Data_Transit.PortChanelA.Data_Interrupt != null) await Task.Delay(1000);
+                co.ToList()[kf].Trasmit_Data(); while (Data_Transit.PortChanelA.Data_Interrupt != null) await Task.Delay(200);
                 result.Add_Test($"Тест ТУ {kf + 1}");
 
                 if (await Compar(cr.ToList()[0], 200, 250))
@@ -871,7 +871,8 @@ namespace test_stand
                 { result.Add_Item(cr.ToList()[0].Result, false); result.test_result = false; result.All_Tests[result.All_Tests.Count - 1].test_result = false; }
 
                 await Task.Delay(1000);
-                while (co.ToList()[kf].button.BackColor == Color.Red) { co.ToList()[kf].Reset(); while (Data_Transit.PortChanelA.Data_Interrupt != null) await Task.Delay(1000); }
+                //while (co.ToList()[kf].button.BackColor == Color.Red) { co.ToList()[kf].Reset(); while (Data_Transit.PortChanelA.Data_Interrupt != null) await Task.Delay(1000); }
+                co.ToList()[kf].Reset(); while (Data_Transit.PortChanelA.Data_Interrupt != null) await Task.Delay(200);
                 if (Data_Transit.escape)
                 {
                     Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x10, 0, 0x51, 00, 02, 04, 0, 0, 0, 0 });

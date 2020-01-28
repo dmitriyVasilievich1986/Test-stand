@@ -103,8 +103,7 @@ namespace test_stand
                     { foreach (Tests te in rt.All_Tests) { Data_Transit.Insert_Current(te.test, "MTU5_TU"); } }
                 else if (rt.name == "Проверка EnTU")
                     { foreach (Tests te in rt.All_Tests) { Data_Transit.Insert_Current(te.test, "entu"); } }
-            }
-            Data_Transit.serial_number = 0;
+            }            
             this.Close();
         }
 

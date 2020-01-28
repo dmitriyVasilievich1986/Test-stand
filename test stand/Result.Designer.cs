@@ -38,9 +38,9 @@
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button1.Location = new System.Drawing.Point(0, 495);
+            this.button1.Location = new System.Drawing.Point(0, 745);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(1224, 35);
+            this.button1.Size = new System.Drawing.Size(1704, 35);
             this.button1.TabIndex = 1;
             this.button1.Text = "Сохранить результат";
             this.button1.UseVisualStyleBackColor = true;
@@ -61,14 +61,14 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1224, 495);
+            this.dataGridView1.Size = new System.Drawing.Size(1704, 745);
             this.dataGridView1.TabIndex = 2;
             // 
             // Result
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1224, 530);
+            this.ClientSize = new System.Drawing.Size(1704, 780);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.KeyPreview = true;
