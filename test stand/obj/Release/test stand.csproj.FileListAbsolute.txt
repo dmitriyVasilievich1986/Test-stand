@@ -17,3 +17,22 @@ C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Release\tes
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Release\test_stand.Modul_Settings.resources
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Release\test_stand.Settings.resources
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Release\test_stand.Result.resources
+C:\Test\Test-stand\test stand\obj\Release\test stand.csprojAssemblyReference.cache
+C:\Test\Test-stand\test stand\obj\Release\test stand.csproj.ResolveComReference.cache
+C:\Test\Test-stand\test stand\obj\Release\test_stand.FormMain.resources
+C:\Test\Test-stand\test stand\obj\Release\test_stand.Form2.resources
+C:\Test\Test-stand\test stand\obj\Release\test_stand.Modul_Settings.resources
+C:\Test\Test-stand\test stand\obj\Release\test_stand.Result.resources
+C:\Test\Test-stand\test stand\obj\Release\test_stand.Settings.resources
+C:\Test\Test-stand\test stand\obj\Release\test_stand.Form5.resources
+C:\Test\Test-stand\test stand\obj\Release\test_stand.Form6.resources
+C:\Test\Test-stand\test stand\obj\Release\test_stand.Properties.Resources.resources
+C:\Test\Test-stand\test stand\obj\Release\test stand.csproj.GenerateResource.cache
+C:\Test\Test-stand\test stand\obj\Release\test stand.csproj.CoreCompileInputs.cache
+C:\Test\Test-stand\test stand\obj\Release\The Witcher 3.exe
+C:\Test\Test-stand\test stand\obj\Release\The Witcher 3.pdb
+C:\Test\Test-stand\test stand\bin\Release\The Witcher 3.exe.config
+C:\Test\Test-stand\test stand\bin\Release\The Witcher 3.exe
+C:\Test\Test-stand\test stand\bin\Release\The Witcher 3.pdb
+C:\Test\Test-stand\test stand\bin\Release\ModBus_Library.pdb
+C:\Test\Test-stand\test stand\obj\Release\test stand.csproj.CopyComplete

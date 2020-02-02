@@ -1,0 +1,1 @@
+﻿[{"name":"No module","power_chanel":0,"exchange_chanel":0,"current":0.0,"all_registers":null,"din":{"Min":0,"Max":0,"None":0},"kf":{"Min":0,"Max":0,"None":0},"tc":{"Min":0,"Max":0,"None":0},"tc12v":{"Min":0,"Max":0,"None":0}}]

@@ -39,6 +39,12 @@
     <Reference Include="ModBus_Library">
       <HintPath>..\..\ModBus_Library\bin\Debug\ModBus_Library.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SupportClass">
+      <HintPath>..\..\..\Users\Professional\source\repos\SUpport Class\ClassLibrary1\bin\Release\SupportClass.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -85,7 +91,6 @@
       <DependentUpon>Form6.cs</DependentUpon>
     </Compile>
     <Compile Include="Port_Data.cs" />
-    <Compile Include="Excell_Work.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +136,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

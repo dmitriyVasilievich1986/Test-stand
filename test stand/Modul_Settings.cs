@@ -8,28 +8,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Support_Class;
 
 namespace test_stand
 {
     public partial class Modul_Settings : Form
     {
-        public Modul_Settings()
+        Module_Parameters MP;
+
+        public Modul_Settings(Module_Parameters module_parameters)
         {
             InitializeComponent();
-            Param1.Text = Data_Transit.Module_Parameters["din"][0].ToString();
-            Param2.Text = Data_Transit.Module_Parameters["din"][1].ToString();
-            Param3.Text = Data_Transit.Module_Parameters["din"][2].ToString();
-            Param4.Text = Data_Transit.Module_Parameters["kf"][0].ToString();
-            Param5.Text = Data_Transit.Module_Parameters["kf"][1].ToString();
-            Param6.Text = Data_Transit.Module_Parameters["kf"][2].ToString();
-            Param7.Text = Data_Transit.Module_Parameters["tc"][0].ToString();
-            Param8.Text = Data_Transit.Module_Parameters["tc"][1].ToString();
-            Param9.Text = Data_Transit.Module_Parameters["tc"][2].ToString();
-            Param10.Text = Data_Transit.Current_Norm.ToString();
-            Param11.Text = Data_Transit.module.Addres.ToString();
-            Param12.Text = Data_Transit.TC_12V.ToString();
-            Param13.Text = Data_Transit.exchange_port.ToString();
-            Param14.Text = Data_Transit.port.ToString();
+            MP = module_parameters;
+            Din.Text = $"{MP.using_module.din.Min} {MP.using_module.din.Max} {MP.using_module.din.None}";
+            KF.Text = $"{MP.using_module.kf.Min} {MP.using_module.kf.Max} {MP.using_module.kf.None}";
+            TC.Text = $"{MP.using_module.tc.Min} {MP.using_module.tc.Max} {MP.using_module.tc.None}";
+            TC12V.Text = $"{MP.using_module.tc12v.Min} {MP.using_module.tc12v.Max} {MP.using_module.tc12v.None}";
+            Current.Text = $"{MP.using_module.current}";
+            
         }
 
         private void Parameters_Change(object sender, KeyEventArgs e)
@@ -101,7 +97,7 @@ namespace test_stand
                         foreach(string rec in Data_Transit.Registers_Module.Keys) Data_Transit.Registers_Module[rec][0] = Data_Transit.module.Addres;
                         return;
                     case 12:
-                        Data_Transit.TC_12V = int.Parse(Param12.Text);
+                        Data_Transit.TC_12V = int.Parse(TC12V.Text);
                         return;
                     case 13:
                         Data_Transit.exchange_port = int.Parse(Param13.Text);

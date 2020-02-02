@@ -17,3 +17,25 @@ C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test 
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\The Witcher 3.exe
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\The Witcher 3.pdb
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test_stand.Result.resources
+C:\Test\Test-stand\test stand\bin\Debug\The Witcher 3.exe.config
+C:\Test\Test-stand\test stand\bin\Debug\The Witcher 3.exe
+C:\Test\Test-stand\test stand\bin\Debug\The Witcher 3.pdb
+C:\Test\Test-stand\test stand\obj\Debug\test stand.csprojAssemblyReference.cache
+C:\Test\Test-stand\test stand\obj\Debug\test stand.csproj.ResolveComReference.cache
+C:\Test\Test-stand\test stand\obj\Debug\test_stand.FormMain.resources
+C:\Test\Test-stand\test stand\obj\Debug\test_stand.Form2.resources
+C:\Test\Test-stand\test stand\obj\Debug\test_stand.Modul_Settings.resources
+C:\Test\Test-stand\test stand\obj\Debug\test_stand.Result.resources
+C:\Test\Test-stand\test stand\obj\Debug\test_stand.Settings.resources
+C:\Test\Test-stand\test stand\obj\Debug\test_stand.Form5.resources
+C:\Test\Test-stand\test stand\obj\Debug\test_stand.Form6.resources
+C:\Test\Test-stand\test stand\obj\Debug\test_stand.Properties.Resources.resources
+C:\Test\Test-stand\test stand\obj\Debug\test stand.csproj.GenerateResource.cache
+C:\Test\Test-stand\test stand\obj\Debug\test stand.csproj.CoreCompileInputs.cache
+C:\Test\Test-stand\test stand\obj\Debug\test stand.csproj.CopyComplete
+C:\Test\Test-stand\test stand\obj\Debug\The Witcher 3.exe
+C:\Test\Test-stand\test stand\obj\Debug\The Witcher 3.pdb
+C:\Test\Test-stand\test stand\bin\Debug\SupportClass.dll
+C:\Test\Test-stand\test stand\bin\Debug\SupportClass.pdb
+C:\Test\Test-stand\test stand\bin\Debug\Newtonsoft.Json.dll
+C:\Test\Test-stand\test stand\bin\Debug\Newtonsoft.Json.xml

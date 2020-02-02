@@ -45,16 +45,6 @@
             this.ModuleSettings = new System.Windows.Forms.Button();
             this.BtnParameters = new System.Windows.Forms.Button();
             this.PnlModule = new System.Windows.Forms.Panel();
-            this.Module5 = new System.Windows.Forms.Button();
-            this.Module4 = new System.Windows.Forms.Button();
-            this.Module9 = new System.Windows.Forms.Button();
-            this.Module6 = new System.Windows.Forms.Button();
-            this.Module3 = new System.Windows.Forms.Button();
-            this.Module7 = new System.Windows.Forms.Button();
-            this.Module8 = new System.Windows.Forms.Button();
-            this.Module2 = new System.Windows.Forms.Button();
-            this.Module1 = new System.Windows.Forms.Button();
-            this.BtnNone = new System.Windows.Forms.Button();
             this.BtnModule = new System.Windows.Forms.Button();
             this.PnlComPort = new System.Windows.Forms.Panel();
             this.BtnAllComPort = new System.Windows.Forms.Button();
@@ -63,8 +53,14 @@
             this.BtnPort1 = new System.Windows.Forms.Button();
             this.BtnComPortMenu = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.HW = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.PBCloseWindow = new System.Windows.Forms.PictureBox();
+            this.PBMinimizeWindow = new System.Windows.Forms.PictureBox();
+            this.PBMaximizeWindow = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btnHW = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.Btn12V3 = new System.Windows.Forms.Button();
             this.Btn12V2 = new System.Windows.Forms.Button();
@@ -74,92 +70,23 @@
             this.BtnCurent1 = new System.Windows.Forms.Button();
             this.PnlChildForm = new System.Windows.Forms.Panel();
             this.PnlMain = new System.Windows.Forms.Panel();
-            this.PnlTC = new System.Windows.Forms.Panel();
-            this.Pnl_Temperature = new System.Windows.Forms.Panel();
-            this.BtnTemperature = new System.Windows.Forms.Button();
-            this.PnlPowerMTU5 = new System.Windows.Forms.Panel();
-            this.PWR_1_MTU5 = new System.Windows.Forms.Button();
-            this.PWR_2_MTU5 = new System.Windows.Forms.Button();
-            this.PnlTURF = new System.Windows.Forms.Panel();
-            this.TU3 = new System.Windows.Forms.Button();
-            this.PnlTU = new System.Windows.Forms.Panel();
-            this.TU2 = new System.Windows.Forms.Button();
-            this.TU1 = new System.Windows.Forms.Button();
-            this.BtnEnTU = new System.Windows.Forms.Button();
-            this.Pnl_TC = new System.Windows.Forms.Panel();
-            this.TC3 = new System.Windows.Forms.Button();
-            this.TC2 = new System.Windows.Forms.Button();
-            this.TC1 = new System.Windows.Forms.Button();
-            this.PnlKF = new System.Windows.Forms.Panel();
-            this.KF3 = new System.Windows.Forms.Button();
-            this.KF2 = new System.Windows.Forms.Button();
-            this.KF1 = new System.Windows.Forms.Button();
-            this.PnlDin = new System.Windows.Forms.Panel();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
-            this.button23 = new System.Windows.Forms.Button();
-            this.button24 = new System.Windows.Forms.Button();
-            this.button25 = new System.Windows.Forms.Button();
-            this.button26 = new System.Windows.Forms.Button();
-            this.button27 = new System.Windows.Forms.Button();
-            this.button28 = new System.Windows.Forms.Button();
-            this.button29 = new System.Windows.Forms.Button();
-            this.button30 = new System.Windows.Forms.Button();
-            this.button31 = new System.Windows.Forms.Button();
-            this.button32 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnHW = new System.Windows.Forms.Button();
-            this.HW = new System.Windows.Forms.PictureBox();
-            this.PBCloseWindow = new System.Windows.Forms.PictureBox();
-            this.PBMinimizeWindow = new System.Windows.Forms.PictureBox();
-            this.PBMaximizeWindow = new System.Windows.Forms.PictureBox();
+            this.pnlRight = new System.Windows.Forms.Panel();
+            this.pnlLeft = new System.Windows.Forms.Panel();
             this.PnlSideMenu.SuspendLayout();
             this.PnlTests.SuspendLayout();
             this.PnlParameters.SuspendLayout();
-            this.PnlModule.SuspendLayout();
             this.PnlComPort.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.HW)).BeginInit();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PBCloseWindow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBMinimizeWindow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBMaximizeWindow)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
             this.PnlChildForm.SuspendLayout();
             this.PnlMain.SuspendLayout();
-            this.PnlTC.SuspendLayout();
-            this.Pnl_Temperature.SuspendLayout();
-            this.PnlPowerMTU5.SuspendLayout();
-            this.PnlTURF.SuspendLayout();
-            this.PnlTU.SuspendLayout();
-            this.Pnl_TC.SuspendLayout();
-            this.PnlKF.SuspendLayout();
-            this.PnlDin.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.HW)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PBCloseWindow)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PBMinimizeWindow)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PBMaximizeWindow)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPower1
@@ -216,9 +143,9 @@
             this.PnlTests.Controls.Add(this.BtnTests2);
             this.PnlTests.Controls.Add(this.BtnTests1);
             this.PnlTests.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlTests.Location = new System.Drawing.Point(0, 860);
+            this.PnlTests.Location = new System.Drawing.Point(0, 548);
             this.PnlTests.Name = "PnlTests";
-            this.PnlTests.Size = new System.Drawing.Size(233, 175);
+            this.PnlTests.Size = new System.Drawing.Size(250, 175);
             this.PnlTests.TabIndex = 9;
             // 
             // BtnTests5
@@ -231,7 +158,7 @@
             this.BtnTests5.Location = new System.Drawing.Point(0, 140);
             this.BtnTests5.Name = "BtnTests5";
             this.BtnTests5.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnTests5.Size = new System.Drawing.Size(233, 35);
+            this.BtnTests5.Size = new System.Drawing.Size(250, 35);
             this.BtnTests5.TabIndex = 4;
             this.BtnTests5.Text = "Full Test";
             this.BtnTests5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -248,7 +175,7 @@
             this.BtnTests4.Location = new System.Drawing.Point(0, 105);
             this.BtnTests4.Name = "BtnTests4";
             this.BtnTests4.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnTests4.Size = new System.Drawing.Size(233, 35);
+            this.BtnTests4.Size = new System.Drawing.Size(250, 35);
             this.BtnTests4.TabIndex = 3;
             this.BtnTests4.Text = "Power Test";
             this.BtnTests4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -265,7 +192,7 @@
             this.BtnTests3.Location = new System.Drawing.Point(0, 70);
             this.BtnTests3.Name = "BtnTests3";
             this.BtnTests3.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnTests3.Size = new System.Drawing.Size(233, 35);
+            this.BtnTests3.Size = new System.Drawing.Size(250, 35);
             this.BtnTests3.TabIndex = 2;
             this.BtnTests3.Text = "Din Test";
             this.BtnTests3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -282,7 +209,7 @@
             this.BtnTests2.Location = new System.Drawing.Point(0, 35);
             this.BtnTests2.Name = "BtnTests2";
             this.BtnTests2.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnTests2.Size = new System.Drawing.Size(233, 35);
+            this.BtnTests2.Size = new System.Drawing.Size(250, 35);
             this.BtnTests2.TabIndex = 1;
             this.BtnTests2.Text = "TC Test";
             this.BtnTests2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -299,7 +226,7 @@
             this.BtnTests1.Location = new System.Drawing.Point(0, 0);
             this.BtnTests1.Name = "BtnTests1";
             this.BtnTests1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnTests1.Size = new System.Drawing.Size(233, 35);
+            this.BtnTests1.Size = new System.Drawing.Size(250, 35);
             this.BtnTests1.TabIndex = 0;
             this.BtnTests1.Text = "KF Test";
             this.BtnTests1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -315,10 +242,10 @@
             this.StartTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StartTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.StartTest.ForeColor = System.Drawing.Color.LightGray;
-            this.StartTest.Location = new System.Drawing.Point(0, 815);
+            this.StartTest.Location = new System.Drawing.Point(0, 503);
             this.StartTest.Name = "StartTest";
             this.StartTest.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.StartTest.Size = new System.Drawing.Size(233, 45);
+            this.StartTest.Size = new System.Drawing.Size(250, 45);
             this.StartTest.TabIndex = 8;
             this.StartTest.Text = "Start Tests";
             this.StartTest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -334,10 +261,10 @@
             this.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BtnExit.ForeColor = System.Drawing.Color.LightGray;
-            this.BtnExit.Location = new System.Drawing.Point(0, 1035);
+            this.BtnExit.Location = new System.Drawing.Point(0, 783);
             this.BtnExit.Name = "BtnExit";
             this.BtnExit.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.BtnExit.Size = new System.Drawing.Size(233, 45);
+            this.BtnExit.Size = new System.Drawing.Size(250, 45);
             this.BtnExit.TabIndex = 7;
             this.BtnExit.Text = "Exit";
             this.BtnExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -349,9 +276,9 @@
             this.PnlParameters.Controls.Add(this.Settings);
             this.PnlParameters.Controls.Add(this.ModuleSettings);
             this.PnlParameters.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlParameters.Location = new System.Drawing.Point(0, 745);
+            this.PnlParameters.Location = new System.Drawing.Point(0, 433);
             this.PnlParameters.Name = "PnlParameters";
-            this.PnlParameters.Size = new System.Drawing.Size(233, 70);
+            this.PnlParameters.Size = new System.Drawing.Size(250, 70);
             this.PnlParameters.TabIndex = 6;
             // 
             // Settings
@@ -364,7 +291,7 @@
             this.Settings.Location = new System.Drawing.Point(0, 35);
             this.Settings.Name = "Settings";
             this.Settings.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.Settings.Size = new System.Drawing.Size(233, 35);
+            this.Settings.Size = new System.Drawing.Size(250, 35);
             this.Settings.TabIndex = 1;
             this.Settings.Text = "Settings";
             this.Settings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -381,7 +308,7 @@
             this.ModuleSettings.Location = new System.Drawing.Point(0, 0);
             this.ModuleSettings.Name = "ModuleSettings";
             this.ModuleSettings.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.ModuleSettings.Size = new System.Drawing.Size(233, 35);
+            this.ModuleSettings.Size = new System.Drawing.Size(250, 35);
             this.ModuleSettings.TabIndex = 0;
             this.ModuleSettings.Text = "Module Settings";
             this.ModuleSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -397,10 +324,10 @@
             this.BtnParameters.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnParameters.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BtnParameters.ForeColor = System.Drawing.Color.LightGray;
-            this.BtnParameters.Location = new System.Drawing.Point(0, 700);
+            this.BtnParameters.Location = new System.Drawing.Point(0, 388);
             this.BtnParameters.Name = "BtnParameters";
             this.BtnParameters.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.BtnParameters.Size = new System.Drawing.Size(233, 45);
+            this.BtnParameters.Size = new System.Drawing.Size(250, 45);
             this.BtnParameters.TabIndex = 5;
             this.BtnParameters.Text = "Parameters";
             this.BtnParameters.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -409,191 +336,11 @@
             // 
             // PnlModule
             // 
-            this.PnlModule.Controls.Add(this.Module5);
-            this.PnlModule.Controls.Add(this.Module4);
-            this.PnlModule.Controls.Add(this.Module9);
-            this.PnlModule.Controls.Add(this.Module6);
-            this.PnlModule.Controls.Add(this.Module3);
-            this.PnlModule.Controls.Add(this.Module7);
-            this.PnlModule.Controls.Add(this.Module8);
-            this.PnlModule.Controls.Add(this.Module2);
-            this.PnlModule.Controls.Add(this.Module1);
-            this.PnlModule.Controls.Add(this.BtnNone);
             this.PnlModule.Dock = System.Windows.Forms.DockStyle.Top;
             this.PnlModule.Location = new System.Drawing.Point(0, 350);
             this.PnlModule.Name = "PnlModule";
-            this.PnlModule.Size = new System.Drawing.Size(233, 350);
+            this.PnlModule.Size = new System.Drawing.Size(250, 38);
             this.PnlModule.TabIndex = 4;
-            // 
-            // Module5
-            // 
-            this.Module5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(125)))), ((int)(((byte)(137)))));
-            this.Module5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Module5.FlatAppearance.BorderSize = 0;
-            this.Module5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Module5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Module5.Location = new System.Drawing.Point(0, 315);
-            this.Module5.Name = "Module5";
-            this.Module5.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.Module5.Size = new System.Drawing.Size(233, 35);
-            this.Module5.TabIndex = 5;
-            this.Module5.Text = "RTU5";
-            this.Module5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Module5.UseVisualStyleBackColor = false;
-            this.Module5.Click += new System.EventHandler(this.Module_Selection);
-            // 
-            // Module4
-            // 
-            this.Module4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(125)))), ((int)(((byte)(137)))));
-            this.Module4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Module4.FlatAppearance.BorderSize = 0;
-            this.Module4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Module4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Module4.Location = new System.Drawing.Point(0, 280);
-            this.Module4.Name = "Module4";
-            this.Module4.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.Module4.Size = new System.Drawing.Size(233, 35);
-            this.Module4.TabIndex = 4;
-            this.Module4.Text = "RTU3";
-            this.Module4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Module4.UseVisualStyleBackColor = false;
-            this.Module4.Click += new System.EventHandler(this.Module_Selection);
-            // 
-            // Module9
-            // 
-            this.Module9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(125)))), ((int)(((byte)(137)))));
-            this.Module9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Module9.FlatAppearance.BorderSize = 0;
-            this.Module9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Module9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Module9.Location = new System.Drawing.Point(0, 245);
-            this.Module9.Name = "Module9";
-            this.Module9.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.Module9.Size = new System.Drawing.Size(233, 35);
-            this.Module9.TabIndex = 9;
-            this.Module9.Text = "RTU1";
-            this.Module9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Module9.UseVisualStyleBackColor = false;
-            this.Module9.Click += new System.EventHandler(this.Module_Selection);
-            // 
-            // Module6
-            // 
-            this.Module6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(125)))), ((int)(((byte)(137)))));
-            this.Module6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Module6.FlatAppearance.BorderSize = 0;
-            this.Module6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Module6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Module6.Location = new System.Drawing.Point(0, 210);
-            this.Module6.Name = "Module6";
-            this.Module6.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.Module6.Size = new System.Drawing.Size(233, 35);
-            this.Module6.TabIndex = 6;
-            this.Module6.Text = "PM7 E1DI8";
-            this.Module6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Module6.UseVisualStyleBackColor = false;
-            this.Module6.Click += new System.EventHandler(this.Module_Selection);
-            // 
-            // Module3
-            // 
-            this.Module3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(125)))), ((int)(((byte)(137)))));
-            this.Module3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Module3.FlatAppearance.BorderSize = 0;
-            this.Module3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Module3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Module3.Location = new System.Drawing.Point(0, 175);
-            this.Module3.Name = "Module3";
-            this.Module3.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.Module3.Size = new System.Drawing.Size(233, 35);
-            this.Module3.TabIndex = 3;
-            this.Module3.Text = "PM7";
-            this.Module3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Module3.UseVisualStyleBackColor = false;
-            this.Module3.Click += new System.EventHandler(this.Module_Selection);
-            // 
-            // Module7
-            // 
-            this.Module7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(125)))), ((int)(((byte)(137)))));
-            this.Module7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Module7.FlatAppearance.BorderSize = 0;
-            this.Module7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Module7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Module7.Location = new System.Drawing.Point(0, 140);
-            this.Module7.Name = "Module7";
-            this.Module7.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.Module7.Size = new System.Drawing.Size(233, 35);
-            this.Module7.TabIndex = 7;
-            this.Module7.Text = "MTU5";
-            this.Module7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Module7.UseVisualStyleBackColor = false;
-            this.Module7.Click += new System.EventHandler(this.Module_Selection);
-            // 
-            // Module8
-            // 
-            this.Module8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(125)))), ((int)(((byte)(137)))));
-            this.Module8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Module8.FlatAppearance.BorderSize = 0;
-            this.Module8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Module8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Module8.Location = new System.Drawing.Point(0, 105);
-            this.Module8.Name = "Module8";
-            this.Module8.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.Module8.Size = new System.Drawing.Size(233, 35);
-            this.Module8.TabIndex = 8;
-            this.Module8.Text = "MTU3";
-            this.Module8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Module8.UseVisualStyleBackColor = false;
-            this.Module8.Click += new System.EventHandler(this.Module_Selection);
-            // 
-            // Module2
-            // 
-            this.Module2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(125)))), ((int)(((byte)(137)))));
-            this.Module2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Module2.FlatAppearance.BorderSize = 0;
-            this.Module2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Module2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Module2.Location = new System.Drawing.Point(0, 70);
-            this.Module2.Name = "Module2";
-            this.Module2.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.Module2.Size = new System.Drawing.Size(233, 35);
-            this.Module2.TabIndex = 2;
-            this.Module2.Text = "DIN32";
-            this.Module2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Module2.UseVisualStyleBackColor = false;
-            this.Module2.Click += new System.EventHandler(this.Module_Selection);
-            // 
-            // Module1
-            // 
-            this.Module1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(125)))), ((int)(((byte)(137)))));
-            this.Module1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Module1.FlatAppearance.BorderSize = 0;
-            this.Module1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Module1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Module1.Location = new System.Drawing.Point(0, 35);
-            this.Module1.Name = "Module1";
-            this.Module1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.Module1.Size = new System.Drawing.Size(233, 35);
-            this.Module1.TabIndex = 1;
-            this.Module1.Text = "DIN16";
-            this.Module1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Module1.UseVisualStyleBackColor = false;
-            this.Module1.Click += new System.EventHandler(this.Module_Selection);
-            // 
-            // BtnNone
-            // 
-            this.BtnNone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(125)))), ((int)(((byte)(137)))));
-            this.BtnNone.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnNone.FlatAppearance.BorderSize = 0;
-            this.BtnNone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnNone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BtnNone.Location = new System.Drawing.Point(0, 0);
-            this.BtnNone.Name = "BtnNone";
-            this.BtnNone.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnNone.Size = new System.Drawing.Size(233, 35);
-            this.BtnNone.TabIndex = 0;
-            this.BtnNone.Text = "No module";
-            this.BtnNone.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnNone.UseVisualStyleBackColor = false;
-            this.BtnNone.Click += new System.EventHandler(this.Module_Selection);
             // 
             // BtnModule
             // 
@@ -607,7 +354,7 @@
             this.BtnModule.Location = new System.Drawing.Point(0, 305);
             this.BtnModule.Name = "BtnModule";
             this.BtnModule.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.BtnModule.Size = new System.Drawing.Size(233, 45);
+            this.BtnModule.Size = new System.Drawing.Size(250, 45);
             this.BtnModule.TabIndex = 3;
             this.BtnModule.Text = "Module";
             this.BtnModule.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -623,7 +370,7 @@
             this.PnlComPort.Dock = System.Windows.Forms.DockStyle.Top;
             this.PnlComPort.Location = new System.Drawing.Point(0, 165);
             this.PnlComPort.Name = "PnlComPort";
-            this.PnlComPort.Size = new System.Drawing.Size(233, 140);
+            this.PnlComPort.Size = new System.Drawing.Size(250, 140);
             this.PnlComPort.TabIndex = 2;
             // 
             // BtnAllComPort
@@ -636,7 +383,7 @@
             this.BtnAllComPort.Location = new System.Drawing.Point(0, 105);
             this.BtnAllComPort.Name = "BtnAllComPort";
             this.BtnAllComPort.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnAllComPort.Size = new System.Drawing.Size(233, 35);
+            this.BtnAllComPort.Size = new System.Drawing.Size(250, 35);
             this.BtnAllComPort.TabIndex = 3;
             this.BtnAllComPort.Text = "Open All Ports";
             this.BtnAllComPort.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -653,7 +400,7 @@
             this.BtnPort3.Location = new System.Drawing.Point(0, 70);
             this.BtnPort3.Name = "BtnPort3";
             this.BtnPort3.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnPort3.Size = new System.Drawing.Size(233, 35);
+            this.BtnPort3.Size = new System.Drawing.Size(250, 35);
             this.BtnPort3.TabIndex = 2;
             this.BtnPort3.Text = "Port B";
             this.BtnPort3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -670,7 +417,7 @@
             this.BtnPort2.Location = new System.Drawing.Point(0, 35);
             this.BtnPort2.Name = "BtnPort2";
             this.BtnPort2.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnPort2.Size = new System.Drawing.Size(233, 35);
+            this.BtnPort2.Size = new System.Drawing.Size(250, 35);
             this.BtnPort2.TabIndex = 1;
             this.BtnPort2.Text = "Port A";
             this.BtnPort2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -687,7 +434,7 @@
             this.BtnPort1.Location = new System.Drawing.Point(0, 0);
             this.BtnPort1.Name = "BtnPort1";
             this.BtnPort1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnPort1.Size = new System.Drawing.Size(233, 35);
+            this.BtnPort1.Size = new System.Drawing.Size(250, 35);
             this.BtnPort1.TabIndex = 0;
             this.BtnPort1.Text = "Control Port";
             this.BtnPort1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -706,7 +453,7 @@
             this.BtnComPortMenu.Location = new System.Drawing.Point(0, 120);
             this.BtnComPortMenu.Name = "BtnComPortMenu";
             this.BtnComPortMenu.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.BtnComPortMenu.Size = new System.Drawing.Size(233, 45);
+            this.BtnComPortMenu.Size = new System.Drawing.Size(250, 45);
             this.BtnComPortMenu.TabIndex = 1;
             this.BtnComPortMenu.Text = "Port Menu";
             this.BtnComPortMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -720,12 +467,22 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(233, 120);
+            this.panel4.Size = new System.Drawing.Size(250, 120);
             this.panel4.TabIndex = 0;
+            // 
+            // HW
+            // 
+            this.HW.Image = global::test_stand.Properties.Resources.HW3;
+            this.HW.Location = new System.Drawing.Point(38, 3);
+            this.HW.Name = "HW";
+            this.HW.Size = new System.Drawing.Size(106, 108);
+            this.HW.TabIndex = 0;
+            this.HW.TabStop = false;
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(125)))), ((int)(((byte)(137)))));
+            this.panel5.BackColor = System.Drawing.Color.DarkGray;
+            this.panel5.Controls.Add(this.label1);
             this.panel5.Controls.Add(this.PBCloseWindow);
             this.panel5.Controls.Add(this.PBMinimizeWindow);
             this.panel5.Controls.Add(this.PBMaximizeWindow);
@@ -736,6 +493,54 @@
             this.panel5.TabIndex = 74;
             this.panel5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseDown);
             this.panel5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseMove);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(360, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "label1";
+            // 
+            // PBCloseWindow
+            // 
+            this.PBCloseWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PBCloseWindow.BackColor = System.Drawing.Color.LightGray;
+            this.PBCloseWindow.Image = ((System.Drawing.Image)(resources.GetObject("PBCloseWindow.Image")));
+            this.PBCloseWindow.Location = new System.Drawing.Point(1260, 11);
+            this.PBCloseWindow.Name = "PBCloseWindow";
+            this.PBCloseWindow.Size = new System.Drawing.Size(20, 20);
+            this.PBCloseWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PBCloseWindow.TabIndex = 3;
+            this.PBCloseWindow.TabStop = false;
+            this.PBCloseWindow.Click += new System.EventHandler(this.Close_Window);
+            // 
+            // PBMinimizeWindow
+            // 
+            this.PBMinimizeWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PBMinimizeWindow.BackColor = System.Drawing.Color.LightGray;
+            this.PBMinimizeWindow.Image = ((System.Drawing.Image)(resources.GetObject("PBMinimizeWindow.Image")));
+            this.PBMinimizeWindow.Location = new System.Drawing.Point(1234, 11);
+            this.PBMinimizeWindow.Name = "PBMinimizeWindow";
+            this.PBMinimizeWindow.Size = new System.Drawing.Size(20, 20);
+            this.PBMinimizeWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PBMinimizeWindow.TabIndex = 2;
+            this.PBMinimizeWindow.TabStop = false;
+            this.PBMinimizeWindow.Click += new System.EventHandler(this.PictureBox1_Click);
+            // 
+            // PBMaximizeWindow
+            // 
+            this.PBMaximizeWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PBMaximizeWindow.BackColor = System.Drawing.Color.LightGray;
+            this.PBMaximizeWindow.Image = ((System.Drawing.Image)(resources.GetObject("PBMaximizeWindow.Image")));
+            this.PBMaximizeWindow.Location = new System.Drawing.Point(1234, 11);
+            this.PBMaximizeWindow.Name = "PBMaximizeWindow";
+            this.PBMaximizeWindow.Size = new System.Drawing.Size(20, 20);
+            this.PBMaximizeWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PBMaximizeWindow.TabIndex = 1;
+            this.PBMaximizeWindow.TabStop = false;
+            this.PBMaximizeWindow.Click += new System.EventHandler(this.PBMaximizeWindow_Click);
             // 
             // panel8
             // 
@@ -749,6 +554,21 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(1048, 122);
             this.panel8.TabIndex = 75;
+            // 
+            // btnHW
+            // 
+            this.btnHW.BackColor = System.Drawing.Color.LightGray;
+            this.btnHW.FlatAppearance.BorderSize = 0;
+            this.btnHW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHW.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnHW.Location = new System.Drawing.Point(448, 65);
+            this.btnHW.Name = "btnHW";
+            this.btnHW.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnHW.Size = new System.Drawing.Size(460, 35);
+            this.btnHW.TabIndex = 3;
+            this.btnHW.Text = "Power U2:";
+            this.btnHW.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHW.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
@@ -873,981 +693,32 @@
             // PnlMain
             // 
             this.PnlMain.BackColor = System.Drawing.Color.LightGray;
-            this.PnlMain.Controls.Add(this.PnlTC);
-            this.PnlMain.Controls.Add(this.PnlDin);
-            this.PnlMain.Controls.Add(this.panel1);
-            this.PnlMain.Controls.Add(this.panel2);
+            this.PnlMain.Controls.Add(this.pnlRight);
+            this.PnlMain.Controls.Add(this.pnlLeft);
             this.PnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlMain.Location = new System.Drawing.Point(0, 0);
             this.PnlMain.Name = "PnlMain";
             this.PnlMain.Size = new System.Drawing.Size(1048, 706);
             this.PnlMain.TabIndex = 2;
             // 
-            // PnlTC
-            // 
-            this.PnlTC.Controls.Add(this.Pnl_Temperature);
-            this.PnlTC.Controls.Add(this.PnlPowerMTU5);
-            this.PnlTC.Controls.Add(this.PnlTURF);
-            this.PnlTC.Controls.Add(this.PnlTU);
-            this.PnlTC.Controls.Add(this.Pnl_TC);
-            this.PnlTC.Controls.Add(this.PnlKF);
-            this.PnlTC.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PnlTC.Location = new System.Drawing.Point(493, 35);
-            this.PnlTC.Name = "PnlTC";
-            this.PnlTC.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.PnlTC.Size = new System.Drawing.Size(500, 636);
-            this.PnlTC.TabIndex = 1;
-            // 
-            // Pnl_Temperature
-            // 
-            this.Pnl_Temperature.Controls.Add(this.BtnTemperature);
-            this.Pnl_Temperature.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Pnl_Temperature.Location = new System.Drawing.Point(40, 525);
-            this.Pnl_Temperature.Name = "Pnl_Temperature";
-            this.Pnl_Temperature.Size = new System.Drawing.Size(460, 70);
-            this.Pnl_Temperature.TabIndex = 5;
-            // 
-            // BtnTemperature
-            // 
-            this.BtnTemperature.BackColor = System.Drawing.Color.LightGray;
-            this.BtnTemperature.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BtnTemperature.FlatAppearance.BorderSize = 0;
-            this.BtnTemperature.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BtnTemperature.Location = new System.Drawing.Point(0, 35);
-            this.BtnTemperature.Name = "BtnTemperature";
-            this.BtnTemperature.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.BtnTemperature.Size = new System.Drawing.Size(460, 35);
-            this.BtnTemperature.TabIndex = 1;
-            this.BtnTemperature.Text = "Temperature:";
-            this.BtnTemperature.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnTemperature.UseVisualStyleBackColor = false;
-            // 
-            // PnlPowerMTU5
-            // 
-            this.PnlPowerMTU5.Controls.Add(this.PWR_1_MTU5);
-            this.PnlPowerMTU5.Controls.Add(this.PWR_2_MTU5);
-            this.PnlPowerMTU5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlPowerMTU5.Location = new System.Drawing.Point(40, 420);
-            this.PnlPowerMTU5.Name = "PnlPowerMTU5";
-            this.PnlPowerMTU5.Size = new System.Drawing.Size(460, 105);
-            this.PnlPowerMTU5.TabIndex = 4;
-            // 
-            // PWR_1_MTU5
-            // 
-            this.PWR_1_MTU5.BackColor = System.Drawing.Color.LightGray;
-            this.PWR_1_MTU5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PWR_1_MTU5.FlatAppearance.BorderSize = 0;
-            this.PWR_1_MTU5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PWR_1_MTU5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PWR_1_MTU5.Location = new System.Drawing.Point(0, 35);
-            this.PWR_1_MTU5.Name = "PWR_1_MTU5";
-            this.PWR_1_MTU5.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.PWR_1_MTU5.Size = new System.Drawing.Size(460, 35);
-            this.PWR_1_MTU5.TabIndex = 1;
-            this.PWR_1_MTU5.Text = "Power U1:";
-            this.PWR_1_MTU5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PWR_1_MTU5.UseVisualStyleBackColor = false;
-            // 
-            // PWR_2_MTU5
-            // 
-            this.PWR_2_MTU5.BackColor = System.Drawing.Color.LightGray;
-            this.PWR_2_MTU5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PWR_2_MTU5.FlatAppearance.BorderSize = 0;
-            this.PWR_2_MTU5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PWR_2_MTU5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PWR_2_MTU5.Location = new System.Drawing.Point(0, 70);
-            this.PWR_2_MTU5.Name = "PWR_2_MTU5";
-            this.PWR_2_MTU5.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.PWR_2_MTU5.Size = new System.Drawing.Size(460, 35);
-            this.PWR_2_MTU5.TabIndex = 2;
-            this.PWR_2_MTU5.Text = "Power U2:";
-            this.PWR_2_MTU5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PWR_2_MTU5.UseVisualStyleBackColor = false;
-            // 
-            // PnlTURF
-            // 
-            this.PnlTURF.Controls.Add(this.TU3);
-            this.PnlTURF.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlTURF.Location = new System.Drawing.Point(40, 385);
-            this.PnlTURF.Name = "PnlTURF";
-            this.PnlTURF.Size = new System.Drawing.Size(460, 35);
-            this.PnlTURF.TabIndex = 3;
-            // 
-            // TU3
-            // 
-            this.TU3.BackColor = System.Drawing.Color.LightGray;
-            this.TU3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TU3.FlatAppearance.BorderSize = 0;
-            this.TU3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TU3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TU3.Location = new System.Drawing.Point(0, 0);
-            this.TU3.Name = "TU3";
-            this.TU3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.TU3.Size = new System.Drawing.Size(460, 35);
-            this.TU3.TabIndex = 2;
-            this.TU3.Text = "TU RF";
-            this.TU3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.TU3.UseVisualStyleBackColor = false;
-            this.TU3.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // PnlTU
-            // 
-            this.PnlTU.Controls.Add(this.TU2);
-            this.PnlTU.Controls.Add(this.TU1);
-            this.PnlTU.Controls.Add(this.BtnEnTU);
-            this.PnlTU.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlTU.Location = new System.Drawing.Point(40, 280);
-            this.PnlTU.Name = "PnlTU";
-            this.PnlTU.Size = new System.Drawing.Size(460, 105);
-            this.PnlTU.TabIndex = 2;
-            // 
-            // TU2
-            // 
-            this.TU2.BackColor = System.Drawing.Color.LightGray;
-            this.TU2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TU2.FlatAppearance.BorderSize = 0;
-            this.TU2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TU2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TU2.Location = new System.Drawing.Point(0, 70);
-            this.TU2.Name = "TU2";
-            this.TU2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.TU2.Size = new System.Drawing.Size(460, 35);
-            this.TU2.TabIndex = 2;
-            this.TU2.Text = "TU Off";
-            this.TU2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.TU2.UseVisualStyleBackColor = false;
-            this.TU2.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // TU1
-            // 
-            this.TU1.BackColor = System.Drawing.Color.LightGray;
-            this.TU1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TU1.FlatAppearance.BorderSize = 0;
-            this.TU1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TU1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TU1.Location = new System.Drawing.Point(0, 35);
-            this.TU1.Name = "TU1";
-            this.TU1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.TU1.Size = new System.Drawing.Size(460, 35);
-            this.TU1.TabIndex = 1;
-            this.TU1.Text = "TU On";
-            this.TU1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.TU1.UseVisualStyleBackColor = false;
-            this.TU1.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // BtnEnTU
-            // 
-            this.BtnEnTU.BackColor = System.Drawing.Color.LightGray;
-            this.BtnEnTU.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnEnTU.FlatAppearance.BorderSize = 0;
-            this.BtnEnTU.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEnTU.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BtnEnTU.Location = new System.Drawing.Point(0, 0);
-            this.BtnEnTU.Name = "BtnEnTU";
-            this.BtnEnTU.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.BtnEnTU.Size = new System.Drawing.Size(460, 35);
-            this.BtnEnTU.TabIndex = 3;
-            this.BtnEnTU.Text = "EnTU";
-            this.BtnEnTU.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnEnTU.UseVisualStyleBackColor = false;
-            // 
-            // Pnl_TC
-            // 
-            this.Pnl_TC.Controls.Add(this.TC3);
-            this.Pnl_TC.Controls.Add(this.TC2);
-            this.Pnl_TC.Controls.Add(this.TC1);
-            this.Pnl_TC.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Pnl_TC.Location = new System.Drawing.Point(40, 140);
-            this.Pnl_TC.Name = "Pnl_TC";
-            this.Pnl_TC.Size = new System.Drawing.Size(460, 140);
-            this.Pnl_TC.TabIndex = 1;
-            // 
-            // TC3
-            // 
-            this.TC3.BackColor = System.Drawing.Color.LightGray;
-            this.TC3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TC3.FlatAppearance.BorderSize = 0;
-            this.TC3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TC3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TC3.Location = new System.Drawing.Point(0, 70);
-            this.TC3.Name = "TC3";
-            this.TC3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.TC3.Size = new System.Drawing.Size(460, 35);
-            this.TC3.TabIndex = 3;
-            this.TC3.Text = "TCC:";
-            this.TC3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.TC3.UseVisualStyleBackColor = false;
-            this.TC3.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // TC2
-            // 
-            this.TC2.BackColor = System.Drawing.Color.LightGray;
-            this.TC2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TC2.FlatAppearance.BorderSize = 0;
-            this.TC2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TC2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TC2.Location = new System.Drawing.Point(0, 35);
-            this.TC2.Name = "TC2";
-            this.TC2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.TC2.Size = new System.Drawing.Size(460, 35);
-            this.TC2.TabIndex = 2;
-            this.TC2.Text = "TCB:";
-            this.TC2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.TC2.UseVisualStyleBackColor = false;
-            this.TC2.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // TC1
-            // 
-            this.TC1.BackColor = System.Drawing.Color.LightGray;
-            this.TC1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TC1.FlatAppearance.BorderSize = 0;
-            this.TC1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TC1.Location = new System.Drawing.Point(0, 0);
-            this.TC1.Name = "TC1";
-            this.TC1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.TC1.Size = new System.Drawing.Size(460, 35);
-            this.TC1.TabIndex = 1;
-            this.TC1.Text = "TCA:";
-            this.TC1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.TC1.UseVisualStyleBackColor = false;
-            this.TC1.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // PnlKF
-            // 
-            this.PnlKF.Controls.Add(this.KF3);
-            this.PnlKF.Controls.Add(this.KF2);
-            this.PnlKF.Controls.Add(this.KF1);
-            this.PnlKF.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlKF.Location = new System.Drawing.Point(40, 0);
-            this.PnlKF.Name = "PnlKF";
-            this.PnlKF.Size = new System.Drawing.Size(460, 140);
-            this.PnlKF.TabIndex = 0;
-            // 
-            // KF3
-            // 
-            this.KF3.BackColor = System.Drawing.Color.LightGray;
-            this.KF3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.KF3.FlatAppearance.BorderSize = 0;
-            this.KF3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.KF3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.KF3.Location = new System.Drawing.Point(0, 70);
-            this.KF3.Name = "KF3";
-            this.KF3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.KF3.Size = new System.Drawing.Size(460, 35);
-            this.KF3.TabIndex = 3;
-            this.KF3.Text = "KFC:";
-            this.KF3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.KF3.UseVisualStyleBackColor = false;
-            this.KF3.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // KF2
-            // 
-            this.KF2.BackColor = System.Drawing.Color.LightGray;
-            this.KF2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.KF2.FlatAppearance.BorderSize = 0;
-            this.KF2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.KF2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.KF2.Location = new System.Drawing.Point(0, 35);
-            this.KF2.Name = "KF2";
-            this.KF2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.KF2.Size = new System.Drawing.Size(460, 35);
-            this.KF2.TabIndex = 2;
-            this.KF2.Text = "KFB:";
-            this.KF2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.KF2.UseVisualStyleBackColor = false;
-            this.KF2.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // KF1
-            // 
-            this.KF1.BackColor = System.Drawing.Color.LightGray;
-            this.KF1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.KF1.FlatAppearance.BorderSize = 0;
-            this.KF1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.KF1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.KF1.Location = new System.Drawing.Point(0, 0);
-            this.KF1.Name = "KF1";
-            this.KF1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.KF1.Size = new System.Drawing.Size(460, 35);
-            this.KF1.TabIndex = 1;
-            this.KF1.Text = "KFA:";
-            this.KF1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.KF1.UseVisualStyleBackColor = false;
-            this.KF1.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // PnlDin
-            // 
-            this.PnlDin.AutoScroll = true;
-            this.PnlDin.BackColor = System.Drawing.Color.LightGray;
-            this.PnlDin.Controls.Add(this.button17);
-            this.PnlDin.Controls.Add(this.button18);
-            this.PnlDin.Controls.Add(this.button19);
-            this.PnlDin.Controls.Add(this.button20);
-            this.PnlDin.Controls.Add(this.button21);
-            this.PnlDin.Controls.Add(this.button22);
-            this.PnlDin.Controls.Add(this.button23);
-            this.PnlDin.Controls.Add(this.button24);
-            this.PnlDin.Controls.Add(this.button25);
-            this.PnlDin.Controls.Add(this.button26);
-            this.PnlDin.Controls.Add(this.button27);
-            this.PnlDin.Controls.Add(this.button28);
-            this.PnlDin.Controls.Add(this.button29);
-            this.PnlDin.Controls.Add(this.button30);
-            this.PnlDin.Controls.Add(this.button31);
-            this.PnlDin.Controls.Add(this.button32);
-            this.PnlDin.Controls.Add(this.button16);
-            this.PnlDin.Controls.Add(this.button15);
-            this.PnlDin.Controls.Add(this.button14);
-            this.PnlDin.Controls.Add(this.button13);
-            this.PnlDin.Controls.Add(this.button12);
-            this.PnlDin.Controls.Add(this.button11);
-            this.PnlDin.Controls.Add(this.button10);
-            this.PnlDin.Controls.Add(this.button9);
-            this.PnlDin.Controls.Add(this.button8);
-            this.PnlDin.Controls.Add(this.button7);
-            this.PnlDin.Controls.Add(this.button6);
-            this.PnlDin.Controls.Add(this.button5);
-            this.PnlDin.Controls.Add(this.button4);
-            this.PnlDin.Controls.Add(this.button3);
-            this.PnlDin.Controls.Add(this.button2);
-            this.PnlDin.Controls.Add(this.button1);
-            this.PnlDin.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PnlDin.Location = new System.Drawing.Point(0, 35);
-            this.PnlDin.Name = "PnlDin";
-            this.PnlDin.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.PnlDin.Size = new System.Drawing.Size(493, 636);
-            this.PnlDin.TabIndex = 0;
-            // 
-            // button17
-            // 
-            this.button17.BackColor = System.Drawing.Color.LightGray;
-            this.button17.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button17.FlatAppearance.BorderSize = 0;
-            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button17.Location = new System.Drawing.Point(40, 1085);
-            this.button17.Name = "button17";
-            this.button17.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button17.Size = new System.Drawing.Size(436, 35);
-            this.button17.TabIndex = 40;
-            this.button17.Text = "Din 01:";
-            this.button17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button17.UseVisualStyleBackColor = false;
-            this.button17.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button18
-            // 
-            this.button18.BackColor = System.Drawing.Color.LightGray;
-            this.button18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button18.FlatAppearance.BorderSize = 0;
-            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button18.Location = new System.Drawing.Point(40, 1050);
-            this.button18.Name = "button18";
-            this.button18.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button18.Size = new System.Drawing.Size(436, 35);
-            this.button18.TabIndex = 39;
-            this.button18.Text = "Din 01:";
-            this.button18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button18.UseVisualStyleBackColor = false;
-            this.button18.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button19
-            // 
-            this.button19.BackColor = System.Drawing.Color.LightGray;
-            this.button19.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button19.FlatAppearance.BorderSize = 0;
-            this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button19.Location = new System.Drawing.Point(40, 1015);
-            this.button19.Name = "button19";
-            this.button19.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button19.Size = new System.Drawing.Size(436, 35);
-            this.button19.TabIndex = 38;
-            this.button19.Text = "Din 01:";
-            this.button19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button19.UseVisualStyleBackColor = false;
-            this.button19.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button20
-            // 
-            this.button20.BackColor = System.Drawing.Color.LightGray;
-            this.button20.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button20.FlatAppearance.BorderSize = 0;
-            this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button20.Location = new System.Drawing.Point(40, 980);
-            this.button20.Name = "button20";
-            this.button20.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button20.Size = new System.Drawing.Size(436, 35);
-            this.button20.TabIndex = 37;
-            this.button20.Text = "Din 01:";
-            this.button20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button20.UseVisualStyleBackColor = false;
-            this.button20.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button21
-            // 
-            this.button21.BackColor = System.Drawing.Color.LightGray;
-            this.button21.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button21.FlatAppearance.BorderSize = 0;
-            this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button21.Location = new System.Drawing.Point(40, 945);
-            this.button21.Name = "button21";
-            this.button21.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button21.Size = new System.Drawing.Size(436, 35);
-            this.button21.TabIndex = 36;
-            this.button21.Text = "Din 01:";
-            this.button21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button21.UseVisualStyleBackColor = false;
-            this.button21.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button22
-            // 
-            this.button22.BackColor = System.Drawing.Color.LightGray;
-            this.button22.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button22.FlatAppearance.BorderSize = 0;
-            this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button22.Location = new System.Drawing.Point(40, 910);
-            this.button22.Name = "button22";
-            this.button22.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button22.Size = new System.Drawing.Size(436, 35);
-            this.button22.TabIndex = 35;
-            this.button22.Text = "Din 01:";
-            this.button22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button22.UseVisualStyleBackColor = false;
-            this.button22.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button23
-            // 
-            this.button23.BackColor = System.Drawing.Color.LightGray;
-            this.button23.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button23.FlatAppearance.BorderSize = 0;
-            this.button23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button23.Location = new System.Drawing.Point(40, 875);
-            this.button23.Name = "button23";
-            this.button23.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button23.Size = new System.Drawing.Size(436, 35);
-            this.button23.TabIndex = 34;
-            this.button23.Text = "Din 01:";
-            this.button23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button23.UseVisualStyleBackColor = false;
-            this.button23.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button24
-            // 
-            this.button24.BackColor = System.Drawing.Color.LightGray;
-            this.button24.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button24.FlatAppearance.BorderSize = 0;
-            this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button24.Location = new System.Drawing.Point(40, 840);
-            this.button24.Name = "button24";
-            this.button24.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button24.Size = new System.Drawing.Size(436, 35);
-            this.button24.TabIndex = 33;
-            this.button24.Text = "Din 01:";
-            this.button24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button24.UseVisualStyleBackColor = false;
-            this.button24.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button25
-            // 
-            this.button25.BackColor = System.Drawing.Color.LightGray;
-            this.button25.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button25.FlatAppearance.BorderSize = 0;
-            this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button25.Location = new System.Drawing.Point(40, 805);
-            this.button25.Name = "button25";
-            this.button25.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button25.Size = new System.Drawing.Size(436, 35);
-            this.button25.TabIndex = 32;
-            this.button25.Text = "Din 01:";
-            this.button25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button25.UseVisualStyleBackColor = false;
-            this.button25.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button26
-            // 
-            this.button26.BackColor = System.Drawing.Color.LightGray;
-            this.button26.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button26.FlatAppearance.BorderSize = 0;
-            this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button26.Location = new System.Drawing.Point(40, 770);
-            this.button26.Name = "button26";
-            this.button26.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button26.Size = new System.Drawing.Size(436, 35);
-            this.button26.TabIndex = 31;
-            this.button26.Text = "Din 01:";
-            this.button26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button26.UseVisualStyleBackColor = false;
-            this.button26.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button27
-            // 
-            this.button27.BackColor = System.Drawing.Color.LightGray;
-            this.button27.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button27.FlatAppearance.BorderSize = 0;
-            this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button27.Location = new System.Drawing.Point(40, 735);
-            this.button27.Name = "button27";
-            this.button27.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button27.Size = new System.Drawing.Size(436, 35);
-            this.button27.TabIndex = 30;
-            this.button27.Text = "Din 01:";
-            this.button27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button27.UseVisualStyleBackColor = false;
-            this.button27.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button28
-            // 
-            this.button28.BackColor = System.Drawing.Color.LightGray;
-            this.button28.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button28.FlatAppearance.BorderSize = 0;
-            this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button28.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button28.Location = new System.Drawing.Point(40, 700);
-            this.button28.Name = "button28";
-            this.button28.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button28.Size = new System.Drawing.Size(436, 35);
-            this.button28.TabIndex = 29;
-            this.button28.Text = "Din 01:";
-            this.button28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button28.UseVisualStyleBackColor = false;
-            this.button28.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button29
-            // 
-            this.button29.BackColor = System.Drawing.Color.LightGray;
-            this.button29.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button29.FlatAppearance.BorderSize = 0;
-            this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button29.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button29.Location = new System.Drawing.Point(40, 665);
-            this.button29.Name = "button29";
-            this.button29.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button29.Size = new System.Drawing.Size(436, 35);
-            this.button29.TabIndex = 28;
-            this.button29.Text = "Din 01:";
-            this.button29.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button29.UseVisualStyleBackColor = false;
-            this.button29.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button30
-            // 
-            this.button30.BackColor = System.Drawing.Color.LightGray;
-            this.button30.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button30.FlatAppearance.BorderSize = 0;
-            this.button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button30.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button30.Location = new System.Drawing.Point(40, 630);
-            this.button30.Name = "button30";
-            this.button30.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button30.Size = new System.Drawing.Size(436, 35);
-            this.button30.TabIndex = 27;
-            this.button30.Text = "Din 01:";
-            this.button30.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button30.UseVisualStyleBackColor = false;
-            this.button30.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button31
-            // 
-            this.button31.BackColor = System.Drawing.Color.LightGray;
-            this.button31.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button31.FlatAppearance.BorderSize = 0;
-            this.button31.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button31.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button31.Location = new System.Drawing.Point(40, 595);
-            this.button31.Name = "button31";
-            this.button31.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button31.Size = new System.Drawing.Size(436, 35);
-            this.button31.TabIndex = 26;
-            this.button31.Text = "Din 01:";
-            this.button31.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button31.UseVisualStyleBackColor = false;
-            this.button31.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button32
-            // 
-            this.button32.BackColor = System.Drawing.Color.LightGray;
-            this.button32.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button32.FlatAppearance.BorderSize = 0;
-            this.button32.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button32.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button32.Location = new System.Drawing.Point(40, 560);
-            this.button32.Name = "button32";
-            this.button32.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button32.Size = new System.Drawing.Size(436, 35);
-            this.button32.TabIndex = 25;
-            this.button32.Text = "Din 01:";
-            this.button32.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button32.UseVisualStyleBackColor = false;
-            this.button32.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button16
-            // 
-            this.button16.BackColor = System.Drawing.Color.LightGray;
-            this.button16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button16.FlatAppearance.BorderSize = 0;
-            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button16.Location = new System.Drawing.Point(40, 525);
-            this.button16.Name = "button16";
-            this.button16.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button16.Size = new System.Drawing.Size(436, 35);
-            this.button16.TabIndex = 24;
-            this.button16.Text = "Din 01:";
-            this.button16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button16.UseVisualStyleBackColor = false;
-            this.button16.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button15
-            // 
-            this.button15.BackColor = System.Drawing.Color.LightGray;
-            this.button15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button15.FlatAppearance.BorderSize = 0;
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button15.Location = new System.Drawing.Point(40, 490);
-            this.button15.Name = "button15";
-            this.button15.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button15.Size = new System.Drawing.Size(436, 35);
-            this.button15.TabIndex = 23;
-            this.button15.Text = "Din 01:";
-            this.button15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button15.UseVisualStyleBackColor = false;
-            this.button15.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button14
-            // 
-            this.button14.BackColor = System.Drawing.Color.LightGray;
-            this.button14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button14.FlatAppearance.BorderSize = 0;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button14.Location = new System.Drawing.Point(40, 455);
-            this.button14.Name = "button14";
-            this.button14.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button14.Size = new System.Drawing.Size(436, 35);
-            this.button14.TabIndex = 22;
-            this.button14.Text = "Din 01:";
-            this.button14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button14.UseVisualStyleBackColor = false;
-            this.button14.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button13
-            // 
-            this.button13.BackColor = System.Drawing.Color.LightGray;
-            this.button13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button13.FlatAppearance.BorderSize = 0;
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button13.Location = new System.Drawing.Point(40, 420);
-            this.button13.Name = "button13";
-            this.button13.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button13.Size = new System.Drawing.Size(436, 35);
-            this.button13.TabIndex = 21;
-            this.button13.Text = "Din 01:";
-            this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button13.UseVisualStyleBackColor = false;
-            this.button13.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button12
-            // 
-            this.button12.BackColor = System.Drawing.Color.LightGray;
-            this.button12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button12.Location = new System.Drawing.Point(40, 385);
-            this.button12.Name = "button12";
-            this.button12.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button12.Size = new System.Drawing.Size(436, 35);
-            this.button12.TabIndex = 20;
-            this.button12.Text = "Din 01:";
-            this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button12.UseVisualStyleBackColor = false;
-            this.button12.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button11
-            // 
-            this.button11.BackColor = System.Drawing.Color.LightGray;
-            this.button11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button11.Location = new System.Drawing.Point(40, 350);
-            this.button11.Name = "button11";
-            this.button11.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button11.Size = new System.Drawing.Size(436, 35);
-            this.button11.TabIndex = 19;
-            this.button11.Text = "Din 01:";
-            this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button11.UseVisualStyleBackColor = false;
-            this.button11.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button10
-            // 
-            this.button10.BackColor = System.Drawing.Color.LightGray;
-            this.button10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button10.Location = new System.Drawing.Point(40, 315);
-            this.button10.Name = "button10";
-            this.button10.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button10.Size = new System.Drawing.Size(436, 35);
-            this.button10.TabIndex = 18;
-            this.button10.Text = "Din 01:";
-            this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.UseVisualStyleBackColor = false;
-            this.button10.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.LightGray;
-            this.button9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button9.Location = new System.Drawing.Point(40, 280);
-            this.button9.Name = "button9";
-            this.button9.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button9.Size = new System.Drawing.Size(436, 35);
-            this.button9.TabIndex = 17;
-            this.button9.Text = "Din 01:";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.LightGray;
-            this.button8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button8.Location = new System.Drawing.Point(40, 245);
-            this.button8.Name = "button8";
-            this.button8.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button8.Size = new System.Drawing.Size(436, 35);
-            this.button8.TabIndex = 16;
-            this.button8.Text = "Din 01:";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.LightGray;
-            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button7.Location = new System.Drawing.Point(40, 210);
-            this.button7.Name = "button7";
-            this.button7.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button7.Size = new System.Drawing.Size(436, 35);
-            this.button7.TabIndex = 15;
-            this.button7.Text = "Din 01:";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.LightGray;
-            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button6.Location = new System.Drawing.Point(40, 175);
-            this.button6.Name = "button6";
-            this.button6.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button6.Size = new System.Drawing.Size(436, 35);
-            this.button6.TabIndex = 14;
-            this.button6.Text = "Din 01:";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.LightGray;
-            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button5.Location = new System.Drawing.Point(40, 140);
-            this.button5.Name = "button5";
-            this.button5.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button5.Size = new System.Drawing.Size(436, 35);
-            this.button5.TabIndex = 13;
-            this.button5.Text = "Din 01:";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.LightGray;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.Location = new System.Drawing.Point(40, 105);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button4.Size = new System.Drawing.Size(436, 35);
-            this.button4.TabIndex = 12;
-            this.button4.Text = "Din 01:";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.LightGray;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(40, 70);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(436, 35);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Din 01:";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.LightGray;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(40, 35);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(436, 35);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Din 01:";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LightGray;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(40, 0);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(436, 35);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Din 01:";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.Controls_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 671);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1048, 35);
-            this.panel1.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(202, 14);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 13);
-            this.label3.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.LightGray;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1048, 35);
-            this.panel2.TabIndex = 3;
-            // 
-            // btnHW
-            // 
-            this.btnHW.BackColor = System.Drawing.Color.LightGray;
-            this.btnHW.FlatAppearance.BorderSize = 0;
-            this.btnHW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHW.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnHW.Location = new System.Drawing.Point(448, 65);
-            this.btnHW.Name = "btnHW";
-            this.btnHW.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnHW.Size = new System.Drawing.Size(460, 35);
-            this.btnHW.TabIndex = 3;
-            this.btnHW.Text = "Power U2:";
-            this.btnHW.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHW.UseVisualStyleBackColor = false;
-            // 
-            // HW
-            // 
-            this.HW.Image = global::test_stand.Properties.Resources.HW3;
-            this.HW.Location = new System.Drawing.Point(38, 3);
-            this.HW.Name = "HW";
-            this.HW.Size = new System.Drawing.Size(106, 108);
-            this.HW.TabIndex = 0;
-            this.HW.TabStop = false;
-            // 
-            // PBCloseWindow
-            // 
-            this.PBCloseWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PBCloseWindow.Image = ((System.Drawing.Image)(resources.GetObject("PBCloseWindow.Image")));
-            this.PBCloseWindow.Location = new System.Drawing.Point(1260, 11);
-            this.PBCloseWindow.Name = "PBCloseWindow";
-            this.PBCloseWindow.Size = new System.Drawing.Size(20, 20);
-            this.PBCloseWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PBCloseWindow.TabIndex = 3;
-            this.PBCloseWindow.TabStop = false;
-            this.PBCloseWindow.Click += new System.EventHandler(this.Close_Window);
-            // 
-            // PBMinimizeWindow
-            // 
-            this.PBMinimizeWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PBMinimizeWindow.Image = ((System.Drawing.Image)(resources.GetObject("PBMinimizeWindow.Image")));
-            this.PBMinimizeWindow.Location = new System.Drawing.Point(1234, 11);
-            this.PBMinimizeWindow.Name = "PBMinimizeWindow";
-            this.PBMinimizeWindow.Size = new System.Drawing.Size(20, 20);
-            this.PBMinimizeWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PBMinimizeWindow.TabIndex = 2;
-            this.PBMinimizeWindow.TabStop = false;
-            this.PBMinimizeWindow.Click += new System.EventHandler(this.PictureBox1_Click);
-            // 
-            // PBMaximizeWindow
-            // 
-            this.PBMaximizeWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PBMaximizeWindow.Image = ((System.Drawing.Image)(resources.GetObject("PBMaximizeWindow.Image")));
-            this.PBMaximizeWindow.Location = new System.Drawing.Point(1234, 11);
-            this.PBMaximizeWindow.Name = "PBMaximizeWindow";
-            this.PBMaximizeWindow.Size = new System.Drawing.Size(20, 20);
-            this.PBMaximizeWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PBMaximizeWindow.TabIndex = 1;
-            this.PBMaximizeWindow.TabStop = false;
-            this.PBMaximizeWindow.Click += new System.EventHandler(this.PBMaximizeWindow_Click);
+            // pnlRight
+            // 
+            this.pnlRight.AutoScroll = true;
+            this.pnlRight.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlRight.Location = new System.Drawing.Point(515, 0);
+            this.pnlRight.Name = "pnlRight";
+            this.pnlRight.Size = new System.Drawing.Size(533, 706);
+            this.pnlRight.TabIndex = 1;
+            // 
+            // pnlLeft
+            // 
+            this.pnlLeft.AutoScroll = true;
+            this.pnlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlLeft.Location = new System.Drawing.Point(0, 0);
+            this.pnlLeft.Name = "pnlLeft";
+            this.pnlLeft.Padding = new System.Windows.Forms.Padding(0, 35, 0, 35);
+            this.pnlLeft.Size = new System.Drawing.Size(515, 706);
+            this.pnlLeft.TabIndex = 0;
             // 
             // FormMain
             // 
@@ -1867,29 +738,19 @@
             this.PnlSideMenu.ResumeLayout(false);
             this.PnlTests.ResumeLayout(false);
             this.PnlParameters.ResumeLayout(false);
-            this.PnlModule.ResumeLayout(false);
             this.PnlComPort.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.HW)).EndInit();
             this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PBCloseWindow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBMinimizeWindow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBMaximizeWindow)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.PnlChildForm.ResumeLayout(false);
             this.PnlMain.ResumeLayout(false);
-            this.PnlTC.ResumeLayout(false);
-            this.Pnl_Temperature.ResumeLayout(false);
-            this.PnlPowerMTU5.ResumeLayout(false);
-            this.PnlTURF.ResumeLayout(false);
-            this.PnlTU.ResumeLayout(false);
-            this.Pnl_TC.ResumeLayout(false);
-            this.PnlKF.ResumeLayout(false);
-            this.PnlDin.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.HW)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PBCloseWindow)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PBMinimizeWindow)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PBMaximizeWindow)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1904,10 +765,6 @@
         private System.Windows.Forms.Button ModuleSettings;
         private System.Windows.Forms.Button BtnParameters;
         private System.Windows.Forms.Panel PnlModule;
-        private System.Windows.Forms.Button Module3;
-        private System.Windows.Forms.Button Module2;
-        private System.Windows.Forms.Button Module1;
-        private System.Windows.Forms.Button BtnNone;
         private System.Windows.Forms.Button BtnModule;
         private System.Windows.Forms.Panel PnlComPort;
         private System.Windows.Forms.Button BtnPort3;
@@ -1922,85 +779,26 @@
         private System.Windows.Forms.Button BtnCurent2;
         private System.Windows.Forms.Button BtnCurent1;
         private System.Windows.Forms.Button BtnAllComPort;
-        private System.Windows.Forms.Panel PnlDin;
-        private System.Windows.Forms.Panel PnlTC;
-        private System.Windows.Forms.Panel PnlTURF;
-        private System.Windows.Forms.Button TU3;
-        private System.Windows.Forms.Panel PnlTU;
-        private System.Windows.Forms.Button TU2;
-        private System.Windows.Forms.Button TU1;
-        private System.Windows.Forms.Panel Pnl_TC;
-        private System.Windows.Forms.Button TC3;
-        private System.Windows.Forms.Button TC2;
-        private System.Windows.Forms.Button TC1;
-        private System.Windows.Forms.Panel PnlKF;
-        private System.Windows.Forms.Button KF3;
-        private System.Windows.Forms.Button KF2;
-        private System.Windows.Forms.Button KF1;
         private System.Windows.Forms.PictureBox PBMaximizeWindow;
         private System.Windows.Forms.PictureBox PBMinimizeWindow;
         private System.Windows.Forms.PictureBox PBCloseWindow;
         private System.Windows.Forms.Panel PnlMain;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button Module4;
         private System.Windows.Forms.Button StartTest;
-        private System.Windows.Forms.Button Module6;
-        private System.Windows.Forms.Button Module5;
-        private System.Windows.Forms.Button Module7;
-        private System.Windows.Forms.Panel PnlPowerMTU5;
-        private System.Windows.Forms.Button PWR_2_MTU5;
-        private System.Windows.Forms.Button PWR_1_MTU5;
-        private System.Windows.Forms.Panel Pnl_Temperature;
-        private System.Windows.Forms.Button BtnTemperature;
-        private System.Windows.Forms.Button Module8;
-        private System.Windows.Forms.Button Module9;
         private System.Windows.Forms.Panel PnlTests;
         private System.Windows.Forms.Button BtnTests1;
         private System.Windows.Forms.Button BtnTests3;
         private System.Windows.Forms.Button BtnTests2;
         private System.Windows.Forms.Button BtnTests4;
         private System.Windows.Forms.Button BtnTests5;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button Btn12V2;
         private System.Windows.Forms.Button Btn12V1;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button BtnEnTU;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button button20;
-        private System.Windows.Forms.Button button21;
-        private System.Windows.Forms.Button button22;
-        private System.Windows.Forms.Button button23;
-        private System.Windows.Forms.Button button24;
-        private System.Windows.Forms.Button button25;
-        private System.Windows.Forms.Button button26;
-        private System.Windows.Forms.Button button27;
-        private System.Windows.Forms.Button button28;
-        private System.Windows.Forms.Button button29;
-        private System.Windows.Forms.Button button30;
-        private System.Windows.Forms.Button button31;
-        private System.Windows.Forms.Button button32;
         private System.Windows.Forms.Button Btn12V3;
         private System.Windows.Forms.PictureBox HW;
         private System.Windows.Forms.Button btnHW;
+        private System.Windows.Forms.Panel pnlRight;
+        private System.Windows.Forms.Panel pnlLeft;
+        private System.Windows.Forms.Label label1;
     }
 }
 
