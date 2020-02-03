@@ -39,3 +39,7 @@ C:\Test\Test-stand\test stand\bin\Debug\SupportClass.dll
 C:\Test\Test-stand\test stand\bin\Debug\SupportClass.pdb
 C:\Test\Test-stand\test stand\bin\Debug\Newtonsoft.Json.dll
 C:\Test\Test-stand\test stand\bin\Debug\Newtonsoft.Json.xml
+C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\bin\Debug\Newtonsoft.Json.dll
+C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\bin\Debug\Newtonsoft.Json.xml
+C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\bin\Debug\SupportClass.pdb
+C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test stand.csprojAssemblyReference.cache

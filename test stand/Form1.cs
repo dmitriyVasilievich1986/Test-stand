@@ -35,9 +35,9 @@ namespace test_stand
         {
             InitializeComponent();
 
-            using (StreamReader sw = new StreamReader(@"C:\Test\Test-stand\json\module.txt"))
+            using (StreamReader sw = new StreamReader(@"C:\Users\d.shcherbachenya\Desktop\projects\test stand\JSon\module.txt"))
                 module_parameters = JsonConvert.DeserializeObject<Module_Parameters>(sw.ReadToEnd());
-            using (StreamReader sw = new StreamReader(@"C:\Test\Test-stand\json\module_setup.txt"))
+            using (StreamReader sw = new StreamReader(@"C:\Users\d.shcherbachenya\Desktop\projects\test stand\JSon\module_setup.txt"))
                 setup = JsonConvert.DeserializeObject<List<Module_Setup>>(sw.ReadToEnd());
 
             PnlModule.Height = setup.Count * 35;
