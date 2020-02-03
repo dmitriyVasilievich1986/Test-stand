@@ -14,20 +14,6 @@ using System.Threading;
 using System.Data.SqlClient;
 using System.Collections;
 
-public enum Operation
-{
-    KF,
-    TC,
-    Din,    
-    Temperature,    
-    Power,
-    Current,
-    TUNumber,
-    ENTU,
-    TU,
-    Power_Ports,
-    U12
-}
 
 namespace test_stand
 {
@@ -43,57 +29,69 @@ namespace test_stand
 
             this.KeyDown += (s, e) =>
             {
-                if (e.KeyCode == Keys.P) { Controls_Click(BtnCurent1, null); }
-                if (e.KeyCode == Keys.Z && Data_Transit.shift_is_down)  { Data_Transit.shift_is_down = false; Form6 form6 = new Form6(Data_Transit.PortControl); form6.Show(); }
-                if (e.KeyCode == Keys.X && Data_Transit.shift_is_down) { Data_Transit.shift_is_down = false; Form6 form6 = new Form6(Data_Transit.PortChanelA); form6.Show(); }
-                if (e.KeyCode == Keys.T && Data_Transit.shift_is_down)  { MyTest(); }
-                if (e.KeyCode == Keys.Escape)
+                switch(e.KeyCode)
                 {
-                    Data_Transit.escape = true;
-                    PnlComPort.Visible = false;
-                    PnlModule.Visible = false;
-                    PnlParameters.Visible = false;
-                    PnlTests.Visible = false;
-                    if (Active_Form != null) { Active_Form.Close(); Active_Form = null; PnlMain.Visible = true; Open_Window = "form1";  }
-                    Data_Transit.serial_number = 0;
+                    case Keys.D4: StartTest.PerformClick(); break;
+                    case Keys.A: BtnAllComPort_Click(null, null); break;                    
+                    case Keys.P: Controls_Click(BtnCurent1, null); break;
+                    case Keys.ShiftKey: Data_Transit.shift_is_down = true; break;
+                    case Keys.T: if (Data_Transit.shift_is_down) MyTest(); break;
+                    case Keys.M: Open_Child_Form(new Modul_Settings()); Open_Window = "form3"; break;
+                    case Keys.D: Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x10, 0, 0x51, 00, 02, 04, 0, 0, 0, 0 }); break;
+                    case Keys.Z: if (Data_Transit.shift_is_down) { Data_Transit.shift_is_down = false; Form6 form6 = new Form6(Data_Transit.PortControl); form6.Show(); }; break;
+                    case Keys.X: if (Data_Transit.shift_is_down) { Data_Transit.shift_is_down = false; Form6 form6 = new Form6(Data_Transit.PortChanelA); form6.Show(); }; break;
+                    case Keys.S:
+                        if (Data_Transit.shift_is_down)
+                            StartTest_Click(null, null);
+                        else
+                            { Open_Child_Form(new Settings()); Open_Window = "form4"; }
+                        break;
+                    case Keys.D1:
+                        if (Data_Transit.shift_is_down)
+                            {
+                                byte set = 1;
+                                var co = Data_Transit.port_control_button.Where(c => c.name.Contains("din"));
+                                foreach (Button_Send a in co) if (a.button.BackColor == Color.Red) set = 0;
+                                Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Din16.Addres, 0x10, 0, 0x51, 00, 16, 32, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set });
+                            }
+                        else
+                            BtnComPortMenu.PerformClick();
+                        break;
+                    case Keys.D2:
+                        if (Data_Transit.shift_is_down)
+                        {
+                            byte set = 1;
+                            var co = Data_Transit.port_control_button.Where(c => c.name.Contains("kf"));
+                            foreach (Button_Send a in co) if (a.button.BackColor == Color.Red) set = 0;
+                            Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x10, 0, 0x5d, 00, 03, 06, 0, set, 0, set, 0, set });
+                        }
+                        else
+                            BtnModule.PerformClick();
+                        break;
+                    case Keys.D3:
+                        if (Data_Transit.shift_is_down)
+                        {
+                            byte set = 1;
+                            var co = Data_Transit.port_control_button.Where(c => c.name.Contains("tc"));
+                            foreach (Button_Send a in co) if (a.button.BackColor == Color.Red) set = 0;
+                            Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x10, 0, 0x55, 00, 03, 06, 0, set, 0, set, 0, set });
+                        }
+                        else
+                            BtnParameters.PerformClick();
+                        break;
+                    case Keys.Escape:
+                        Data_Transit.escape = true;
+                        PnlComPort.Visible = false;
+                        PnlModule.Visible = false;
+                        PnlParameters.Visible = false;
+                        PnlTests.Visible = false;
+                        if (Active_Form != null) { Active_Form.Close(); Active_Form = null; PnlMain.Visible = true; Open_Window = "form1"; }
+                        Data_Transit.serial_number = 0;
+                        break;
                 }
-                if (e.KeyCode == Keys.A) { BtnAllComPort_Click(null, null); }
-                if (e.KeyCode == Keys.M) { Open_Child_Form(new Modul_Settings()); Open_Window = "form3"; }
-                if (e.KeyCode == Keys.D1 && Data_Transit.shift_is_down)
-                {
-                    byte set = 1;
-                    var co = Data_Transit.port_control_button.Where(c => c.name.Contains("din"));
-                    foreach(Button_Send a in co) if (a.button.BackColor == Color.Red) set = 0;
-                    Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Din16.Addres, 0x10, 0, 0x51, 00, 16, 32, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set });
-                }
-                else if (e.KeyCode == Keys.D1) { BtnComPortMenu.PerformClick(); }
-                if (e.KeyCode == Keys.D2 && Data_Transit.shift_is_down)
-                {
-                    byte set = 1;
-                    var co = Data_Transit.port_control_button.Where(c => c.name.Contains("kf"));
-                    foreach (Button_Send a in co) if (a.button.BackColor == Color.Red) set = 0;
-                    Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x10, 0, 0x5d, 00, 03, 06, 0, set, 0, set, 0, set });
-                }
-                else if (e.KeyCode == Keys.D2) { BtnModule.PerformClick(); }
-                if (e.KeyCode == Keys.D3 && Data_Transit.shift_is_down)
-                {
-                    byte set = 1;
-                    var co = Data_Transit.port_control_button.Where(c => c.name.Contains("tc"));
-                    foreach (Button_Send a in co) if (a.button.BackColor == Color.Red) set = 0;
-                    Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x10, 0, 0x55, 00, 03, 06, 0, set, 0, set, 0, set });
-                }
-                else if (e.KeyCode == Keys.D3) { BtnParameters.PerformClick(); }
-                if (e.KeyCode == Keys.D4) { StartTest.PerformClick(); }
-                if (e.KeyCode == Keys.ShiftKey) { Data_Transit.shift_is_down = true; }
-                if (e.KeyCode == Keys.S && Data_Transit.shift_is_down)  { StartTest_Click(null, null); }
-                else if (e.KeyCode == Keys.S) { Open_Child_Form(new Settings()); Open_Window = "form4"; }
-                if (e.KeyCode == Keys.D) { Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x10, 0, 0x51, 00, 02, 04, 0, 0, 0, 0 }); }
             };
 
-            this.KeyUp += (s, e) =>
-            {
-                if (e.KeyCode == Keys.ShiftKey) { Data_Transit.shift_is_down = false; }
-            };
+            this.KeyUp += (s, e) => { if (e.KeyCode == Keys.ShiftKey) { Data_Transit.shift_is_down = false; } };
 
             this.StartPosition = FormStartPosition.CenterScreen;
 
@@ -155,6 +153,12 @@ namespace test_stand
             Data_Transit.all_button_result.Add(new Button_Result(Data_Transit.PortControl, Data_Transit.v12, Btn12V3, 0x0108, 2, "12v2"));
             Data_Transit.all_button_result.Add(new Button_Result(Data_Transit.PortChanelA, Data_Transit.module, PWR_1_MTU5, 0, 0, "power"));
             Data_Transit.all_button_result.Add(new Button_Result(Data_Transit.PortChanelA, Data_Transit.module, PWR_2_MTU5, 0, 1, "power"));
+            Data_Transit.all_button_result.Add(new Button_Result(Data_Transit.PortChanelA, Data_Transit.module, PWR_3_MTU5, 0, 2, "power"));
+            Data_Transit.all_button_result.Add(new Button_Result(Data_Transit.PortChanelA, Data_Transit.module, OutU1, 0, 3, "power"));
+            Data_Transit.all_button_result.Add(new Button_Result(Data_Transit.PortChanelA, Data_Transit.module, OutU2, 0, 4, "power"));
+            Data_Transit.all_button_result.Add(new Button_Result(Data_Transit.PortChanelA, Data_Transit.module, OutI1, 0, 5, "power"));
+            Data_Transit.all_button_result.Add(new Button_Result(Data_Transit.PortChanelA, Data_Transit.module, OutI2, 0, 6, "power"));
+            Data_Transit.all_button_result.Add(new Button_Result(Data_Transit.PortChanelA, Data_Transit.module, OutI3, 0, 7, "power"));
             Data_Transit.all_button_result.Add(new Button_Result(Data_Transit.PortChanelA, Data_Transit.module, BtnTemperature, 0, 0, "temperature"));
             Data_Transit.all_button_result.Add(new Button_Result(Data_Transit.PortChanelA, Data_Transit.module, TU1, 0, 0, "mtu_tu"));
             Data_Transit.all_button_result.Add(new Button_Result(Data_Transit.PortChanelA, Data_Transit.module, TU2, 0, 1, "mtu_tu"));
@@ -323,13 +327,6 @@ namespace test_stand
                 Data_Transit.port_control_button[Data_Transit.port_control_button.Count - 1].Initialization(Convert.ToInt16((Convert.ToInt16(x[21]) << 8) | (Convert.ToInt16(x[22]))), Data_Transit.PortChanelA, Data_Transit.module, 4);
                 Data_Transit.port_control_button[Data_Transit.port_control_button.Count - 2].Initialization(Convert.ToInt16((Convert.ToInt16(x[21]) << 8) | (Convert.ToInt16(x[22]))), Data_Transit.PortChanelA, Data_Transit.module, 2);
                 Data_Transit.port_control_button[Data_Transit.port_control_button.Count - 3].Initialization(Convert.ToInt16((Convert.ToInt16(x[21]) << 8) | (Convert.ToInt16(x[22]))), Data_Transit.PortChanelA, Data_Transit.module, 1);
-                
-                //for (int a = 2; a >= 0; a--)
-                //    Data_Transit.all_button_module_result.Add(new Button_Result(Data_Transit.PortChanelA, Data_Transit.module, (Button)PnlKF.Controls[a], Convert.ToInt16((Convert.ToInt16(x[9]) << 8) | (Convert.ToInt16(x[10]))), a, "kf", $"KF{(char)(65+a)}: "));
-                //for (int a = 2; a >= 0; a--)
-                //    Data_Transit.all_button_module_result.Add(new Button_Result(Data_Transit.PortChanelA, Data_Transit.module, (Button)Pnl_TC.Controls[a], Convert.ToInt16((Convert.ToInt16(x[15]) << 8) | (Convert.ToInt16(x[16]))), a, "tc", $"TC{(char)(65 + a)}: "));
-                //for (int a = 15; a > 7; a--)
-                //    Data_Transit.all_button_module_result.Add(new Button_Result(Data_Transit.PortChanelA, Data_Transit.module, (Button)PnlDin.Controls[a], Convert.ToInt16((Convert.ToInt16(x[3]) << 8) | (Convert.ToInt16(x[4]))), 15 - a, "din16", $"Din {16-a}: "));
             }
             
             var items = Data_Transit.port_control_button.Where(z => z.name.ToLower().Contains("din"));
@@ -355,6 +352,8 @@ namespace test_stand
             if (Data_Transit.Registers_Module["power"][5] >= 3 || Data_Transit.Name == "Nomodule") PnlPowerMTU5.Visible = true;
             else PnlPowerMTU5.Visible = false;
             foreach (string rec in Data_Transit.Registers_Module.Keys) Data_Transit.Registers_Module[rec][0] = Data_Transit.module.Addres;
+            if (Data_Transit.Name == "PSC24V10A") PWR_3_MTU5.Visible = true;
+            else PWR_3_MTU5.Visible = false;
 
             if (Data_Transit.Name == "PM7")
             {

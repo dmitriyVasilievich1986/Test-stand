@@ -63,8 +63,13 @@
             this.BtnPort1 = new System.Windows.Forms.Button();
             this.BtnComPortMenu = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.HW = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.PBCloseWindow = new System.Windows.Forms.PictureBox();
+            this.PBMinimizeWindow = new System.Windows.Forms.PictureBox();
+            this.PBMaximizeWindow = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btnHW = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.Btn12V3 = new System.Windows.Forms.Button();
             this.Btn12V2 = new System.Windows.Forms.Button();
@@ -130,18 +135,26 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnHW = new System.Windows.Forms.Button();
-            this.HW = new System.Windows.Forms.PictureBox();
-            this.PBCloseWindow = new System.Windows.Forms.PictureBox();
-            this.PBMinimizeWindow = new System.Windows.Forms.PictureBox();
-            this.PBMaximizeWindow = new System.Windows.Forms.PictureBox();
+            this.PWR_3_MTU5 = new System.Windows.Forms.Button();
+            this.Module10 = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.OutU1 = new System.Windows.Forms.Button();
+            this.OutU2 = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.OutI1 = new System.Windows.Forms.Button();
+            this.OutI2 = new System.Windows.Forms.Button();
+            this.OutI3 = new System.Windows.Forms.Button();
             this.PnlSideMenu.SuspendLayout();
             this.PnlTests.SuspendLayout();
             this.PnlParameters.SuspendLayout();
             this.PnlModule.SuspendLayout();
             this.PnlComPort.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.HW)).BeginInit();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PBCloseWindow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBMinimizeWindow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBMaximizeWindow)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -156,10 +169,8 @@
             this.PnlKF.SuspendLayout();
             this.PnlDin.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.HW)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PBCloseWindow)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PBMinimizeWindow)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PBMaximizeWindow)).BeginInit();
+            this.panel7.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnPower1
@@ -216,7 +227,7 @@
             this.PnlTests.Controls.Add(this.BtnTests2);
             this.PnlTests.Controls.Add(this.BtnTests1);
             this.PnlTests.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlTests.Location = new System.Drawing.Point(0, 860);
+            this.PnlTests.Location = new System.Drawing.Point(0, 895);
             this.PnlTests.Name = "PnlTests";
             this.PnlTests.Size = new System.Drawing.Size(233, 175);
             this.PnlTests.TabIndex = 9;
@@ -315,7 +326,7 @@
             this.StartTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StartTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.StartTest.ForeColor = System.Drawing.Color.LightGray;
-            this.StartTest.Location = new System.Drawing.Point(0, 815);
+            this.StartTest.Location = new System.Drawing.Point(0, 850);
             this.StartTest.Name = "StartTest";
             this.StartTest.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.StartTest.Size = new System.Drawing.Size(233, 45);
@@ -334,7 +345,7 @@
             this.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BtnExit.ForeColor = System.Drawing.Color.LightGray;
-            this.BtnExit.Location = new System.Drawing.Point(0, 1035);
+            this.BtnExit.Location = new System.Drawing.Point(0, 1070);
             this.BtnExit.Name = "BtnExit";
             this.BtnExit.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.BtnExit.Size = new System.Drawing.Size(233, 45);
@@ -349,7 +360,7 @@
             this.PnlParameters.Controls.Add(this.Settings);
             this.PnlParameters.Controls.Add(this.ModuleSettings);
             this.PnlParameters.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlParameters.Location = new System.Drawing.Point(0, 745);
+            this.PnlParameters.Location = new System.Drawing.Point(0, 780);
             this.PnlParameters.Name = "PnlParameters";
             this.PnlParameters.Size = new System.Drawing.Size(233, 70);
             this.PnlParameters.TabIndex = 6;
@@ -397,7 +408,7 @@
             this.BtnParameters.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnParameters.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BtnParameters.ForeColor = System.Drawing.Color.LightGray;
-            this.BtnParameters.Location = new System.Drawing.Point(0, 700);
+            this.BtnParameters.Location = new System.Drawing.Point(0, 735);
             this.BtnParameters.Name = "BtnParameters";
             this.BtnParameters.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.BtnParameters.Size = new System.Drawing.Size(233, 45);
@@ -409,6 +420,7 @@
             // 
             // PnlModule
             // 
+            this.PnlModule.Controls.Add(this.Module10);
             this.PnlModule.Controls.Add(this.Module5);
             this.PnlModule.Controls.Add(this.Module4);
             this.PnlModule.Controls.Add(this.Module9);
@@ -422,7 +434,7 @@
             this.PnlModule.Dock = System.Windows.Forms.DockStyle.Top;
             this.PnlModule.Location = new System.Drawing.Point(0, 350);
             this.PnlModule.Name = "PnlModule";
-            this.PnlModule.Size = new System.Drawing.Size(233, 350);
+            this.PnlModule.Size = new System.Drawing.Size(233, 385);
             this.PnlModule.TabIndex = 4;
             // 
             // Module5
@@ -723,6 +735,15 @@
             this.panel4.Size = new System.Drawing.Size(233, 120);
             this.panel4.TabIndex = 0;
             // 
+            // HW
+            // 
+            this.HW.Image = global::test_stand.Properties.Resources.HW3;
+            this.HW.Location = new System.Drawing.Point(38, 3);
+            this.HW.Name = "HW";
+            this.HW.Size = new System.Drawing.Size(106, 108);
+            this.HW.TabIndex = 0;
+            this.HW.TabStop = false;
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(125)))), ((int)(((byte)(137)))));
@@ -737,6 +758,42 @@
             this.panel5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseDown);
             this.panel5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseMove);
             // 
+            // PBCloseWindow
+            // 
+            this.PBCloseWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PBCloseWindow.Image = ((System.Drawing.Image)(resources.GetObject("PBCloseWindow.Image")));
+            this.PBCloseWindow.Location = new System.Drawing.Point(1260, 11);
+            this.PBCloseWindow.Name = "PBCloseWindow";
+            this.PBCloseWindow.Size = new System.Drawing.Size(20, 20);
+            this.PBCloseWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PBCloseWindow.TabIndex = 3;
+            this.PBCloseWindow.TabStop = false;
+            this.PBCloseWindow.Click += new System.EventHandler(this.Close_Window);
+            // 
+            // PBMinimizeWindow
+            // 
+            this.PBMinimizeWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PBMinimizeWindow.Image = ((System.Drawing.Image)(resources.GetObject("PBMinimizeWindow.Image")));
+            this.PBMinimizeWindow.Location = new System.Drawing.Point(1234, 11);
+            this.PBMinimizeWindow.Name = "PBMinimizeWindow";
+            this.PBMinimizeWindow.Size = new System.Drawing.Size(20, 20);
+            this.PBMinimizeWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PBMinimizeWindow.TabIndex = 2;
+            this.PBMinimizeWindow.TabStop = false;
+            this.PBMinimizeWindow.Click += new System.EventHandler(this.PictureBox1_Click);
+            // 
+            // PBMaximizeWindow
+            // 
+            this.PBMaximizeWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PBMaximizeWindow.Image = ((System.Drawing.Image)(resources.GetObject("PBMaximizeWindow.Image")));
+            this.PBMaximizeWindow.Location = new System.Drawing.Point(1234, 11);
+            this.PBMaximizeWindow.Name = "PBMaximizeWindow";
+            this.PBMaximizeWindow.Size = new System.Drawing.Size(20, 20);
+            this.PBMaximizeWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PBMaximizeWindow.TabIndex = 1;
+            this.PBMaximizeWindow.TabStop = false;
+            this.PBMaximizeWindow.Click += new System.EventHandler(this.PBMaximizeWindow_Click);
+            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Gray;
@@ -749,6 +806,21 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(1048, 122);
             this.panel8.TabIndex = 75;
+            // 
+            // btnHW
+            // 
+            this.btnHW.BackColor = System.Drawing.Color.LightGray;
+            this.btnHW.FlatAppearance.BorderSize = 0;
+            this.btnHW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHW.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnHW.Location = new System.Drawing.Point(448, 65);
+            this.btnHW.Name = "btnHW";
+            this.btnHW.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnHW.Size = new System.Drawing.Size(460, 35);
+            this.btnHW.TabIndex = 3;
+            this.btnHW.Text = "Power U2:";
+            this.btnHW.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHW.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
@@ -885,6 +957,9 @@
             // 
             // PnlTC
             // 
+            this.PnlTC.AutoScroll = true;
+            this.PnlTC.Controls.Add(this.panel9);
+            this.PnlTC.Controls.Add(this.panel7);
             this.PnlTC.Controls.Add(this.Pnl_Temperature);
             this.PnlTC.Controls.Add(this.PnlPowerMTU5);
             this.PnlTC.Controls.Add(this.PnlTURF);
@@ -902,9 +977,9 @@
             // 
             this.Pnl_Temperature.Controls.Add(this.BtnTemperature);
             this.Pnl_Temperature.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Pnl_Temperature.Location = new System.Drawing.Point(40, 525);
+            this.Pnl_Temperature.Location = new System.Drawing.Point(40, 560);
             this.Pnl_Temperature.Name = "Pnl_Temperature";
-            this.Pnl_Temperature.Size = new System.Drawing.Size(460, 70);
+            this.Pnl_Temperature.Size = new System.Drawing.Size(443, 70);
             this.Pnl_Temperature.TabIndex = 5;
             // 
             // BtnTemperature
@@ -917,7 +992,7 @@
             this.BtnTemperature.Location = new System.Drawing.Point(0, 35);
             this.BtnTemperature.Name = "BtnTemperature";
             this.BtnTemperature.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.BtnTemperature.Size = new System.Drawing.Size(460, 35);
+            this.BtnTemperature.Size = new System.Drawing.Size(443, 35);
             this.BtnTemperature.TabIndex = 1;
             this.BtnTemperature.Text = "Temperature:";
             this.BtnTemperature.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -927,10 +1002,11 @@
             // 
             this.PnlPowerMTU5.Controls.Add(this.PWR_1_MTU5);
             this.PnlPowerMTU5.Controls.Add(this.PWR_2_MTU5);
+            this.PnlPowerMTU5.Controls.Add(this.PWR_3_MTU5);
             this.PnlPowerMTU5.Dock = System.Windows.Forms.DockStyle.Top;
             this.PnlPowerMTU5.Location = new System.Drawing.Point(40, 420);
             this.PnlPowerMTU5.Name = "PnlPowerMTU5";
-            this.PnlPowerMTU5.Size = new System.Drawing.Size(460, 105);
+            this.PnlPowerMTU5.Size = new System.Drawing.Size(443, 140);
             this.PnlPowerMTU5.TabIndex = 4;
             // 
             // PWR_1_MTU5
@@ -943,7 +1019,7 @@
             this.PWR_1_MTU5.Location = new System.Drawing.Point(0, 35);
             this.PWR_1_MTU5.Name = "PWR_1_MTU5";
             this.PWR_1_MTU5.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.PWR_1_MTU5.Size = new System.Drawing.Size(460, 35);
+            this.PWR_1_MTU5.Size = new System.Drawing.Size(443, 35);
             this.PWR_1_MTU5.TabIndex = 1;
             this.PWR_1_MTU5.Text = "Power U1:";
             this.PWR_1_MTU5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -959,7 +1035,7 @@
             this.PWR_2_MTU5.Location = new System.Drawing.Point(0, 70);
             this.PWR_2_MTU5.Name = "PWR_2_MTU5";
             this.PWR_2_MTU5.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.PWR_2_MTU5.Size = new System.Drawing.Size(460, 35);
+            this.PWR_2_MTU5.Size = new System.Drawing.Size(443, 35);
             this.PWR_2_MTU5.TabIndex = 2;
             this.PWR_2_MTU5.Text = "Power U2:";
             this.PWR_2_MTU5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -971,7 +1047,7 @@
             this.PnlTURF.Dock = System.Windows.Forms.DockStyle.Top;
             this.PnlTURF.Location = new System.Drawing.Point(40, 385);
             this.PnlTURF.Name = "PnlTURF";
-            this.PnlTURF.Size = new System.Drawing.Size(460, 35);
+            this.PnlTURF.Size = new System.Drawing.Size(443, 35);
             this.PnlTURF.TabIndex = 3;
             // 
             // TU3
@@ -984,7 +1060,7 @@
             this.TU3.Location = new System.Drawing.Point(0, 0);
             this.TU3.Name = "TU3";
             this.TU3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.TU3.Size = new System.Drawing.Size(460, 35);
+            this.TU3.Size = new System.Drawing.Size(443, 35);
             this.TU3.TabIndex = 2;
             this.TU3.Text = "TU RF";
             this.TU3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -999,7 +1075,7 @@
             this.PnlTU.Dock = System.Windows.Forms.DockStyle.Top;
             this.PnlTU.Location = new System.Drawing.Point(40, 280);
             this.PnlTU.Name = "PnlTU";
-            this.PnlTU.Size = new System.Drawing.Size(460, 105);
+            this.PnlTU.Size = new System.Drawing.Size(443, 105);
             this.PnlTU.TabIndex = 2;
             // 
             // TU2
@@ -1012,7 +1088,7 @@
             this.TU2.Location = new System.Drawing.Point(0, 70);
             this.TU2.Name = "TU2";
             this.TU2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.TU2.Size = new System.Drawing.Size(460, 35);
+            this.TU2.Size = new System.Drawing.Size(443, 35);
             this.TU2.TabIndex = 2;
             this.TU2.Text = "TU Off";
             this.TU2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1029,7 +1105,7 @@
             this.TU1.Location = new System.Drawing.Point(0, 35);
             this.TU1.Name = "TU1";
             this.TU1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.TU1.Size = new System.Drawing.Size(460, 35);
+            this.TU1.Size = new System.Drawing.Size(443, 35);
             this.TU1.TabIndex = 1;
             this.TU1.Text = "TU On";
             this.TU1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1046,7 +1122,7 @@
             this.BtnEnTU.Location = new System.Drawing.Point(0, 0);
             this.BtnEnTU.Name = "BtnEnTU";
             this.BtnEnTU.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.BtnEnTU.Size = new System.Drawing.Size(460, 35);
+            this.BtnEnTU.Size = new System.Drawing.Size(443, 35);
             this.BtnEnTU.TabIndex = 3;
             this.BtnEnTU.Text = "EnTU";
             this.BtnEnTU.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1060,7 +1136,7 @@
             this.Pnl_TC.Dock = System.Windows.Forms.DockStyle.Top;
             this.Pnl_TC.Location = new System.Drawing.Point(40, 140);
             this.Pnl_TC.Name = "Pnl_TC";
-            this.Pnl_TC.Size = new System.Drawing.Size(460, 140);
+            this.Pnl_TC.Size = new System.Drawing.Size(443, 140);
             this.Pnl_TC.TabIndex = 1;
             // 
             // TC3
@@ -1073,7 +1149,7 @@
             this.TC3.Location = new System.Drawing.Point(0, 70);
             this.TC3.Name = "TC3";
             this.TC3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.TC3.Size = new System.Drawing.Size(460, 35);
+            this.TC3.Size = new System.Drawing.Size(443, 35);
             this.TC3.TabIndex = 3;
             this.TC3.Text = "TCC:";
             this.TC3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1090,7 +1166,7 @@
             this.TC2.Location = new System.Drawing.Point(0, 35);
             this.TC2.Name = "TC2";
             this.TC2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.TC2.Size = new System.Drawing.Size(460, 35);
+            this.TC2.Size = new System.Drawing.Size(443, 35);
             this.TC2.TabIndex = 2;
             this.TC2.Text = "TCB:";
             this.TC2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1107,7 +1183,7 @@
             this.TC1.Location = new System.Drawing.Point(0, 0);
             this.TC1.Name = "TC1";
             this.TC1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.TC1.Size = new System.Drawing.Size(460, 35);
+            this.TC1.Size = new System.Drawing.Size(443, 35);
             this.TC1.TabIndex = 1;
             this.TC1.Text = "TCA:";
             this.TC1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1122,7 +1198,7 @@
             this.PnlKF.Dock = System.Windows.Forms.DockStyle.Top;
             this.PnlKF.Location = new System.Drawing.Point(40, 0);
             this.PnlKF.Name = "PnlKF";
-            this.PnlKF.Size = new System.Drawing.Size(460, 140);
+            this.PnlKF.Size = new System.Drawing.Size(443, 140);
             this.PnlKF.TabIndex = 0;
             // 
             // KF3
@@ -1135,7 +1211,7 @@
             this.KF3.Location = new System.Drawing.Point(0, 70);
             this.KF3.Name = "KF3";
             this.KF3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.KF3.Size = new System.Drawing.Size(460, 35);
+            this.KF3.Size = new System.Drawing.Size(443, 35);
             this.KF3.TabIndex = 3;
             this.KF3.Text = "KFC:";
             this.KF3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1152,7 +1228,7 @@
             this.KF2.Location = new System.Drawing.Point(0, 35);
             this.KF2.Name = "KF2";
             this.KF2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.KF2.Size = new System.Drawing.Size(460, 35);
+            this.KF2.Size = new System.Drawing.Size(443, 35);
             this.KF2.TabIndex = 2;
             this.KF2.Text = "KFB:";
             this.KF2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1169,7 +1245,7 @@
             this.KF1.Location = new System.Drawing.Point(0, 0);
             this.KF1.Name = "KF1";
             this.KF1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.KF1.Size = new System.Drawing.Size(460, 35);
+            this.KF1.Size = new System.Drawing.Size(443, 35);
             this.KF1.TabIndex = 1;
             this.KF1.Text = "KFA:";
             this.KF1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1789,65 +1865,139 @@
             this.panel2.Size = new System.Drawing.Size(1048, 35);
             this.panel2.TabIndex = 3;
             // 
-            // btnHW
+            // PWR_3_MTU5
             // 
-            this.btnHW.BackColor = System.Drawing.Color.LightGray;
-            this.btnHW.FlatAppearance.BorderSize = 0;
-            this.btnHW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHW.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnHW.Location = new System.Drawing.Point(448, 65);
-            this.btnHW.Name = "btnHW";
-            this.btnHW.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnHW.Size = new System.Drawing.Size(460, 35);
-            this.btnHW.TabIndex = 3;
-            this.btnHW.Text = "Power U2:";
-            this.btnHW.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHW.UseVisualStyleBackColor = false;
+            this.PWR_3_MTU5.BackColor = System.Drawing.Color.LightGray;
+            this.PWR_3_MTU5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PWR_3_MTU5.FlatAppearance.BorderSize = 0;
+            this.PWR_3_MTU5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PWR_3_MTU5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.PWR_3_MTU5.Location = new System.Drawing.Point(0, 105);
+            this.PWR_3_MTU5.Name = "PWR_3_MTU5";
+            this.PWR_3_MTU5.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.PWR_3_MTU5.Size = new System.Drawing.Size(443, 35);
+            this.PWR_3_MTU5.TabIndex = 3;
+            this.PWR_3_MTU5.Text = "Power U3:";
+            this.PWR_3_MTU5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PWR_3_MTU5.UseVisualStyleBackColor = false;
             // 
-            // HW
+            // Module10
             // 
-            this.HW.Image = global::test_stand.Properties.Resources.HW3;
-            this.HW.Location = new System.Drawing.Point(38, 3);
-            this.HW.Name = "HW";
-            this.HW.Size = new System.Drawing.Size(106, 108);
-            this.HW.TabIndex = 0;
-            this.HW.TabStop = false;
+            this.Module10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(125)))), ((int)(((byte)(137)))));
+            this.Module10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Module10.FlatAppearance.BorderSize = 0;
+            this.Module10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Module10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Module10.Location = new System.Drawing.Point(0, 350);
+            this.Module10.Name = "Module10";
+            this.Module10.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.Module10.Size = new System.Drawing.Size(233, 35);
+            this.Module10.TabIndex = 10;
+            this.Module10.Text = "PSC24V10A";
+            this.Module10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Module10.UseVisualStyleBackColor = false;
+            this.Module10.Click += new System.EventHandler(this.Module_Selection);
             // 
-            // PBCloseWindow
+            // panel7
             // 
-            this.PBCloseWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PBCloseWindow.Image = ((System.Drawing.Image)(resources.GetObject("PBCloseWindow.Image")));
-            this.PBCloseWindow.Location = new System.Drawing.Point(1260, 11);
-            this.PBCloseWindow.Name = "PBCloseWindow";
-            this.PBCloseWindow.Size = new System.Drawing.Size(20, 20);
-            this.PBCloseWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PBCloseWindow.TabIndex = 3;
-            this.PBCloseWindow.TabStop = false;
-            this.PBCloseWindow.Click += new System.EventHandler(this.Close_Window);
+            this.panel7.Controls.Add(this.OutU1);
+            this.panel7.Controls.Add(this.OutU2);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(40, 630);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(443, 105);
+            this.panel7.TabIndex = 6;
             // 
-            // PBMinimizeWindow
+            // OutU1
             // 
-            this.PBMinimizeWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PBMinimizeWindow.Image = ((System.Drawing.Image)(resources.GetObject("PBMinimizeWindow.Image")));
-            this.PBMinimizeWindow.Location = new System.Drawing.Point(1234, 11);
-            this.PBMinimizeWindow.Name = "PBMinimizeWindow";
-            this.PBMinimizeWindow.Size = new System.Drawing.Size(20, 20);
-            this.PBMinimizeWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PBMinimizeWindow.TabIndex = 2;
-            this.PBMinimizeWindow.TabStop = false;
-            this.PBMinimizeWindow.Click += new System.EventHandler(this.PictureBox1_Click);
+            this.OutU1.BackColor = System.Drawing.Color.LightGray;
+            this.OutU1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.OutU1.FlatAppearance.BorderSize = 0;
+            this.OutU1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OutU1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.OutU1.Location = new System.Drawing.Point(0, 35);
+            this.OutU1.Name = "OutU1";
+            this.OutU1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.OutU1.Size = new System.Drawing.Size(443, 35);
+            this.OutU1.TabIndex = 1;
+            this.OutU1.Text = "Выход U1:";
+            this.OutU1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OutU1.UseVisualStyleBackColor = false;
             // 
-            // PBMaximizeWindow
+            // OutU2
             // 
-            this.PBMaximizeWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PBMaximizeWindow.Image = ((System.Drawing.Image)(resources.GetObject("PBMaximizeWindow.Image")));
-            this.PBMaximizeWindow.Location = new System.Drawing.Point(1234, 11);
-            this.PBMaximizeWindow.Name = "PBMaximizeWindow";
-            this.PBMaximizeWindow.Size = new System.Drawing.Size(20, 20);
-            this.PBMaximizeWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PBMaximizeWindow.TabIndex = 1;
-            this.PBMaximizeWindow.TabStop = false;
-            this.PBMaximizeWindow.Click += new System.EventHandler(this.PBMaximizeWindow_Click);
+            this.OutU2.BackColor = System.Drawing.Color.LightGray;
+            this.OutU2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.OutU2.FlatAppearance.BorderSize = 0;
+            this.OutU2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OutU2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.OutU2.Location = new System.Drawing.Point(0, 70);
+            this.OutU2.Name = "OutU2";
+            this.OutU2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.OutU2.Size = new System.Drawing.Size(443, 35);
+            this.OutU2.TabIndex = 2;
+            this.OutU2.Text = "Выход U2:";
+            this.OutU2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OutU2.UseVisualStyleBackColor = false;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.OutI1);
+            this.panel9.Controls.Add(this.OutI2);
+            this.panel9.Controls.Add(this.OutI3);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(40, 735);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(443, 140);
+            this.panel9.TabIndex = 7;
+            // 
+            // OutI1
+            // 
+            this.OutI1.BackColor = System.Drawing.Color.LightGray;
+            this.OutI1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.OutI1.FlatAppearance.BorderSize = 0;
+            this.OutI1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OutI1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.OutI1.Location = new System.Drawing.Point(0, 35);
+            this.OutI1.Name = "OutI1";
+            this.OutI1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.OutI1.Size = new System.Drawing.Size(443, 35);
+            this.OutI1.TabIndex = 1;
+            this.OutI1.Text = "Ток выход I1:";
+            this.OutI1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OutI1.UseVisualStyleBackColor = false;
+            // 
+            // OutI2
+            // 
+            this.OutI2.BackColor = System.Drawing.Color.LightGray;
+            this.OutI2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.OutI2.FlatAppearance.BorderSize = 0;
+            this.OutI2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OutI2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.OutI2.Location = new System.Drawing.Point(0, 70);
+            this.OutI2.Name = "OutI2";
+            this.OutI2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.OutI2.Size = new System.Drawing.Size(443, 35);
+            this.OutI2.TabIndex = 2;
+            this.OutI2.Text = "Ток выход I2:";
+            this.OutI2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OutI2.UseVisualStyleBackColor = false;
+            // 
+            // OutI3
+            // 
+            this.OutI3.BackColor = System.Drawing.Color.LightGray;
+            this.OutI3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.OutI3.FlatAppearance.BorderSize = 0;
+            this.OutI3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OutI3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.OutI3.Location = new System.Drawing.Point(0, 105);
+            this.OutI3.Name = "OutI3";
+            this.OutI3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.OutI3.Size = new System.Drawing.Size(443, 35);
+            this.OutI3.TabIndex = 3;
+            this.OutI3.Text = "Ток заряда аккумулятора:";
+            this.OutI3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OutI3.UseVisualStyleBackColor = false;
             // 
             // FormMain
             // 
@@ -1870,7 +2020,11 @@
             this.PnlModule.ResumeLayout(false);
             this.PnlComPort.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.HW)).EndInit();
             this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PBCloseWindow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBMinimizeWindow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBMaximizeWindow)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -1886,10 +2040,8 @@
             this.PnlDin.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.HW)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PBCloseWindow)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PBMinimizeWindow)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PBMaximizeWindow)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2001,6 +2153,15 @@
         private System.Windows.Forms.Button Btn12V3;
         private System.Windows.Forms.PictureBox HW;
         private System.Windows.Forms.Button btnHW;
+        private System.Windows.Forms.Button PWR_3_MTU5;
+        private System.Windows.Forms.Button Module10;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button OutU1;
+        private System.Windows.Forms.Button OutU2;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Button OutI1;
+        private System.Windows.Forms.Button OutI2;
+        private System.Windows.Forms.Button OutI3;
     }
 }
 
