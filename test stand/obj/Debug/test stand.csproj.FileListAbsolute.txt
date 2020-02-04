@@ -43,3 +43,4 @@ C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\bin\Debug\Newto
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\bin\Debug\Newtonsoft.Json.xml
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\bin\Debug\SupportClass.pdb
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test stand.csprojAssemblyReference.cache
+C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\bin\Debug\SupportClass.dll

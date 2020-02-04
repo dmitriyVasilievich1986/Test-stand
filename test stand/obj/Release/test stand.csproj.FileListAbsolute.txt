@@ -36,3 +36,8 @@ C:\Test\Test-stand\test stand\bin\Release\The Witcher 3.exe
 C:\Test\Test-stand\test stand\bin\Release\The Witcher 3.pdb
 C:\Test\Test-stand\test stand\bin\Release\ModBus_Library.pdb
 C:\Test\Test-stand\test stand\obj\Release\test stand.csproj.CopyComplete
+C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\bin\Release\Newtonsoft.Json.dll
+C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\bin\Release\SupportClass.dll
+C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\bin\Release\Newtonsoft.Json.xml
+C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\bin\Release\SupportClass.pdb
+C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Release\test stand.csprojAssemblyReference.cache

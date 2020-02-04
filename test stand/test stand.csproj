@@ -43,7 +43,7 @@
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="SupportClass">
-      <HintPath>..\..\..\Users\Professional\source\repos\SUpport Class\ClassLibrary1\bin\Release\SupportClass.dll</HintPath>
+      <HintPath>..\..\Support Class\library\ClassLibrary1\bin\Debug\SupportClass.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
