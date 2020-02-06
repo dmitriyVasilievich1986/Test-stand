@@ -16,9 +16,13 @@ namespace test_stand
 {
     public partial class Settings : Form
     {
-        public Settings(Module_Parameters module_parameters)
+        ModBus_Libra port;
+        Module_Parameters MP;
+        public Settings(Module_Parameters module_parameters, ModBus_Libra using_port)
         {
             InitializeComponent();
+            port = using_port;
+            MP = module_parameters;
             Dout_Din16.Text = module_parameters.dout_din16.Addres.ToString();
             Dout_Din32.Text = module_parameters.dout_din32.Addres.ToString();
             Dout_Control.Text = module_parameters.dout_control.Addres.ToString();
@@ -49,14 +53,14 @@ namespace test_stand
 
         private void Power_On(object sender, EventArgs e)
         {
-            if (!Data_Transit.PortControl.Port.IsOpen) return;
-            Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x10, 0, 0x51, 00, 02, 04, 0, 01, 0, 1 });
+            if (!port.Port.IsOpen) return;
+            port.Interrupt(new byte[] { MP.dout_control.Addres, 0x10, 0, 0x51, 00, 02, 04, 0, 01, 0, 1 });
         }
 
         private void Power_Off(object sender, EventArgs e)
         {
-            if (!Data_Transit.PortControl.Port.IsOpen) return;
-            Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x10, 0, 0x51, 00, 02, 04, 0, 00, 0, 0 });
+            if (!port.Port.IsOpen) return;
+            port.Interrupt(new byte[] { MP.dout_control.Addres, 0x10, 0, 0x51, 00, 02, 04, 0, 00, 0, 0 });
         }
     }
 }

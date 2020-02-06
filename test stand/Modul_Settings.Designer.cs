@@ -38,13 +38,13 @@
             this.label13 = new System.Windows.Forms.Label();
             this.Current = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.Param11 = new System.Windows.Forms.TextBox();
+            this.ModuleAddres = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.TC12V = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.Param13 = new System.Windows.Forms.TextBox();
+            this.RS485Ports = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.Param14 = new System.Windows.Forms.TextBox();
+            this.PowerPorts = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -52,9 +52,9 @@
             // Din
             // 
             this.Din.BackColor = System.Drawing.Color.LightGray;
-            this.Din.Location = new System.Drawing.Point(158, 135);
+            this.Din.Location = new System.Drawing.Point(141, 135);
             this.Din.Name = "Din";
-            this.Din.Size = new System.Drawing.Size(121, 20);
+            this.Din.Size = new System.Drawing.Size(157, 20);
             this.Din.TabIndex = 5;
             this.Din.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Parameters_Change);
             // 
@@ -91,9 +91,9 @@
             // KF
             // 
             this.KF.BackColor = System.Drawing.Color.LightGray;
-            this.KF.Location = new System.Drawing.Point(158, 206);
+            this.KF.Location = new System.Drawing.Point(143, 206);
             this.KF.Name = "KF";
-            this.KF.Size = new System.Drawing.Size(121, 20);
+            this.KF.Size = new System.Drawing.Size(155, 20);
             this.KF.TabIndex = 12;
             this.KF.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Parameters_Change);
             // 
@@ -110,9 +110,9 @@
             // TC
             // 
             this.TC.BackColor = System.Drawing.Color.LightGray;
-            this.TC.Location = new System.Drawing.Point(158, 271);
+            this.TC.Location = new System.Drawing.Point(143, 271);
             this.TC.Name = "TC";
-            this.TC.Size = new System.Drawing.Size(121, 20);
+            this.TC.Size = new System.Drawing.Size(155, 20);
             this.TC.TabIndex = 19;
             this.TC.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Parameters_Change);
             // 
@@ -129,9 +129,9 @@
             // Current
             // 
             this.Current.BackColor = System.Drawing.Color.LightGray;
-            this.Current.Location = new System.Drawing.Point(158, 342);
+            this.Current.Location = new System.Drawing.Point(143, 342);
             this.Current.Name = "Current";
-            this.Current.Size = new System.Drawing.Size(121, 20);
+            this.Current.Size = new System.Drawing.Size(155, 20);
             this.Current.TabIndex = 26;
             this.Current.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Parameters_Change);
             // 
@@ -145,14 +145,14 @@
             this.label15.TabIndex = 30;
             this.label15.Text = "Adres";
             // 
-            // Param11
+            // ModuleAddres
             // 
-            this.Param11.BackColor = System.Drawing.Color.LightGray;
-            this.Param11.Location = new System.Drawing.Point(223, 586);
-            this.Param11.Name = "Param11";
-            this.Param11.Size = new System.Drawing.Size(121, 20);
-            this.Param11.TabIndex = 29;
-            this.Param11.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Parameters_Change);
+            this.ModuleAddres.BackColor = System.Drawing.Color.LightGray;
+            this.ModuleAddres.Location = new System.Drawing.Point(223, 586);
+            this.ModuleAddres.Name = "ModuleAddres";
+            this.ModuleAddres.Size = new System.Drawing.Size(121, 20);
+            this.ModuleAddres.TabIndex = 29;
+            this.ModuleAddres.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Parameters_Change);
             // 
             // label16
             // 
@@ -167,10 +167,11 @@
             // TC12V
             // 
             this.TC12V.BackColor = System.Drawing.Color.LightGray;
-            this.TC12V.Location = new System.Drawing.Point(527, 135);
+            this.TC12V.Location = new System.Drawing.Point(508, 135);
             this.TC12V.Name = "TC12V";
-            this.TC12V.Size = new System.Drawing.Size(121, 20);
+            this.TC12V.Size = new System.Drawing.Size(155, 20);
             this.TC12V.TabIndex = 32;
+            this.TC12V.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Parameters_Change);
             // 
             // label17
             // 
@@ -182,13 +183,14 @@
             this.label17.TabIndex = 31;
             this.label17.Text = "TC 12B:";
             // 
-            // Param13
+            // RS485Ports
             // 
-            this.Param13.BackColor = System.Drawing.Color.LightGray;
-            this.Param13.Location = new System.Drawing.Point(527, 206);
-            this.Param13.Name = "Param13";
-            this.Param13.Size = new System.Drawing.Size(121, 20);
-            this.Param13.TabIndex = 34;
+            this.RS485Ports.BackColor = System.Drawing.Color.LightGray;
+            this.RS485Ports.Location = new System.Drawing.Point(508, 206);
+            this.RS485Ports.Name = "RS485Ports";
+            this.RS485Ports.Size = new System.Drawing.Size(155, 20);
+            this.RS485Ports.TabIndex = 34;
+            this.RS485Ports.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Parameters_Change);
             // 
             // label19
             // 
@@ -200,13 +202,14 @@
             this.label19.TabIndex = 35;
             this.label19.Text = "Другие настройки";
             // 
-            // Param14
+            // PowerPorts
             // 
-            this.Param14.BackColor = System.Drawing.Color.LightGray;
-            this.Param14.Location = new System.Drawing.Point(527, 271);
-            this.Param14.Name = "Param14";
-            this.Param14.Size = new System.Drawing.Size(121, 20);
-            this.Param14.TabIndex = 37;
+            this.PowerPorts.BackColor = System.Drawing.Color.LightGray;
+            this.PowerPorts.Location = new System.Drawing.Point(508, 271);
+            this.PowerPorts.Name = "PowerPorts";
+            this.PowerPorts.Size = new System.Drawing.Size(155, 20);
+            this.PowerPorts.TabIndex = 37;
+            this.PowerPorts.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Parameters_Change);
             // 
             // label20
             // 
@@ -233,16 +236,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(31)))), ((int)(((byte)(123)))));
-            this.ClientSize = new System.Drawing.Size(1106, 652);
-            this.Controls.Add(this.Param14);
+            this.ClientSize = new System.Drawing.Size(1125, 652);
+            this.Controls.Add(this.PowerPorts);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.Param13);
+            this.Controls.Add(this.RS485Ports);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.TC12V);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.Param11);
+            this.Controls.Add(this.ModuleAddres);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.Current);
@@ -272,13 +275,13 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox Current;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox Param11;
+        private System.Windows.Forms.TextBox ModuleAddres;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox TC12V;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox Param13;
+        private System.Windows.Forms.TextBox RS485Ports;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox Param14;
+        private System.Windows.Forms.TextBox PowerPorts;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label18;
     }

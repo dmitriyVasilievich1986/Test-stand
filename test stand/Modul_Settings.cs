@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 using Support_Class;
 
 namespace test_stand
@@ -15,102 +17,58 @@ namespace test_stand
     public partial class Modul_Settings : Form
     {
         Module_Parameters MP;
+        List<Module_Setup> setup;
 
-        public Modul_Settings(Module_Parameters module_parameters)
+        public Modul_Settings(Module_Parameters module_parameters, List<Module_Setup> setup_list)
         {
             InitializeComponent();
             MP = module_parameters;
+            setup = setup_list;
             Din.Text = $"{MP.using_module.din.Min} {MP.using_module.din.Max} {MP.using_module.din.None}";
             KF.Text = $"{MP.using_module.kf.Min} {MP.using_module.kf.Max} {MP.using_module.kf.None}";
             TC.Text = $"{MP.using_module.tc.Min} {MP.using_module.tc.Max} {MP.using_module.tc.None}";
             TC12V.Text = $"{MP.using_module.tc12v.Min} {MP.using_module.tc12v.Max} {MP.using_module.tc12v.None}";
-            Current.Text = $"{MP.using_module.current}";
-            
+            Current.Text = $"{MP.using_module.current.Min} {MP.using_module.current.Max} {MP.using_module.current.None}";
+            RS485Ports.Text = $"{MP.using_module.exchange_chanel}";
+            PowerPorts.Text = $"{MP.using_module.power_chanel}";
+            ModuleAddres.Text = $"{MP.module.Addres}";
         }
 
         private void Parameters_Change(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.Enter) return;
-                int name = Convert.ToInt32((((TextBox)sender).Name).Replace("Param", string.Empty));
-            using (SqlConnection connection = new SqlConnection(Data_Transit.connectionString))
+
+            switch (((TextBox)sender).Name)
             {
-                string sqlExpression = "";
-                connection.Open();                
-                SqlParameter nameParam = new SqlParameter("@name", Data_Transit.Name);
-                SqlParameter ColumnParam = new SqlParameter();
-                SqlParameter NumberParam = new SqlParameter();
-                string NewParameters = ((TextBox)sender).Text;
-                switch (name)
-                {
-                    case 1:
-                        Data_Transit.Module_Parameters["din"][0] = Convert.ToInt32(NewParameters);
-                        sqlExpression = "UPDATE [user].[dbo].[module_parameters] SET dinmin=@number where module=@name";
-                        NumberParam = new SqlParameter("@number", Convert.ToInt32(NewParameters));
-                        break;
-                    case 2:
-                        Data_Transit.Module_Parameters["din"][1] = Convert.ToInt32(NewParameters);
-                        sqlExpression = "UPDATE [user].[dbo].[module_parameters] SET dinmax=@number where module=@name";
-                        NumberParam = new SqlParameter("@number", Convert.ToInt32(NewParameters));
-                        break;
-                    case 3:
-                        Data_Transit.Module_Parameters["din"][2] = Convert.ToInt32(NewParameters);
-                        sqlExpression = "UPDATE [user].[dbo].[module_parameters] SET dinnone=@number where module=@name";
-                        NumberParam = new SqlParameter("@number", Convert.ToInt32(NewParameters));
-                        break;
-                    case 4:
-                        Data_Transit.Module_Parameters["kf"][0] = Convert.ToInt32(NewParameters);
-                        sqlExpression = "UPDATE [user].[dbo].[module_parameters] SET kfmin=@number where module=@name";
-                        NumberParam = new SqlParameter("@number", Convert.ToInt32(NewParameters));
-                        break;
-                    case 5:
-                        Data_Transit.Module_Parameters["kf"][1] = Convert.ToInt32(NewParameters);
-                        sqlExpression = "UPDATE [user].[dbo].[module_parameters] SET kfmax=@number where module=@name";
-                        NumberParam = new SqlParameter("@number", Convert.ToInt32(NewParameters));
-                        break;
-                    case 6:
-                        Data_Transit.Module_Parameters["kf"][2] = Convert.ToInt32(NewParameters);
-                        sqlExpression = "UPDATE [user].[dbo].[module_parameters] SET kfnone=@number where module=@name";
-                        NumberParam = new SqlParameter("@number", Convert.ToInt32(NewParameters));
-                        break;
-                    case 7:
-                        Data_Transit.Module_Parameters["tc"][0] = Convert.ToInt32(NewParameters);
-                        sqlExpression = "UPDATE [user].[dbo].[module_parameters] SET tcmin=@number where module=@name";
-                        NumberParam = new SqlParameter("@number", Convert.ToInt32(NewParameters));
-                        break;
-                    case 8:
-                        Data_Transit.Module_Parameters["tc"][1] = Convert.ToInt32(NewParameters);
-                        sqlExpression = "UPDATE [user].[dbo].[module_parameters] SET tcmax=@number where module=@name";
-                        NumberParam = new SqlParameter("@number", Convert.ToInt32(NewParameters));
-                        break;
-                    case 9:
-                        Data_Transit.Module_Parameters["tc"][2] = Convert.ToInt32(NewParameters);
-                        sqlExpression = "UPDATE [user].[dbo].[module_parameters] SET tcnone=@number where module=@name";
-                        NumberParam = new SqlParameter("@number", Convert.ToInt32(NewParameters));
-                        break;
-                    case 10:
-                        Data_Transit.Current_Norm = Convert.ToSingle(NewParameters);
-                        sqlExpression = "UPDATE [user].[dbo].[module_parameters] SET [current]=@number where module=@name";
-                        NumberParam = new SqlParameter("@number", Convert.ToSingle(NewParameters));
-                        break;
-                    case 11:
-                        Data_Transit.module.Addres = Convert.ToByte(Param11.Text);
-                        foreach(string rec in Data_Transit.Registers_Module.Keys) Data_Transit.Registers_Module[rec][0] = Data_Transit.module.Addres;
-                        return;
-                    case 12:
-                        Data_Transit.TC_12V = int.Parse(TC12V.Text);
-                        return;
-                    case 13:
-                        Data_Transit.exchange_port = int.Parse(Param13.Text);
-                        return;
-                    case 14:
-                        Data_Transit.port = int.Parse(Param14.Text);
-                        return;
-                }
-                SqlCommand command = new SqlCommand(sqlExpression, connection);
-                command.Parameters.Add(NumberParam);
-                command.Parameters.Add(nameParam);
-                command.ExecuteNonQuery();
+                case "KF":
+                    MP.using_module.kf.setup(KF.Text.Split());
+                    break;
+                case "TC":
+                    MP.using_module.tc.setup(TC.Text.Split());
+                    break;
+                case "Din":
+                    MP.using_module.din.setup(Din.Text.Split());
+                    break;
+                case "TC12V":
+                    MP.using_module.tc12v.setup(TC12V.Text.Split());
+                    break;
+                case "ModuleAddres":
+                    MP.module.Addres = byte.Parse(ModuleAddres.Text);
+                    break;
+                case "Current":
+                    MP.using_module.current.setup(Current.Text.Split());
+                    break;
+                case "PowerPorts":
+                    MP.using_module.power_chanel = int.Parse(PowerPorts.Text);
+                    break;
+                case "RS485Ports":
+                    MP.using_module.exchange_chanel = int.Parse(RS485Ports.Text);
+                    break;
             }
+
+            setup[setup.FindIndex(x => x.name == MP.using_module.name)] = MP.using_module;
+            using (StreamWriter sw = new StreamWriter(@"C:\Users\d.shcherbachenya\Desktop\projects\test stand\JSon\module_setup.txt", false, Encoding.UTF8))
+                sw.Write(JsonConvert.SerializeObject(setup));
         }
     }
 }

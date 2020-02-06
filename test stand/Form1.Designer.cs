@@ -55,19 +55,13 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.HW = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.PBCloseWindow = new System.Windows.Forms.PictureBox();
             this.PBMinimizeWindow = new System.Windows.Forms.PictureBox();
             this.PBMaximizeWindow = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnHW = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.Btn12V3 = new System.Windows.Forms.Button();
-            this.Btn12V2 = new System.Windows.Forms.Button();
-            this.Btn12V1 = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.BtnCurent2 = new System.Windows.Forms.Button();
-            this.BtnCurent1 = new System.Windows.Forms.Button();
+            this.PnlTC12V = new System.Windows.Forms.Panel();
+            this.PnlCurrentPSC = new System.Windows.Forms.Panel();
             this.PnlChildForm = new System.Windows.Forms.Panel();
             this.PnlMain = new System.Windows.Forms.Panel();
             this.pnlRight = new System.Windows.Forms.Panel();
@@ -83,8 +77,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.PBMinimizeWindow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBMaximizeWindow)).BeginInit();
             this.panel8.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.PnlChildForm.SuspendLayout();
             this.PnlMain.SuspendLayout();
             this.SuspendLayout();
@@ -482,7 +474,6 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.DarkGray;
-            this.panel5.Controls.Add(this.label1);
             this.panel5.Controls.Add(this.PBCloseWindow);
             this.panel5.Controls.Add(this.PBMinimizeWindow);
             this.panel5.Controls.Add(this.PBMaximizeWindow);
@@ -493,15 +484,6 @@
             this.panel5.TabIndex = 74;
             this.panel5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseDown);
             this.panel5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseMove);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(360, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "label1";
             // 
             // PBCloseWindow
             // 
@@ -546,8 +528,8 @@
             // 
             this.panel8.BackColor = System.Drawing.Color.Gray;
             this.panel8.Controls.Add(this.btnHW);
-            this.panel8.Controls.Add(this.panel3);
-            this.panel8.Controls.Add(this.panel6);
+            this.panel8.Controls.Add(this.PnlTC12V);
+            this.panel8.Controls.Add(this.PnlCurrentPSC);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(27)))), ((int)(((byte)(154)))));
             this.panel8.Location = new System.Drawing.Point(250, 746);
@@ -570,115 +552,21 @@
             this.btnHW.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHW.UseVisualStyleBackColor = false;
             // 
-            // panel3
+            // PnlTC12V
             // 
-            this.panel3.Controls.Add(this.Btn12V3);
-            this.panel3.Controls.Add(this.Btn12V2);
-            this.panel3.Controls.Add(this.Btn12V1);
-            this.panel3.Location = new System.Drawing.Point(575, 10);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(336, 100);
-            this.panel3.TabIndex = 3;
+            this.PnlTC12V.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PnlTC12V.Location = new System.Drawing.Point(515, 0);
+            this.PnlTC12V.Name = "PnlTC12V";
+            this.PnlTC12V.Size = new System.Drawing.Size(533, 122);
+            this.PnlTC12V.TabIndex = 3;
             // 
-            // Btn12V3
+            // PnlCurrentPSC
             // 
-            this.Btn12V3.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.Btn12V3.BackColor = System.Drawing.Color.Gray;
-            this.Btn12V3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn12V3.FlatAppearance.BorderSize = 0;
-            this.Btn12V3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn12V3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Btn12V3.ForeColor = System.Drawing.Color.LightGray;
-            this.Btn12V3.Location = new System.Drawing.Point(0, 90);
-            this.Btn12V3.Name = "Btn12V3";
-            this.Btn12V3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.Btn12V3.Size = new System.Drawing.Size(336, 45);
-            this.Btn12V3.TabIndex = 2;
-            this.Btn12V3.Text = "TU Voltage:";
-            this.Btn12V3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn12V3.UseVisualStyleBackColor = false;
-            // 
-            // Btn12V2
-            // 
-            this.Btn12V2.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.Btn12V2.BackColor = System.Drawing.Color.Gray;
-            this.Btn12V2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn12V2.FlatAppearance.BorderSize = 0;
-            this.Btn12V2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn12V2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Btn12V2.ForeColor = System.Drawing.Color.LightGray;
-            this.Btn12V2.Location = new System.Drawing.Point(0, 45);
-            this.Btn12V2.Name = "Btn12V2";
-            this.Btn12V2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.Btn12V2.Size = new System.Drawing.Size(336, 45);
-            this.Btn12V2.TabIndex = 1;
-            this.Btn12V2.Text = "TU Voltage:";
-            this.Btn12V2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn12V2.UseVisualStyleBackColor = false;
-            // 
-            // Btn12V1
-            // 
-            this.Btn12V1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.Btn12V1.BackColor = System.Drawing.Color.Gray;
-            this.Btn12V1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn12V1.FlatAppearance.BorderSize = 0;
-            this.Btn12V1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn12V1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Btn12V1.ForeColor = System.Drawing.Color.LightGray;
-            this.Btn12V1.Location = new System.Drawing.Point(0, 0);
-            this.Btn12V1.Name = "Btn12V1";
-            this.Btn12V1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.Btn12V1.Size = new System.Drawing.Size(336, 45);
-            this.Btn12V1.TabIndex = 0;
-            this.Btn12V1.Text = "TC 12V:";
-            this.Btn12V1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn12V1.UseVisualStyleBackColor = false;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.BtnCurent2);
-            this.panel6.Controls.Add(this.BtnCurent1);
-            this.panel6.Location = new System.Drawing.Point(54, 10);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(336, 100);
-            this.panel6.TabIndex = 1;
-            // 
-            // BtnCurent2
-            // 
-            this.BtnCurent2.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.BtnCurent2.BackColor = System.Drawing.Color.Gray;
-            this.BtnCurent2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnCurent2.FlatAppearance.BorderSize = 0;
-            this.BtnCurent2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCurent2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BtnCurent2.ForeColor = System.Drawing.Color.LightGray;
-            this.BtnCurent2.Location = new System.Drawing.Point(0, 45);
-            this.BtnCurent2.Name = "BtnCurent2";
-            this.BtnCurent2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.BtnCurent2.Size = new System.Drawing.Size(336, 45);
-            this.BtnCurent2.TabIndex = 1;
-            this.BtnCurent2.Text = "Curent Chanel B:";
-            this.BtnCurent2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCurent2.UseVisualStyleBackColor = false;
-            // 
-            // BtnCurent1
-            // 
-            this.BtnCurent1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.BtnCurent1.BackColor = System.Drawing.Color.Gray;
-            this.BtnCurent1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnCurent1.FlatAppearance.BorderSize = 0;
-            this.BtnCurent1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCurent1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BtnCurent1.ForeColor = System.Drawing.Color.LightGray;
-            this.BtnCurent1.Location = new System.Drawing.Point(0, 0);
-            this.BtnCurent1.Name = "BtnCurent1";
-            this.BtnCurent1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.BtnCurent1.Size = new System.Drawing.Size(336, 45);
-            this.BtnCurent1.TabIndex = 0;
-            this.BtnCurent1.Text = "Curent Chanel A:";
-            this.BtnCurent1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCurent1.UseVisualStyleBackColor = false;
-            this.BtnCurent1.Click += new System.EventHandler(this.Controls_Click);
+            this.PnlCurrentPSC.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PnlCurrentPSC.Location = new System.Drawing.Point(0, 0);
+            this.PnlCurrentPSC.Name = "PnlCurrentPSC";
+            this.PnlCurrentPSC.Size = new System.Drawing.Size(515, 122);
+            this.PnlCurrentPSC.TabIndex = 1;
             // 
             // PnlChildForm
             // 
@@ -707,6 +595,7 @@
             this.pnlRight.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlRight.Location = new System.Drawing.Point(515, 0);
             this.pnlRight.Name = "pnlRight";
+            this.pnlRight.Padding = new System.Windows.Forms.Padding(0, 0, 0, 35);
             this.pnlRight.Size = new System.Drawing.Size(533, 706);
             this.pnlRight.TabIndex = 1;
             // 
@@ -742,13 +631,10 @@
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.HW)).EndInit();
             this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBCloseWindow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBMinimizeWindow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBMaximizeWindow)).EndInit();
             this.panel8.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
             this.PnlChildForm.ResumeLayout(false);
             this.PnlMain.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -775,9 +661,7 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel PnlChildForm;
         private System.Windows.Forms.Button BtnExit;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button BtnCurent2;
-        private System.Windows.Forms.Button BtnCurent1;
+        private System.Windows.Forms.Panel PnlCurrentPSC;
         private System.Windows.Forms.Button BtnAllComPort;
         private System.Windows.Forms.PictureBox PBMaximizeWindow;
         private System.Windows.Forms.PictureBox PBMinimizeWindow;
@@ -790,15 +674,11 @@
         private System.Windows.Forms.Button BtnTests2;
         private System.Windows.Forms.Button BtnTests4;
         private System.Windows.Forms.Button BtnTests5;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button Btn12V2;
-        private System.Windows.Forms.Button Btn12V1;
-        private System.Windows.Forms.Button Btn12V3;
+        private System.Windows.Forms.Panel PnlTC12V;
         private System.Windows.Forms.PictureBox HW;
         private System.Windows.Forms.Button btnHW;
         private System.Windows.Forms.Panel pnlRight;
         private System.Windows.Forms.Panel pnlLeft;
-        private System.Windows.Forms.Label label1;
     }
 }
 

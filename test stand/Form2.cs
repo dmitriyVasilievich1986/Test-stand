@@ -39,13 +39,8 @@ namespace test_stand
                 else
                 {
                     Exception Err = PD.Open();
-                    if(Err !=null)
-                    {
-                        BeginInvoke((MethodInvoker)(() =>
-                        {
-                            MessageBox.Show(Err.Message, null, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }));
-                    }
+                    if (Err != null)
+                        { BeginInvoke((MethodInvoker)(() => { MessageBox.Show(Err.Message, null, MessageBoxButtons.OK, MessageBoxIcon.Error); })); }
                 }
                 BeginInvoke((MethodInvoker)(() =>
                 {

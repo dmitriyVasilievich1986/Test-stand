@@ -76,7 +76,7 @@
             this.Dout_Din16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.Dout_Din16.Location = new System.Drawing.Point(415, 223);
             this.Dout_Din16.Name = "Dout_Din16";
-            this.Dout_Din16.Size = new System.Drawing.Size(122, 23);
+            this.Dout_Din16.Size = new System.Drawing.Size(139, 23);
             this.Dout_Din16.TabIndex = 2;
             // 
             // label1
@@ -106,7 +106,7 @@
             this.Dout_Control.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.Dout_Control.Location = new System.Drawing.Point(415, 303);
             this.Dout_Control.Name = "Dout_Control";
-            this.Dout_Control.Size = new System.Drawing.Size(122, 23);
+            this.Dout_Control.Size = new System.Drawing.Size(139, 23);
             this.Dout_Control.TabIndex = 4;
             // 
             // label3
@@ -119,7 +119,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(105, 17);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Version 1.5.0";
+            this.label3.Text = "Version 1.6.0";
             // 
             // label4
             // 
@@ -137,7 +137,7 @@
             this.TBMTU5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.TBMTU5.Location = new System.Drawing.Point(415, 347);
             this.TBMTU5.Name = "TBMTU5";
-            this.TBMTU5.Size = new System.Drawing.Size(122, 23);
+            this.TBMTU5.Size = new System.Drawing.Size(139, 23);
             this.TBMTU5.TabIndex = 7;
             // 
             // label5
@@ -156,7 +156,7 @@
             this.TBPSC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.TBPSC.Location = new System.Drawing.Point(415, 389);
             this.TBPSC.Name = "TBPSC";
-            this.TBPSC.Size = new System.Drawing.Size(122, 23);
+            this.TBPSC.Size = new System.Drawing.Size(139, 23);
             this.TBPSC.TabIndex = 9;
             // 
             // label6
@@ -179,7 +179,7 @@
             "Выключена"});
             this.CBCurrent_Check.Location = new System.Drawing.Point(415, 428);
             this.CBCurrent_Check.Name = "CBCurrent_Check";
-            this.CBCurrent_Check.Size = new System.Drawing.Size(122, 24);
+            this.CBCurrent_Check.Size = new System.Drawing.Size(139, 24);
             this.CBCurrent_Check.TabIndex = 12;
             this.CBCurrent_Check.Text = "Выключена";
             // 
@@ -199,7 +199,7 @@
             this.Dout_Din32.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.Dout_Din32.Location = new System.Drawing.Point(415, 263);
             this.Dout_Din32.Name = "Dout_Din32";
-            this.Dout_Din32.Size = new System.Drawing.Size(122, 23);
+            this.Dout_Din32.Size = new System.Drawing.Size(139, 23);
             this.Dout_Din32.TabIndex = 13;
             // 
             // Settings
