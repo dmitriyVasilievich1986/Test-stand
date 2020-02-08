@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.IO.Ports;
 using ModBus_Library;
 using System.Data.SqlClient;
+using Support_Class;
 
 namespace test_stand
 {
@@ -25,8 +26,11 @@ namespace test_stand
         public static int port = 3;
         public static int exchange_port = 0;
         public static int TC_12V = 12;
-        public static bool shift_is_down = false;
         public static bool escape = true;
+        public static bool shift_is_down = false;
+        public static bool control_button = false;
+
+        public static List<string> admin_string = new List<string>();
 
         public static List<Send> Registers_Controls = new List<Send>();
         public static List<Controls_Only> controls_only = new List<Controls_Only>();
@@ -80,7 +84,6 @@ namespace test_stand
         public static ModBus_Libra PortControl = new ModBus_Libra(new SerialPort(), Properties.Settings.Default.Port1);
         public static ModBus_Libra PortChanelA = new ModBus_Libra(new SerialPort(), Properties.Settings.Default.Port2);
         public static ModBus_Libra PortChanelB = new ModBus_Libra(new SerialPort(), Properties.Settings.Default.Port3);
-        //public static Excell_Work EW = new Excell_Work();
 
         public static void ModuleName(string name) { Name = name; Addres = @"C:\asd\" + Name.ToString() + @".xlsx"; }
 
@@ -110,7 +113,6 @@ namespace test_stand
                 Command = com;
                 Start = st;
                 Registers = reg;
-
             }
 
             public void Data_Send()
@@ -168,13 +170,15 @@ namespace test_stand
             return result;
         }
 
-        public static void Insert_Module()
+        public static void Insert_Module(Module_Parameters module_parameters)
         {
             using (SqlConnection connection = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=All_Moduls;Integrated Security=True"))
             {
                 connection.Open();
                 string[] date_split = DateTime.Today.ToShortDateString().Split('.');
-                SqlCommand command = new SqlCommand($"INSERT INTO [All_Moduls].[dbo].[module] (module, sn, data) VALUES ('{Data_Transit.Name}',{Data_Transit.serial_number},'{date_split[2] + "-" + date_split[1] + "-" + date_split[0]}')", connection);
+                SqlCommand command = new SqlCommand($"INSERT INTO [All_Moduls].[dbo].[module] (module, sn, data) VALUES ('{module_parameters.using_module.name}',{Data_Transit.serial_number},'{date_split[2] + "-" + date_split[1] + "-" + date_split[0]}')", connection);
+                //SqlCommand command = new SqlCommand($"INSERT INTO [All_Moduls].[dbo].[module] (module, sn, data) VALUES ('{module_parameters.using_module.name}',{Data_Transit.serial_number},@data)", connection);
+                //command.Parameters.AddWithValue($"@data", DateTime.Today.ToShortDateString());
                 command.ExecuteNonQuery();
             }
         }

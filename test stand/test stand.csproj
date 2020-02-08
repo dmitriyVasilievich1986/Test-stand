@@ -60,6 +60,18 @@
   <ItemGroup>
     <Compile Include="All_Controls.cs" />
     <Compile Include="Data_Transit.cs" />
+    <Compile Include="Input.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Input.Designer.cs">
+      <DependentUpon>Input.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module_Setup_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module_Setup_Form.Designer.cs">
+      <DependentUpon>Module_Setup_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modul_Settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +122,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Input.resx">
+      <DependentUpon>Input.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module_Setup_Form.resx">
+      <DependentUpon>Module_Setup_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modul_Settings.resx">
       <DependentUpon>Modul_Settings.cs</DependentUpon>

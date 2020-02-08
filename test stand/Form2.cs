@@ -26,10 +26,6 @@ namespace test_stand
             TBoxBaudRate.Text = PD.Port.BaudRate.ToString();
             if (PD.Port.IsOpen) { BtnClose.Visible = true; BtnOpen.Visible = false; }
             else { BtnClose.Visible = false; BtnOpen.Visible = true; }
-            BtnOpen.Click += new System.EventHandler(this.OpenPort);
-            BtnClose.Click += new System.EventHandler(this.OpenPort);
-            TBoxBaudRate.TextChanged += (s, a) => { PD.Speed = Convert.ToInt32(TBoxBaudRate.Text); };
-            CBoxPort.TextChanged += (s, a) => { PD.Name = CBoxPort.Text; };
         }
 
         private async void OpenPort(object sender, EventArgs e)
@@ -60,6 +56,20 @@ namespace test_stand
         {
             if (PD.Port.IsOpen) { PD.Port.Close(); PD.Speed = Convert.ToInt32(TBoxBaudRate.Text); OpenPort(null, null); }
             else PD.Speed = Convert.ToInt32(TBoxBaudRate.Text);
+        }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Dispose();
+        }
+
+        private async void Form2_Load(object sender, EventArgs e)
+        {
+            await Task.Delay(250);
+            BtnOpen.Click += new System.EventHandler(this.OpenPort);
+            BtnClose.Click += new System.EventHandler(this.OpenPort);
+            TBoxBaudRate.TextChanged += (s, a) => { PD.Speed = Convert.ToInt32(TBoxBaudRate.Text); };
+            CBoxPort.TextChanged += (s, a) => { PD.Name = CBoxPort.Text; };
         }
     }
 }

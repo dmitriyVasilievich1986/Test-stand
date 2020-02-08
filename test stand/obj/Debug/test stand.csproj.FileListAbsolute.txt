@@ -44,3 +44,5 @@ C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\bin\Debug\Newto
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\bin\Debug\SupportClass.pdb
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test stand.csprojAssemblyReference.cache
 C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\bin\Debug\SupportClass.dll
+C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test_stand.Input.resources
+C:\Users\d.shcherbachenya\Desktop\projects\test stand\test stand\obj\Debug\test_stand.Module_Setup_Form.resources

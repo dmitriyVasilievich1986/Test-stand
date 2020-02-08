@@ -8,15 +8,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Support_Class;
 
 namespace test_stand
 {
     public partial class Result : Form
     {
         List<Results_Test> list_of_result;
+        Module_Parameters mp;
 
-        public Result(List<Results_Test> al)
+        public Result(List<Results_Test> al, Module_Parameters module_parameters)
         {
+            mp = module_parameters;
             int column_count = 0;
             list_of_result = al;
             foreach (Results_Test rt in al) { foreach(Tests te in rt.All_Tests) { if (te.test.Count > column_count) column_count = te.test.Count; }}
@@ -42,7 +45,7 @@ namespace test_stand
 
             DataRow DR = DT.NewRow();
             DR[0] = DateTime.Now.ToString();
-            DR[1] = Data_Transit.Name;
+            DR[1] = mp.using_module.name;
             if (Data_Transit.serial_number > 0) DR[2] = Data_Transit.serial_number.ToString();
             DT.Rows.Add(DR);
 
@@ -77,7 +80,7 @@ namespace test_stand
 
         private void Button1_Click(object sender, EventArgs e)
         {   
-            Data_Transit.Insert_Module();
+            Data_Transit.Insert_Module(mp);
             Data_Transit.Last_Row();
             foreach(Results_Test rt in list_of_result)
             {

@@ -39,24 +39,79 @@ namespace test_stand
 
             using (StreamReader sw = new StreamReader(@"C:\Users\d.shcherbachenya\Desktop\projects\test stand\JSon\module.txt"))
                 module_parameters = JsonConvert.DeserializeObject<Module_Parameters>(sw.ReadToEnd());
-            using (StreamReader sw = new StreamReader(@"C:\Users\d.shcherbachenya\Desktop\projects\test stand\JSon\module_setup.txt"))
-                setup = JsonConvert.DeserializeObject<List<Module_Setup>>(sw.ReadToEnd());
-            module_parameters.using_module = setup[0];
-            setup.Sort((x, y) => y.name.CompareTo(x.name));
-
-            PnlModule.Height = setup.Count * 35;
-            foreach (Module_Setup ms in setup)
-                PnlModule.Controls.Add(new Module_Button(ms.name, new EventHandler(Module_Selection)));
+            all_module_buttons();
+            module_parameters.using_module = setup.Exists(x => x.name.ToLower() == "no module") ? setup.Find(x => x.name.ToLower() == "no module") : setup[0];
 
             HW.Visible = false;
             btnHW.Visible = false;
 
-            this.KeyDown += (s, e) =>
+            this.KeyDown += async (s, e) =>
             {
                 switch (e.KeyCode)
                 {
+                    case Keys.ControlKey:
+                        Data_Transit.control_button = true;
+                        break;
+                    case Keys.N:
+                        if (Data_Transit.control_button) { Data_Transit.admin_string.Add("n"); }
+                        break;
+                    case Keys.U:
+                        if (Data_Transit.control_button) { Data_Transit.admin_string.Add("u"); }
+                        break;
+                    case Keys.L:
+                        if (Data_Transit.control_button) { Data_Transit.admin_string.Add("l"); }
+                        break;
+                    case Keys.E:
+                        if (Data_Transit.control_button)
+                        {
+                            Data_Transit.admin_string.Add("e");
+                            if (String.Join("", Data_Transit.admin_string.ToArray()) == "delete")
+                            {
+                                Data_Transit.control_button = false;
+                                Data_Transit.admin_string.Clear();
+                                string delete_module = Convert.ToString(await open_input_form("Введите название модуля для удаления", "название модуля"));
+                                if (delete_module != "" && delete_module != "название модуля" && setup.Exists(x => x.name == delete_module))
+                                {
+                                    setup.Remove(setup.Find(x => x.name == delete_module));
+                                    using (StreamWriter sw = new StreamWriter(@"C:\Users\d.shcherbachenya\Desktop\projects\test stand\JSon\module_setup.txt", false, Encoding.UTF8))
+                                        sw.Write(JsonConvert.SerializeObject(setup));
+                                    all_module_buttons();
+                                }
+                            }
+                        }
+                        break;
+                    case Keys.W:
+                        if (Data_Transit.control_button)
+                        {
+                            Data_Transit.admin_string.Add("w");
+                            if (String.Join("", Data_Transit.admin_string.ToArray()) == "new")
+                            {
+                                Data_Transit.control_button = false;
+                                Data_Transit.admin_string.Clear();
+                                string new_module = Convert.ToString(await open_input_form("Введите название нового модуля", "новый модуль"));
+                                if (new_module != "" && new_module != "новый модуль" && !setup.Exists(x => x.name == new_module)) 
+                                {
+                                    setup.Add(new Module_Setup(new_module, 0, 0, new Min_Max_None(0, 0), new Min_Max_None(0, 0), new Min_Max_None(0, 0), new Min_Max_None(0, 0), new Min_Max_None(0, 0)));
+                                    using (StreamWriter sw = new StreamWriter(@"C:\Users\d.shcherbachenya\Desktop\projects\test stand\JSon\module_setup.txt", false, Encoding.UTF8))
+                                        sw.Write(JsonConvert.SerializeObject(setup));
+                                    all_module_buttons();
+                                }
+                            }
+                        }
+                        break;
                     case Keys.P:
-                        all_button.Where(x => x.name.Contains("currentPSC")).ToList()[0].PerformClick();
+                        if (Data_Transit.control_button)
+                        {
+                            Data_Transit.admin_string.Add("p");
+                            if (String.Join("", Data_Transit.admin_string.ToArray()) == "setup")
+                            {
+                                Module_Setup_Form setup_form = new Module_Setup_Form(module_parameters, setup);
+                                Data_Transit.control_button = false;
+                                Data_Transit.admin_string.Clear();
+                                setup_form.Show();
+                            }
+                        }
+                        all_button.Find(x => x.name.Contains("currentPSC")).PerformClick();
                         break;
                     case Keys.Z:
                         if (Data_Transit.shift_is_down) { Data_Transit.shift_is_down = false; Form6 form6 = new Form6(PortControl); form6.Show(); }
@@ -65,6 +120,7 @@ namespace test_stand
                         if (Data_Transit.shift_is_down) { Data_Transit.shift_is_down = false; Form6 form6 = new Form6(PortChanelA); form6.Show(); }
                         break;
                     case Keys.T:
+                        if (Data_Transit.control_button) { Data_Transit.admin_string.Add("t"); }
                         if (Data_Transit.shift_is_down) MyTest();
                         break;
                     case Keys.Escape:
@@ -77,7 +133,12 @@ namespace test_stand
                         Data_Transit.serial_number = 0;
                         break;
                     case Keys.A:
-                        BtnAllComPort_Click(null, null);
+                        if (Data_Transit.shift_is_down)
+                        {
+                            Data_Transit.shift_is_down = false;
+                            module_parameters.module.Addres = byte.Parse(Convert.ToString(await open_input_form("Введите адрес модуля", module_parameters.module.Addres.ToString())));
+                        }
+                        else BtnAllComPort_Click(null, null);
                         break;
                     case Keys.M:
                         Module_Settings_Click(null, null);
@@ -119,16 +180,30 @@ namespace test_stand
                         Data_Transit.shift_is_down = true;
                         break;
                     case Keys.S:
+                        if (Data_Transit.control_button) { Data_Transit.admin_string.Add("s"); }
                         if (Data_Transit.shift_is_down) { StartTest_Click(null, null); }
                         else { Settings_Click(null, null); }
                         break;
                     case Keys.D:
+                        if (Data_Transit.control_button) { Data_Transit.admin_string.Add("d"); }
                         PortControl.Interrupt(new byte[] { module_parameters.dout_control.Addres, 0x10, 0, 0x51, 00, 02, 04, 0, 0, 0, 0 });
+                        break;
+                    default:
+                        Data_Transit.admin_string.Clear();
                         break;
                 }
             };
 
-            this.KeyUp += (s, e) => { if (e.KeyCode == Keys.ShiftKey) { Data_Transit.shift_is_down = false; } };
+            this.KeyUp += (s, e) => 
+            {
+                if (e.KeyCode == Keys.ShiftKey) { Data_Transit.shift_is_down = false; }
+                if (e.KeyCode == Keys.ControlKey)
+                {
+                    Data_Transit.control_button = false;
+                    Data_Transit.admin_string.Clear();
+                    label1.Text = String.Join(" ", Data_Transit.admin_string.ToArray());
+                }
+            };
 
             this.StartPosition = FormStartPosition.CenterScreen;
 
@@ -167,6 +242,18 @@ namespace test_stand
 
             #region other_button
 
+            all_button.Add(new My_Button($"ТУ RF", "ТУ модуля", Color.LightGray, Color.Black,
+                my_button_click: new My_Button_Click(PortChanelA, module_parameters.module, new byte[] { 0, 0x06, 0, 0x63, 0, 0 }),
+                visible: new My_Control_Visible("tu", 3)));
+            all_button.Add(new My_Button($"ТУ OFF", "ТУ модуля", Color.LightGray, Color.Black,
+                my_button_click: new My_Button_Click(PortChanelA, module_parameters.module, new byte[] { 0, 0x06, 0, 0x62, 0, 0 }),
+                visible: new My_Control_Visible("tu", 2)));
+            all_button.Add(new My_Button($"ТУ ON", "ТУ модуля", Color.LightGray, Color.Black,
+                my_button_click: new My_Button_Click(PortChanelA, module_parameters.module, new byte[] { 0, 0x06, 0, 0x61, 0, 0 }),
+                visible: new My_Control_Visible("tu", 2)));
+            all_button.Add(new My_Button($"EnTU", "Entu модуля", Color.LightGray, Color.Black,
+                button_color: new My_Button_Colorized(PortChanelA, 0x0009, module_parameters.module, 1, checkout_port2: PortChanelB),
+                visible: new My_Control_Visible("entu", 1)));
             all_button.Add(new My_Button($"Измерение Ток 0: ", "temperature", Color.LightGray, Color.Black,
                 visible: new My_Control_Visible("temperature", 4)));
             all_button.Add(new My_Button($"Температура: ", "temperature", Color.LightGray, Color.Black,
@@ -182,15 +269,16 @@ namespace test_stand
 
             #endregion
 
-            all_panel.Add(new My_Panel("din", new Padding(35, 0, 0, 0), all_button.Where(a => a.name.Contains("din")).ToList()));
-            all_panel.Add(new My_Panel("temperature", new Padding(35, 35, 0, 0), all_button.Where(a => a.name.Contains("temperature")).ToList(), panel_visible: new My_Control_Visible("temperature", 1)));
-            all_panel.Add(new My_Panel("tc", new Padding(35, 35, 35, 0), all_button.Where(a => a.name.Contains("tc")).ToList(), panel_visible: new My_Control_Visible("tc", 1)));
-            all_panel.Add(new My_Panel("kf", new Padding(35, 35, 35, 0), all_button.Where(a => a.name.Contains("kf")).ToList(), panel_visible: new My_Control_Visible("kf", 1)));
-            all_panel.Add(new My_Panel("TC12v", new Padding(35, 20, 35, 0), all_button.Where(a => a.name.Contains("TC12v") || a.name.Contains("TC TU")).ToList()));
-            all_panel.Add(new My_Panel("currentPSC", new Padding(35, 20, 35, 0), all_button.Where(a => a.name.Contains("currentPSC")).ToList()));
+            all_panel.Add(new My_Panel("din", new Padding(35, 0, 35, 0), Color.LightGray, all_button.Where(a => a.name.Contains("din")).ToList()));
+            all_panel.Add(new My_Panel("ТУ модуля", new Padding(35, 35, 35, 0), Color.LightGray, all_button.Where(a => a.name == "ТУ модуля" || a.name == "Entu модуля").ToList()));
+            all_panel.Add(new My_Panel("temperature", new Padding(35, 35, 35, 0), Color.LightGray, all_button.Where(a => a.name.Contains("temperature")).ToList(), panel_visible: new My_Control_Visible("temperature", 1)));
+            all_panel.Add(new My_Panel("tc", new Padding(35, 35, 35, 0), Color.LightGray, all_button.Where(a => a.name.Contains("tc")).ToList(), panel_visible: new My_Control_Visible("tc", 1)));
+            all_panel.Add(new My_Panel("kf", new Padding(35, 35, 35, 0), Color.LightGray, all_button.Where(a => a.name.Contains("kf")).ToList(), panel_visible: new My_Control_Visible("kf", 1)));
+            all_panel.Add(new My_Panel("TC12v", new Padding(35, 20, 35, 0), Color.Gray, all_button.Where(a => a.name.Contains("TC12v") || a.name == "TC TU").ToList()));
+            all_panel.Add(new My_Panel("currentPSC", new Padding(35, 20, 35, 0), Color.Gray, all_button.Where(a => a.name.Contains("currentPSC")).ToList()));
 
             pnlLeft.Controls.AddRange(all_panel.Where(a => a.name.Contains("din")).ToArray());
-            pnlRight.Controls.AddRange(all_panel.Where(a => a.name.Contains("kf") || a.name.Contains("tc") || a.name.Contains("power3") || a.name.Contains("temperature") || a.name.Contains("test")).ToArray());
+            pnlRight.Controls.AddRange(all_panel.Where(a => a.name.Contains("kf") || a.name.Contains("tc") || a.name.Contains("power3") || a.name.Contains("temperature") || a.name == "ТУ модуля" || a.name.Contains("test")).ToArray());
             PnlCurrentPSC.Controls.AddRange(all_panel.Where(a => a.name.Contains("currentPSC")).ToArray());
             PnlTC12V.Controls.AddRange(all_panel.Where(a => a.name.Contains("TC12v")).ToArray());
 
@@ -301,12 +389,18 @@ namespace test_stand
             BeginInvoke((MethodInvoker)(() => {
                 foreach (My_Button mb in all_button) { mb.Checkout(PortChanelA); }
             }));
+            BeginInvoke((MethodInvoker)(() => {
+                foreach (My_Panel myp in all_panel) { myp.Checkout(PortChanelA); }
+            }));
         }
 
         public void PortChanelB_DataReceived()
         {
             BeginInvoke((MethodInvoker)(() => {
                 foreach (My_Button mb in all_button) { mb.Checkout(PortChanelB); }
+            }));
+            BeginInvoke((MethodInvoker)(() => {
+                foreach (My_Panel myp in all_panel) { myp.Checkout(PortChanelB); }
             }));
         }
 
@@ -330,6 +424,13 @@ namespace test_stand
                 {
                     mb[a].button_result = new My_Button_Result(PortChanelA, module_parameters.module, (short)((short)(module_parameters.using_module.all_registers[name][2] << 8) | (short)(module_parameters.using_module.all_registers[name][3])), a, checkout_port2: PortChanelB);
                 }
+            }
+
+            List<My_Button> mbc = all_button.Where(x => x.name == "ТУ модуля" && x.Visible).ToList();
+            mbc.Reverse();
+            for (int a = 0; a < mbc.Count; a++)
+            {
+                mbc[a].colorized = new My_Button_Colorized(PortChanelA, (short)((short)(module_parameters.using_module.all_registers["tu"][2] << 8) | (short)(module_parameters.using_module.all_registers["tu"][3])), module_parameters.module, 1 << a, checkout_port2: PortChanelB);
             }
 
             if (Open_Window == "form3") Open_Child_Form(new Modul_Settings(module_parameters, setup));
@@ -513,14 +614,14 @@ namespace test_stand
             }
 
             Data_Transit.escape = false;
-            Result result1 = new Result(new List<Results_Test>() { await All_TC_Test(parameters, test_name, min_max) });
+            Result result1 = new Result(new List<Results_Test>() { await All_TC_Test(parameters, test_name, min_max) }, module_parameters);
             if(!Data_Transit.escape) result1.Show();
         }
 
         private async void BtnTests4_Click(object sender, EventArgs e)
         {
             Data_Transit.serial_number = 0;
-            Result result1 = new Result(new List<Results_Test>() { await Power_Test() });
+            Result result1 = new Result(new List<Results_Test>() { await Power_Test() }, module_parameters);
             result1.Show();
         }
 
@@ -587,7 +688,7 @@ namespace test_stand
             if (module_parameters.using_module.tests["Проверка ТУ MTU5"] && !Data_Transit.escape) result.Add(await MTU5_TU_Test());
             if (module_parameters.using_module.tests["Проверка EnTU"] && !Data_Transit.escape) result.Add(await EnTU_Test());
 
-            Result result1 = new Result(result);
+            Result result1 = new Result(result, module_parameters);
             if (!Data_Transit.escape) result1.Show();
         }
         #endregion
@@ -777,7 +878,8 @@ namespace test_stand
 
                 result.Add_Test($"{test} {kf + 1}");
                 for (int check = 0; check < using_button.Count; check++)
-                {                    
+                {
+                    if (Data_Transit.escape) break;
                     if (check == kf)
                     {
                         if (await Compar(using_button[check], min_max.Min, min_max.Max))
@@ -848,14 +950,36 @@ namespace test_stand
 
         #endregion
 
+        private void all_module_buttons()
+        {
+            using (StreamReader sw = new StreamReader(@"C:\Users\d.shcherbachenya\Desktop\projects\test stand\JSon\module_setup.txt"))
+                setup = JsonConvert.DeserializeObject<List<Module_Setup>>(sw.ReadToEnd());
+            setup.Sort((x, y) => y.name.CompareTo(x.name));
+
+            PnlModule.Height = setup.Count * 35;
+            foreach (Module_Setup ms in setup)
+                PnlModule.Controls.Add(new Module_Button(ms.name, new EventHandler(Module_Selection)));
+        }
+
+        private async Task<string> open_input_form(string label_text, string textbox_text)
+        {
+            Input input = new Input(label_text, textbox_text);
+            Data_Transit.shift_is_down = false;
+            this.Enabled = false;
+            string output_string = Convert.ToString(await input.return_result());
+            this.Enabled = true;
+            input.Dispose();
+            return output_string;
+        }
+
         private async void MyTest()
         {
-            //label1.Text = "qwe";
-            //byte[] data = all_button[15].click.data;
-            //data[0] = 20;
-            //data[5] = 1;
-            //PortControl.Interrupt(data);
+            setup.Remove(setup[0]);
+
+            using (StreamWriter sw = new StreamWriter(@"C:\Users\d.shcherbachenya\Desktop\projects\test stand\JSon\module_setup.txt", false, Encoding.UTF8))
+                sw.Write(JsonConvert.SerializeObject(setup));
+            all_module_buttons();
             
-        }        
+        }
     }
 }

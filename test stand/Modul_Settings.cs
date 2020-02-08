@@ -27,8 +27,8 @@ namespace test_stand
             Din.Text = $"{MP.using_module.din.Min} {MP.using_module.din.Max} {MP.using_module.din.None}";
             KF.Text = $"{MP.using_module.kf.Min} {MP.using_module.kf.Max} {MP.using_module.kf.None}";
             TC.Text = $"{MP.using_module.tc.Min} {MP.using_module.tc.Max} {MP.using_module.tc.None}";
-            TC12V.Text = $"{MP.using_module.tc12v.Min} {MP.using_module.tc12v.Max} {MP.using_module.tc12v.None}";
-            Current.Text = $"{MP.using_module.current.Min} {MP.using_module.current.Max} {MP.using_module.current.None}";
+            TC12V.Text = $"{MP.using_module.tc12v.Min} {MP.using_module.tc12v.Max}";
+            Current.Text = $"{MP.using_module.current.Min} {MP.using_module.current.Max}";
             RS485Ports.Text = $"{MP.using_module.exchange_chanel}";
             PowerPorts.Text = $"{MP.using_module.power_chanel}";
             ModuleAddres.Text = $"{MP.module.Addres}";
