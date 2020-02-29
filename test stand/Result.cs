@@ -20,9 +20,11 @@ namespace test_stand
         public Result(List<Results_Test> al, Module_Parameters module_parameters)
         {
             mp = module_parameters;
+            FormClosing += (s, e) => { Dispose(); };
             int column_count = 0;
             list_of_result = al;
             foreach (Results_Test rt in al) { foreach(Tests te in rt.All_Tests) { if (te.test.Count > column_count) column_count = te.test.Count; }}
+            if (column_count < 2) column_count = 2;
 
             InitializeComponent();
             if(Data_Transit.escape) { return; }

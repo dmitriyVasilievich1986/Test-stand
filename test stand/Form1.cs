@@ -36,6 +36,7 @@ namespace test_stand
         public FormMain()
         {
             InitializeComponent();
+            toolTip1.SetToolTip(panel5, "hello");
 
             using (StreamReader sw = new StreamReader(@"C:\Users\d.shcherbachenya\Desktop\projects\test stand\JSon\module.txt"))
                 module_parameters = JsonConvert.DeserializeObject<Module_Parameters>(sw.ReadToEnd());
@@ -55,6 +56,27 @@ namespace test_stand
                     case Keys.N:
                         if (Data_Transit.control_button) { Data_Transit.admin_string.Add("n"); }
                         break;
+                    case Keys.O:
+                        if (Data_Transit.control_button) { Data_Transit.admin_string.Add("o"); }
+                        break;
+                    case Keys.Y:
+                        if (Data_Transit.control_button) { Data_Transit.admin_string.Add("y"); }
+                        if (String.Join("", Data_Transit.admin_string.ToArray()) == "copy")
+                        {
+                            Data_Transit.control_button = false;
+                            Data_Transit.admin_string.Clear();
+                            string new_module = Convert.ToString(await open_input_form("Введите название нового модуля", "новый модуль"));
+                            if (new_module != "" && new_module != "новый модуль" && !setup.Exists(x => x.name == new_module))
+                            {
+                                setup.Add(new Module_Setup(new_module, 0,0,new Min_Max_None(0,0), new Min_Max_None(0,0), new Min_Max_None(0,0), new Min_Max_None(0,0), new Min_Max_None(0,0)));
+                                foreach(string a in module_parameters.using_module.all_registers.Keys) { setup[setup.Count - 1].all_registers[a] = module_parameters.using_module.all_registers[a]; }
+                                foreach(string a in module_parameters.using_module.tests.Keys) { setup[setup.Count - 1].tests[a] = module_parameters.using_module.tests[a]; }
+                                using (StreamWriter sw = new StreamWriter(@"C:\Users\d.shcherbachenya\Desktop\projects\test stand\JSon\module_setup.txt", false, Encoding.UTF8))
+                                    sw.Write(JsonConvert.SerializeObject(setup));
+                                all_module_buttons();
+                            }
+                        }
+                        break;                    
                     case Keys.U:
                         if (Data_Transit.control_button) { Data_Transit.admin_string.Add("u"); }
                         break;
@@ -111,13 +133,17 @@ namespace test_stand
                                 setup_form.Show();
                             }
                         }
-                        all_button.Find(x => x.name.Contains("currentPSC")).PerformClick();
+                        all_button.Find(x => x.name=="currentPSC").PerformClick();
                         break;
                     case Keys.Z:
                         if (Data_Transit.shift_is_down) { Data_Transit.shift_is_down = false; Form6 form6 = new Form6(PortControl); form6.Show(); }
                         break;
                     case Keys.X:
                         if (Data_Transit.shift_is_down) { Data_Transit.shift_is_down = false; Form6 form6 = new Form6(PortChanelA); form6.Show(); }
+                        break;
+                    case Keys.C:
+                        if (Data_Transit.control_button) { Data_Transit.admin_string.Add("c"); }
+                        if (Data_Transit.shift_is_down) { Data_Transit.shift_is_down = false; Form6 form6 = new Form6(PortChanelB); form6.Show(); }
                         break;
                     case Keys.T:
                         if (Data_Transit.control_button) { Data_Transit.admin_string.Add("t"); }
@@ -147,9 +173,18 @@ namespace test_stand
                         if (Data_Transit.shift_is_down)
                         {
                             byte set = 1;
-                            var co = Data_Transit.port_control_button.Where(c => c.name.Contains("din"));
-                            foreach (Button_Send a in co) if (a.button.BackColor == Color.Red) set = 0;
-                            Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Din16.Addres, 0x10, 0, 0x51, 00, 16, 32, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set, 0, set });
+                            List<My_Button> item = all_button.FindAll(x => x.name=="din16" && x.Visible);
+                            List<byte> sending_data = new List<byte>() { module_parameters.dout_din16.Addres, 0x10, 0x00, 0x51, 00, (byte)(item.Count), (byte)(item.Count*2)};
+                            foreach (My_Button mb in item)  { if (mb.BackColor == Color.Red) { set = 0; break; } }
+                            foreach (My_Button mb in item)  { sending_data.Add(0x00);sending_data.Add(set); }
+                            PortControl.Interrupt(sending_data.ToArray());
+                            Thread.Sleep(200);
+                            //item = all_button.FindAll(x => x.name=="din32" && x.Visible);
+                            //sending_data = new List<byte>() { module_parameters.dout_din32.Addres, 0x10, 0x00, 0x51, 00, (byte)(item.Count), (byte)(item.Count*2)};
+                            //foreach (My_Button mb in item)  { if (mb.BackColor == Color.Red) { set = 0; break; } }
+                            //foreach (My_Button mb in item)  { sending_data.Add(0x00);sending_data.Add(set); }
+                            //PortControl.Interrupt(sending_data.ToArray());
+                            //foreach (My_Button mb in item)  { mb.click.send_data(set); Thread.Sleep(200); }
                         }
                         else BtnComPortMenu.PerformClick();
                         break;
@@ -157,9 +192,9 @@ namespace test_stand
                         if (Data_Transit.shift_is_down)
                         {
                             byte set = 1;
-                            var co = Data_Transit.port_control_button.Where(c => c.name.Contains("kf"));
-                            foreach (Button_Send a in co) if (a.button.BackColor == Color.Red) set = 0;
-                            Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x10, 0, 0x5d, 00, 03, 06, 0, set, 0, set, 0, set });
+                            List<My_Button> item = all_button.FindAll(x => x.name == "kf");
+                            foreach (My_Button mb in item) if (mb.BackColor == Color.Red) set = 0;
+                            PortControl.Interrupt(new byte[] { module_parameters.dout_control.Addres, 0x10, 0, 0x5d, 00, 03, 06, 0, set, 0, set, 0, set });
                         }
                         else BtnModule.PerformClick();
                         break;
@@ -167,9 +202,9 @@ namespace test_stand
                         if (Data_Transit.shift_is_down)
                         {
                             byte set = 1;
-                            var co = Data_Transit.port_control_button.Where(c => c.name.Contains("tc"));
-                            foreach (Button_Send a in co) if (a.button.BackColor == Color.Red) set = 0;
-                            Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x10, 0, 0x55, 00, 03, 06, 0, set, 0, set, 0, set });
+                            List<My_Button> item = all_button.FindAll(x => x.name == "tc");
+                            foreach (My_Button mb in item) if (mb.BackColor == Color.Red) set = 0;
+                            PortControl.Interrupt(new byte[] { module_parameters.dout_control.Addres, 0x10, 0, 0x55, 00, 03, 06, 0, set, 0, set, 0, set });
                         }
                         else BtnParameters.PerformClick();
                         break;
@@ -242,6 +277,59 @@ namespace test_stand
 
             #region other_button
 
+            for (int a = 11; a > 7; a--)
+            {
+                all_button.Add(new My_Button($"Din {a + 1}", "dinlight", Color.LightGray, Color.Black,
+                button_color: new My_Button_Colorized(PortChanelA, 0x0001, module_parameters.module, 1 << (a - 8), checkout_port2: PortChanelB),
+                visible: new My_Control_Visible("light", 1),
+                my_button_click: all_button.FindAll(x => x.name == "din16")[31 - a].click
+                ));
+            }
+            for (int a = 7; a > -1; a--)
+            {
+                all_button.Add(new My_Button($"Din {a+1}", "dinlight", Color.LightGray, Color.Black,
+                button_color: new My_Button_Colorized(PortChanelA, 0x0001, module_parameters.module, 1 << (8+a), checkout_port2: PortChanelB),
+                visible: new My_Control_Visible("light", 1),
+                my_button_click: all_button.FindAll(x => x.name == "din16")[31-a].click
+                ));
+            }
+
+            all_button.Add(new My_Button($"Напряжение заряда аккумулятора: ", "BatteryPSC", Color.LightGray, Color.Black,
+                visible: new My_Control_Visible("BatteryPSC", 1)));
+            all_button.Add(new My_Button($"Ток заряда аккумулятора: ", "BatteryPSC", Color.LightGray, Color.Black,
+                visible: new My_Control_Visible("BatteryPSC", 1)));
+            all_button.Add(new My_Button($"Ток выхода канал 2: ", "ExitPSC", Color.LightGray, Color.Black,
+                my_button_click: new My_Button_Click(PortControl, module_parameters.v12, new byte[] { 0x01, 0x06, 00, 0x63, 00, 0x01 }),
+                button_color: new My_Button_Colorized(PortControl, 0x000f, module_parameters.v12, 1),
+                visible: new My_Control_Visible("ExitPSC", 1)));
+            all_button.Add(new My_Button($"Ток выхода канал 1: ", "ExitPSC", Color.LightGray, Color.Black,
+                my_button_click: new My_Button_Click(PortControl, module_parameters.v12, new byte[] { 0x01, 0x06, 00, 0x63, 00, 0x01 }),
+                button_color: new My_Button_Colorized(PortControl, 0x000f, module_parameters.v12, 1),
+                visible: new My_Control_Visible("ExitPSC", 1)));
+            all_button.Add(new My_Button($"Напряжение выход канал 2: ", "ExitPSC", Color.LightGray, Color.Black,
+                visible: new My_Control_Visible("ExitPSC", 1)));
+            all_button.Add(new My_Button($"Напряжение выход канал 1: ", "ExitPSC", Color.LightGray, Color.Black,
+                visible: new My_Control_Visible("ExitPSC", 1)));
+            all_button.Add(new My_Button($"Питание батареи: ", "PowerPSC", Color.LightGray, Color.Black,
+                my_button_click: new My_Button_Click(PortControl, module_parameters.dout_control, new byte[] { 0, 0x06, 0, 0x59, 00, 00}),
+                button_color: new My_Button_Colorized(PortControl, 0x0001, module_parameters.dout_control, 1),
+                visible: new My_Control_Visible("PowerPSC", 1)));
+            all_button.Add(new My_Button($"Питание канал 2: ", "PowerPSC", Color.LightGray, Color.Black,
+                my_button_click: new My_Button_Click(PortControl, module_parameters.dout_control, new byte[] { 0, 0x06, 0, 0x5c, 00, 00}),
+                button_color: new My_Button_Colorized(PortControl, 0x0001, module_parameters.dout_control, 8),
+                visible: new My_Control_Visible("PowerPSC", 1)));
+            all_button.Add(new My_Button($"Питание канал 1: ", "PowerPSC", Color.LightGray, Color.Black,
+                my_button_click: new My_Button_Click(PortControl, module_parameters.dout_control, new byte[] { 0, 0x06, 0, 0x5b, 00, 00}),
+                button_color: new My_Button_Colorized(PortControl, 0x0001, module_parameters.dout_control, 4),
+                visible: new My_Control_Visible("PowerPSC", 1)));
+            all_button.Add(new My_Button($"ТУ ON/OFF: ", "mtu5tu", Color.LightGray, Color.Black,
+                visible: new My_Control_Visible("mtu5tu", 4)));
+            all_button.Add(new My_Button($"ТУ RF: ", "mtu5tu", Color.LightGray, Color.Black,
+                visible: new My_Control_Visible("mtu5tu", 4)));
+            all_button.Add(new My_Button($"Питание канала B: ", "power", Color.LightGray, Color.Black,
+                visible: new My_Control_Visible("power", 4)));
+            all_button.Add(new My_Button($"Питание канала А: ", "power", Color.LightGray, Color.Black,
+                visible: new My_Control_Visible("power", 4)));
             all_button.Add(new My_Button($"ТУ RF", "ТУ модуля", Color.LightGray, Color.Black,
                 my_button_click: new My_Button_Click(PortChanelA, module_parameters.module, new byte[] { 0, 0x06, 0, 0x63, 0, 0 }),
                 visible: new My_Control_Visible("tu", 3)));
@@ -251,10 +339,11 @@ namespace test_stand
             all_button.Add(new My_Button($"ТУ ON", "ТУ модуля", Color.LightGray, Color.Black,
                 my_button_click: new My_Button_Click(PortChanelA, module_parameters.module, new byte[] { 0, 0x06, 0, 0x61, 0, 0 }),
                 visible: new My_Control_Visible("tu", 2)));
-            all_button.Add(new My_Button($"EnTU", "Entu модуля", Color.LightGray, Color.Black,
-                button_color: new My_Button_Colorized(PortChanelA, 0x0009, module_parameters.module, 1, checkout_port2: PortChanelB),
+            all_button.Add(new My_Button($"EnTU", "Entu модуля", Color.LightGray, Color.Black,                
                 visible: new My_Control_Visible("entu", 1)));
             all_button.Add(new My_Button($"Измерение Ток 0: ", "temperature", Color.LightGray, Color.Black,
+                my_button_click:new My_Button_Click(PortControl, module_parameters.v12, new byte[] { 0x01, 0x06, 00, 0x63, 00, 0x01 }),
+                button_color: new My_Button_Colorized(PortControl, 0x000f, module_parameters.v12, 1),
                 visible: new My_Control_Visible("temperature", 4)));
             all_button.Add(new My_Button($"Температура: ", "temperature", Color.LightGray, Color.Black,
                 visible: new My_Control_Visible("temperature", 2)));
@@ -269,55 +358,29 @@ namespace test_stand
 
             #endregion
 
-            all_panel.Add(new My_Panel("din", new Padding(35, 0, 35, 0), Color.LightGray, all_button.Where(a => a.name.Contains("din")).ToList()));
-            all_panel.Add(new My_Panel("ТУ модуля", new Padding(35, 35, 35, 0), Color.LightGray, all_button.Where(a => a.name == "ТУ модуля" || a.name == "Entu модуля").ToList()));
-            all_panel.Add(new My_Panel("temperature", new Padding(35, 35, 35, 0), Color.LightGray, all_button.Where(a => a.name.Contains("temperature")).ToList(), panel_visible: new My_Control_Visible("temperature", 1)));
-            all_panel.Add(new My_Panel("tc", new Padding(35, 35, 35, 0), Color.LightGray, all_button.Where(a => a.name.Contains("tc")).ToList(), panel_visible: new My_Control_Visible("tc", 1)));
-            all_panel.Add(new My_Panel("kf", new Padding(35, 35, 35, 0), Color.LightGray, all_button.Where(a => a.name.Contains("kf")).ToList(), panel_visible: new My_Control_Visible("kf", 1)));
-            all_panel.Add(new My_Panel("TC12v", new Padding(35, 20, 35, 0), Color.Gray, all_button.Where(a => a.name.Contains("TC12v") || a.name == "TC TU").ToList()));
-            all_panel.Add(new My_Panel("currentPSC", new Padding(35, 20, 35, 0), Color.Gray, all_button.Where(a => a.name.Contains("currentPSC")).ToList()));
+            all_panel.Add(new My_Panel("din", new Padding(35, 0, 35, 0), Color.LightGray, all_button.FindAll(a => a.name.Contains("din"))));
+            all_panel.Add(new My_Panel("PowerPSC", new Padding(35, 35, 35, 0), Color.LightGray, all_button.FindAll(a => a.name == "PowerPSC")));
+            all_panel.Add(new My_Panel("ExitPSC", new Padding(35, 35, 35, 0), Color.LightGray, all_button.FindAll(a => a.name == "ExitPSC")));
+            all_panel.Add(new My_Panel("ТУ модуля", new Padding(35, 35, 35, 0), Color.LightGray, all_button.FindAll(a => a.name == "ТУ модуля" || a.name == "Entu модуля"|| a.name == "mtu5tu"), panel_visible: new My_Control_Visible("entu", 1)));
+            all_panel.Add(new My_Panel("temperature", new Padding(35, 35, 35, 0), Color.LightGray, all_button.FindAll(a => a.name == "temperature"), panel_visible: new My_Control_Visible("temperature", 1)));
+            all_panel.Add(new My_Panel("BatteryPSC", new Padding(35, 35, 35, 0), Color.LightGray, all_button.FindAll(a => a.name == "BatteryPSC"), panel_visible: new My_Control_Visible("BatteryPSC", 1)));
+            all_panel.Add(new My_Panel("power", new Padding(35, 35, 35, 0), Color.LightGray, all_button.FindAll(a => a.name == "power"), panel_visible: new My_Control_Visible("power", 4)));
+            all_panel.Add(new My_Panel("tc", new Padding(35, 35, 35, 0), Color.LightGray, all_button.FindAll(a => a.name == "tc"), panel_visible: new My_Control_Visible("tc", 1)));
+            all_panel.Add(new My_Panel("kf", new Padding(35, 35, 35, 0), Color.LightGray, all_button.FindAll(a => a.name == "kf"), panel_visible: new My_Control_Visible("kf", 1)));
+            all_panel.Add(new My_Panel("TC12v", new Padding(35, 20, 35, 0), Color.Gray, all_button.FindAll(a => a.name == "TC12v" || a.name == "TC TU")));
+            all_panel.Add(new My_Panel("currentPSC", new Padding(35, 20, 35, 0), Color.Gray, all_button.FindAll(a => a.name == "currentPSC")));
 
-            pnlLeft.Controls.AddRange(all_panel.Where(a => a.name.Contains("din")).ToArray());
-            pnlRight.Controls.AddRange(all_panel.Where(a => a.name.Contains("kf") || a.name.Contains("tc") || a.name.Contains("power3") || a.name.Contains("temperature") || a.name == "ТУ модуля" || a.name.Contains("test")).ToArray());
-            PnlCurrentPSC.Controls.AddRange(all_panel.Where(a => a.name.Contains("currentPSC")).ToArray());
-            PnlTC12V.Controls.AddRange(all_panel.Where(a => a.name.Contains("TC12v")).ToArray());
-
-
-            //Data_Transit.port_control_button.Add(new Button_Send(Data_Transit.PortControl, Data_Transit.module, null, btnHW, Color.LightGray, "hw"));
-            //Data_Transit.port_control_button[Data_Transit.port_control_button.Count - 1].Initialization(0x0001, Data_Transit.PortControl, Data_Transit.Dout_Control, 15 << 8);
-            //Data_Transit.port_control_button.Add(new Button_Send(Data_Transit.PortControl, Data_Transit.Dout_Control, new byte[] { 0, 0x10, 0, 0x5b, 00, 02, 04, 0, 0, 0, 0}, BtnCurent1, Color.Gray, "current")) ;
-            //Data_Transit.port_control_button[Data_Transit.port_control_button.Count - 1].Initialization(0x0001, Data_Transit.PortControl, Data_Transit.Dout_Control, 12);
-            //Data_Transit.port_control_button.Add(new Button_Send(Data_Transit.PortChanelA, Data_Transit.module, null, BtnEnTU, Color.LightGray, "entu"));
-            //Data_Transit.port_control_button[Data_Transit.port_control_button.Count - 1].Initialization(0x0009, Data_Transit.PortChanelA, Data_Transit.module, 1);
-            //Data_Transit.port_control_button.Add(new Button_Send(Data_Transit.PortChanelA, Data_Transit.module, new byte[] { 0, 0x06, 0, 0x61, 0, 0 }, TU1, Color.LightGray, "tu_"));
-            //Data_Transit.port_control_button.Add(new Button_Send(Data_Transit.PortChanelA, Data_Transit.module, new byte[] { 0, 0x06, 0, 0x62, 0, 0 }, TU2, Color.LightGray, "tu_"));
-            //Data_Transit.port_control_button.Add(new Button_Send(Data_Transit.PortChanelA, Data_Transit.module, new byte[] { 0, 0x06, 0, 0x63, 0, 0 }, TU3, Color.LightGray, "tu_"));
-
-
-            //Data_Transit.all_button_result.Add(new Button_Result(Data_Transit.PortControl, Data_Transit.Current_PSC, BtnCurent1, 0x010a, 0, "current"));
-            //Data_Transit.all_button_result.Add(new Button_Result(Data_Transit.PortControl, Data_Transit.Current_PSC, BtnCurent2, 0x010a, 1, "current"));
-            //Data_Transit.all_button_result.Add(new Button_Result(Data_Transit.PortControl, Data_Transit.v12, Btn12V1, 0x0108, 1, "12v"));
-            //Data_Transit.all_button_result.Add(new Button_Result(Data_Transit.PortControl, Data_Transit.v12, Btn12V2, 0x0108, 0, "tu voltage"));
-            //Data_Transit.all_button_result.Add(new Button_Result(Data_Transit.PortControl, Data_Transit.v12, Btn12V3, 0x0108, 2, "12v2"));
-            //Data_Transit.all_button_result.Add(new Button_Result(Data_Transit.PortChanelA, Data_Transit.module, PWR_1_MTU5, 0, 0, "power"));
-            //Data_Transit.all_button_result.Add(new Button_Result(Data_Transit.PortChanelA, Data_Transit.module, PWR_2_MTU5, 0, 1, "power"));
-            //Data_Transit.all_button_result.Add(new Button_Result(Data_Transit.PortChanelA, Data_Transit.module, BtnTemperature, 0, 0, "temperature"));
-            //Data_Transit.all_button_result.Add(new Button_Result(Data_Transit.PortChanelA, Data_Transit.module, TU1, 0, 0, "mtu_tu"));
-            //Data_Transit.all_button_result.Add(new Button_Result(Data_Transit.PortChanelA, Data_Transit.module, TU2, 0, 1, "mtu_tu"));
-
-            //Data_Transit.controls_module.Add(new Controls_Only(TU1, Data_Transit.Dout_Control, Data_Transit.PortChanelA, 0x01, 0, "tu"));
-            //Data_Transit.controls_module.Add(new Controls_Only(TU2, Data_Transit.Dout_Control, Data_Transit.PortChanelA, 0x01, 1, "tu"));
-            //Data_Transit.controls_module.Add(new Controls_Only(TU3, Data_Transit.Dout_Control, Data_Transit.PortChanelA, 0x01, 2, "tu"));
-
-            //Data_Transit.controls_module.Add(new Controls_Only(TU1, Data_Transit.Dout_Control, Data_Transit.PortChanelA, 0x01, 0, "tu_control"));
-            //Data_Transit.controls_module.Add(new Controls_Only(TU2, Data_Transit.Dout_Control, Data_Transit.PortChanelA, 0x01, 1, "tu_control"));
-            //Data_Transit.controls_module.Add(new Controls_Only(TU3, Data_Transit.Dout_Control, Data_Transit.PortChanelA, 0x01, 2, "tu_control"));
+            pnlLeft.Controls.AddRange(all_panel.FindAll(a => a.name == "din" || a.name == "PowerPSC" || a.name == "ExitPSC").ToArray());
+            pnlRight.Controls.AddRange(all_panel.FindAll(a => a.name == "kf" || a.name == "tc" || a.name == "power" || a.name == "BatteryPSC" || a.name == "mtu5tu" || a.name == "temperature" || a.name == "ТУ модуля" || a.name.Contains("test")).ToArray());
+            PnlCurrentPSC.Controls.AddRange(all_panel.FindAll(a => a.name == "currentPSC").ToArray());
+            PnlTC12V.Controls.AddRange(all_panel.FindAll(a => a.name == "TC12v").ToArray());
 
             sending_data.Add(new Send_Data(new byte[] { 0x00, 0x02, 0x00, 0x01, 0x00, 0x10 }, PortControl, module_parameters.dout_control));
             sending_data.Add(new Send_Data(new byte[] { 0x00, 0x04, 0x01, 0x0a, 0x00, 0x04 }, PortControl, module_parameters.current_psc));
             sending_data.Add(new Send_Data(new byte[] { 0x00, 0x02, 0x00, 0x01, 0x00, 0x10 }, PortControl, module_parameters.dout_din16));
             sending_data.Add(new Send_Data(new byte[] { 0x00, 0x02, 0x00, 0x01, 0x00, 0x10 }, PortControl, module_parameters.dout_din32));
             sending_data.Add(new Send_Data(new byte[] { 0x00, 0x04, 0x01, 0x08, 0x00, 0x06 }, PortControl, module_parameters.v12));
+            sending_data.Add(new Send_Data(new byte[] { 0x00, 0x02, 0x00, 0x0f, 0x00, 0x01 }, PortControl, module_parameters.v12));
 
             PortControl.Receive_Event += PortControl_DataReceived;
             PortChanelA.Receive_Event += PortChanelA_DataReceived;
@@ -333,16 +396,26 @@ namespace test_stand
 
             #region Threading
 
-            new Thread(() =>
-            {
+            Task.Run(async () => {
                 while (cycle)
                 {
                     if (PortControl.Port.IsOpen)
-                    { foreach (Send_Data sd in sending_data) { sd.sending(); System.Threading.Thread.Sleep(100); } }
+                    { foreach (Send_Data sd in sending_data) { sd.sending(); await Task.Delay(100); } }
                     else
-                    { PortControl.Exchange = false; System.Threading.Thread.Sleep(200); }
+                    { PortControl.Exchange = false; await Task.Delay(200); }
                 }
-            }).Start();// Control
+            });
+
+            //new Thread(() =>
+            //{
+            //    while (cycle)
+            //    {
+            //        if (PortControl.Port.IsOpen)
+            //        { foreach (Send_Data sd in sending_data) { sd.sending(); System.Threading.Thread.Sleep(100); } }
+            //        else
+            //        { PortControl.Exchange = false; System.Threading.Thread.Sleep(200); }
+            //    }
+            //}).Start();// Control
 
             new Thread(() =>
             {
@@ -371,6 +444,22 @@ namespace test_stand
                     { PortChanelB.Exchange = false; System.Threading.Thread.Sleep(200); }
                 }
             }).Start();// Chanel B
+
+            foreach(My_Button mb in all_button)
+            {
+                mb.MouseDown += (object sender, MouseEventArgs e) =>
+                {
+                    switch (e.Button)
+                    {
+                        case MouseButtons.Left:
+                            ((My_Button)sender).set_button();
+                            break;
+                        case MouseButtons.Right:
+                            ((My_Button)sender).BackColor = Color.White;
+                            break;
+                    }
+                };
+            }
 
             #endregion
         }
@@ -413,12 +502,12 @@ namespace test_stand
             module_parameters.using_module = setup[setup.FindIndex(x => x.name == ((Module_Button)sender).Text)];
 
             foreach (My_Button mb in all_button)
-                if (mb.my_button_visible != null) mb.visible(module_parameters.using_module.all_registers[mb.my_button_visible.name][5], module_parameters.using_module.name);
-            foreach (My_Panel mp in all_panel) { if (mp.my_panel_visible != null) mp.visible(module_parameters.using_module.all_registers[mp.my_panel_visible.name][5], module_parameters.using_module.name); mp.width_with_buttons(); }
+                if (mb.my_button_visible != null && module_parameters.using_module.all_registers.ContainsKey(mb.my_button_visible.name)) mb.visible(module_parameters.using_module.all_registers[mb.my_button_visible.name][5], module_parameters.using_module.name);
+            foreach (My_Panel mp in all_panel) { if (mp.my_panel_visible != null && module_parameters.using_module.all_registers.ContainsKey(mp.my_panel_visible.name)) mp.visible(module_parameters.using_module.all_registers[mp.my_panel_visible.name][5], module_parameters.using_module.name); mp.width_with_buttons(); }
 
             foreach (string name in module_parameters.using_module.all_registers.Keys)
             {
-                List<My_Button> mb = all_button.Where(x => x.name == name && x.Visible).ToList();
+                List<My_Button> mb = all_button.FindAll(x => x.name == name && x.Visible);
                 mb.Reverse();
                 for (int a = 0; a < mb.Count; a++)
                 {
@@ -426,13 +515,12 @@ namespace test_stand
                 }
             }
 
-            List<My_Button> mbc = all_button.Where(x => x.name == "ТУ модуля" && x.Visible).ToList();
+            List<My_Button> mbc = all_button.FindAll(x => x.name == "ТУ модуля" && x.Visible);
             mbc.Reverse();
             for (int a = 0; a < mbc.Count; a++)
-            {
-                mbc[a].colorized = new My_Button_Colorized(PortChanelA, (short)((short)(module_parameters.using_module.all_registers["tu"][2] << 8) | (short)(module_parameters.using_module.all_registers["tu"][3])), module_parameters.module, 1 << a, checkout_port2: PortChanelB);
-            }
-
+                { mbc[a].colorized = new My_Button_Colorized(PortChanelA, (short)((short)(module_parameters.using_module.all_registers["tu"][2] << 8) | (short)(module_parameters.using_module.all_registers["tu"][3])), module_parameters.module, 1 << a, checkout_port2: PortChanelB); }
+            all_button.Find(x => x.name == "Entu модуля").colorized = new My_Button_Colorized(PortChanelA, (short)((short)(module_parameters.using_module.all_registers["entu"][2] << 8) | (short)(module_parameters.using_module.all_registers["entu"][3])), module_parameters.module, 1, checkout_port2: PortChanelB);
+            
             if (Open_Window == "form3") Open_Child_Form(new Modul_Settings(module_parameters, setup));
         }
 
@@ -581,12 +669,6 @@ namespace test_stand
 
         #region All Buttons
 
-        private void Controls_Click(object sender, EventArgs e)
-        {
-            var co = Data_Transit.port_control_button.Where(c => c.button.Name == ((Button)sender).Name);
-            co.ToList()[0].Trasmit_Data();
-        }
-
         private async void Tests_Click(object sender, EventArgs e)
         {
             Data_Transit.serial_number = 0;
@@ -627,7 +709,10 @@ namespace test_stand
 
         private async void StartTest_Click(object sender, EventArgs e)
         {
-            Data_Transit.serial_number = 0;
+            string serial_number = Convert.ToString(await open_input_form("Введите серийный номер платы", "серийный номер"));
+            if (serial_number == "0" || serial_number == "серийный номер" || serial_number == "") return;
+            Data_Transit.serial_number = int.Parse(serial_number);
+
             if (!PortControl.Port.IsOpen || !PortChanelA.Port.IsOpen || !PortChanelB.Port.IsOpen)
                 { MessageBox.Show("Не все порты открыты", "ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
             int norm = 0;
@@ -649,7 +734,7 @@ namespace test_stand
             {
                 await Task.Delay(50);
                 norm++;
-                if (PortChanelB.Exchange) break;
+                if (PortChanelB.Exchange || module_parameters.using_module.exchange_chanel < 2) break;
             }
             if (norm >= 20) { MessageBox.Show("Нет обмена по каналу B модуля", "ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
 
@@ -664,20 +749,17 @@ namespace test_stand
                 return;
             }
             Data_Transit.shift_is_down = false;
-            Form5 form5 = new Form5();
-            form5.Show();
-
-            while (form5.Visible) { await Task.Delay(500); }
-
-            if (Data_Transit.serial_number == 0) return;
-
             Data_Transit.escape = false;
+
             List<Results_Test> result = new List<Results_Test>()
             {
                 await Power_Test(),
             };
             await Task.Delay(2500);
+            if (module_parameters.using_module.name == "PSC 24V 10A") result.Add(await PSC_Battary_Test());
+            if (module_parameters.using_module.name == "PSC 24V 10A") result.Add(await PSC_Current_Test());
             if (module_parameters.using_module.tests["Проверка Din"] && !Data_Transit.escape)  result.Add(await All_TC_Test("din", "Проверка Din", module_parameters.using_module.din));
+            if (module_parameters.using_module.tests.ContainsKey("Проверка light"))  if (module_parameters.using_module.tests["Проверка light"] && !Data_Transit.escape)  result.Add(await RTU7_Din_Test());
             if (module_parameters.using_module.tests["Проверка KF"] && !Data_Transit.escape) result.Add(await All_TC_Test("kf", "Проверка КФ", module_parameters.using_module.kf));
             if (module_parameters.using_module.tests["Проверка TC"] && !Data_Transit.escape) result.Add(await All_TC_Test("tc", "Проверка TC", module_parameters.using_module.tc));
             if (module_parameters.using_module.tests["Проверка 12B TC"] && !Data_Transit.escape) result.Add(await TC12V_Test());
@@ -707,21 +789,121 @@ namespace test_stand
             return false;
         }
 
+        async Task<bool> Compar_Color(My_Button mb, Color comp)
+        {
+            int count = 0;
+            while (count < 20)
+            {
+                await Task.Delay(100);
+                if (mb.BackColor == comp) { return true; }
+                count++;
+            }
+            return false;
+        }
+
         async Task<Results_Test> MTU_Power_Test()
         {
             Results_Test result = new Results_Test("Проверка питания MTU5");
             result.test_result = true;
 
-            var item = Data_Transit.all_button_result.Where(c => c.name.Contains("power"));
+            List<My_Button> item = all_button.FindAll(x => x.name == "power");
+
             for (int a = 0; a < 2; a++)
             {
                 result.Add_Test($"Питание MTU5");
 
-                //if (await Compar(item.ToList()[a], 850, 1350))
-                //    { result.Add_Item(item.ToList()[a].Result, true); }
-                //else
-                //    { result.Add_Item(item.ToList()[a].Result, false); result.test_result = false; result.All_Tests[result.All_Tests.Count - 1].test_result = false; }
+                if (await Compar(item[a], 850, 1350))
+                { result.Add_Item(item[a].Result, true); }
+                else
+                { result.Add_Item(item[a].Result, false); result.test_result = false; result.All_Tests[result.All_Tests.Count - 1].test_result = false; }
             }            
+
+            return result;
+        }
+
+        async Task<Results_Test> PSC_Battary_Test()
+        {
+            Results_Test result = new Results_Test("Проверка зарядки батареи");
+            result.test_result = true;
+
+            List<My_Button> item = all_button.FindAll(x => x.name == "PowerPSC");
+            List<My_Button> bat = all_button.FindAll(x => x.name == "BatteryPSC");
+            List<float> curr = new List<float>();
+
+            for (int a = 1; a < item.Count; a++)
+            {
+                result.Add_Test($"Напряжение канал {a}: ");
+                if (await Compar(item[a], 22, 26))
+                { result.Add_Item(item[a].Result, true); }
+                else
+                { result.Add_Item(item[a].Result, false); result.test_result = false; result.All_Tests[result.All_Tests.Count - 1].test_result = false; }
+            }
+
+            item[0].set_button(); await Task.Delay(1000);
+
+            result.Add_Test($"Напряжение батареи: ");
+            if (await Compar(item[0], 8, 26))
+            { result.Add_Item(item[0].Result, true); }
+            else
+            { result.Add_Item(item[0].Result, false); result.test_result = false; result.All_Tests[result.All_Tests.Count - 1].test_result = false; }
+
+            for (int a = 0; a < 20; a++)
+            {
+                curr.Add(bat[1].Result);
+                await Task.Delay(1000);
+            }
+
+            result.Add_Test($"Ток заряда батареи"); //0x01, 0x06, 00, 0x63, 00, 0x01
+            result.Add_Item(curr[0], true);
+
+            result.Add_Test($"Ток заряда батареи через 20 секунд");
+            if ((curr[curr.Count - 1] - curr[curr.Count - 1] / 10) > curr[0]) result.Add_Item(curr[curr.Count - 1], true);
+            else result.Add_Item(curr[curr.Count-1], false);
+
+            item[0].Reset(); await Task.Delay(250);
+
+            return result;
+        }
+
+        async Task<Results_Test> PSC_Current_Test()
+        {
+            Results_Test result = new Results_Test("Проверка тока потребления");
+            result.test_result = true;
+
+            List<My_Button> item = all_button.FindAll(x => x.name == "ExitPSC");
+            //List<My_Button> bat = all_button.FindAll(x => x.name == "BatteryPSC");
+
+            for (int a = 2; a < item.Count; a++)
+            {
+                result.Add_Test($"Напряжение канал{a-1}: ");
+
+                if (await Compar(item[a], 22, 26))
+                { result.Add_Item(item[a].Result, true); }
+                else
+                { result.Add_Item(item[a].Result, false); result.test_result = false; result.All_Tests[result.All_Tests.Count - 1].test_result = false; }
+            }
+
+            for (int a = 0; a < 2; a++)
+            {
+                result.Add_Test($"Ток отребления на выходе, без нагрузки, канал {a + 1}: ");
+                if (await Compar(item[a], 0, 0.01f))
+                { result.Add_Item(item[a].Result, true); }
+                else
+                { result.Add_Item(item[a].Result, false); result.test_result = false; result.All_Tests[result.All_Tests.Count - 1].test_result = false; }
+            }
+
+            PortControl.Interrupt(new byte[] { module_parameters.v12.Addres, 0x06, 00, 0x63, 00, 0x01 }); await Task.Delay(500);
+
+            for (int a = 0; a < 2; a++)
+            {
+                result.Add_Test($"Ток отребления на выходе, с нагрузкой, канал {a + 1}: ");
+                if (await Compar(item[a], 0.08f, 0.15f))
+                { result.Add_Item(item[a].Result, true); }
+                else
+                { result.Add_Item(item[a].Result, false); result.test_result = false; result.All_Tests[result.All_Tests.Count - 1].test_result = false; }
+            }
+
+            PortControl.Interrupt(new byte[] { module_parameters.v12.Addres, 0x06, 00, 0x63, 00, 0x00 }); await Task.Delay(500);
 
             return result;
         }
@@ -731,27 +913,28 @@ namespace test_stand
             Results_Test result = new Results_Test("Проверка ТУ MTU5");
             result.test_result = true;
 
-            float[] TU = { 0, 0 };
+            List<float> TU1 = new List<float>();
+            List<float> TU2 = new List<float>();
 
-            var item = Data_Transit.all_button_result.Where(c => c.name.Contains("mtu_tu"));
-            for (int a = 0; a < 10; a++)
+            List<My_Button> item = all_button.FindAll(x => x.name == "mtu5tu");
+
+            for (int a = 0; a < 25; a++)
             {
-                TU[0] += item.ToList()[0].Result;
-                TU[1] += item.ToList()[1].Result;
-                await Task.Delay(500);
+                TU1.Add(item[0].Result);
+                TU2.Add(item[1].Result);
+                await Task.Delay(200);
             }
 
-            TU[0] /= 10; TU[1] /= 10;
             result.Add_Test("ТУ ON/OFF");
-            if (TU[0] < 20) 
-                { result.Add_Item(TU[0], true); }
+            if (TU1.Max() < 20f)
+                { result.Add_Item(TU1.Max(), true); }
             else
-                { result.Add_Item(TU[0], false); result.test_result = false; result.All_Tests[result.All_Tests.Count - 1].test_result = false; }
+                { result.Add_Item(TU1.Max(), false); result.test_result = false; result.All_Tests[result.All_Tests.Count - 1].test_result = false; }
             result.Add_Test("ТУ RF");
-            if (TU[1] < 20)
-                { result.Add_Item(TU[1], true); }
+            if (TU2.Max() < 20)
+                { result.Add_Item(TU2.Max(), true); }
             else
-                { result.Add_Item(TU[1], false); result.test_result = false; result.All_Tests[result.All_Tests.Count - 1].test_result = false; }
+                { result.Add_Item(TU2.Max(), false); result.test_result = false; result.All_Tests[result.All_Tests.Count - 1].test_result = false; }
 
             return result;
         }
@@ -763,19 +946,18 @@ namespace test_stand
             float w = 0;
             float wo = 0;
 
-            var item = Data_Transit.all_button_result.Where(c => c.name.Contains("power"));
+            My_Button item = all_button.Find(x => x.name == "temperature");
 
             result.Add_Test($"Ток без нагрузки");
-            for (int a = 0; a < 10; a++) { wo += item.ToList()[0].Result; await Task.Delay(250); }
-            Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x06, 00, 0x5a, 00, 0x01 });
+            for (int a = 0; a < 10; a++) { wo += item.Result; await Task.Delay(250); }
+            PortControl.Interrupt(new byte[] { module_parameters.v12.Addres, 0x06, 00, 0x63, 00, 0x01 });
             await Task.Delay(2500);
-            while (Data_Transit.PortControl.Data_Interrupt != null) await Task.Delay(250);
             wo /= 10;
             result.Add_Item(wo, true);
             result.Add_Test($"Ток с нагрузкой");
-            for (int a = 0; a < 10; a++) { w += item.ToList()[0].Result; await Task.Delay(250); }
-            Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x06, 00, 0x5a, 00, 0x00 });
-            while (Data_Transit.PortControl.Data_Interrupt != null) await Task.Delay(250);
+            for (int a = 0; a < 10; a++) { w += item.Result; await Task.Delay(250); }
+            PortControl.Interrupt(new byte[] { module_parameters.v12.Addres, 0x06, 00, 0x63, 00, 0x00 });
+            await Task.Delay(250);
             w /= 10;
 
             if (Math.Abs(w - wo) > (wo / 20))
@@ -791,13 +973,13 @@ namespace test_stand
             Results_Test result = new Results_Test("Проверка температуры");
             result.test_result = true;
 
-            var item = Data_Transit.all_button_result.Where(c => c.name.Contains("temperature"));
+            My_Button item = all_button.FindLast(x => x.name == "temperature");
             result.Add_Test($"Температура");
 
-            //if (await Compar(item.ToList()[0], 20, 40))
-            //    { result.Add_Item(item.ToList()[0].Result, true); }
-            //else
-            //    { result.Add_Item(item.ToList()[0].Result, false); result.test_result = false; result.All_Tests[result.All_Tests.Count - 1].test_result = false; }
+            if (await Compar(item, 20, 40))
+            { result.Add_Item(item.Result, true); }
+            else
+            { result.Add_Item(item.Result, false); result.test_result = false; result.All_Tests[result.All_Tests.Count - 1].test_result = false; }
 
             return result;
         }
@@ -807,12 +989,14 @@ namespace test_stand
             Results_Test result = new Results_Test("Проверка EnTU");
             result.test_result = true;
 
+            My_Button item = all_button.Find(x => x.name == "Entu модуля");
+
             result.Add_Test($"EnTU");
 
-            //if (BtnEnTU.BackColor == Color.Red) 
-            //{ result.Add_Item(0, true); }
-            //else
-            //{ result.Add_Item(0, false); result.test_result = false; result.All_Tests[result.All_Tests.Count - 1].test_result = false; }
+            if (item.BackColor == Color.Red)
+            { result.Add_Item(0, true); }
+            else
+            { result.Add_Item(0, false); result.test_result = false; result.All_Tests[result.All_Tests.Count - 1].test_result = false; }
 
             return result;
         }
@@ -860,6 +1044,49 @@ namespace test_stand
             return result;
         }
 
+        async Task<Results_Test> RTU7_Din_Test()
+        {
+            Results_Test result = new Results_Test("Проверка Din");
+            result.test_result = true;
+
+            List<My_Button> item = all_button.FindAll(x => x.name == "dinlight" && x.Visible);
+
+            foreach (My_Button mb in item) { mb.Reset(); await Task.Delay(200); }
+
+            for (int kf = 0; kf < item.Count; kf++)
+            {
+                await Task.Delay(250);
+                item[kf].click.send_data(1); await Task.Delay(200);
+
+                result.Add_Test($"Din {kf + 1}");
+                for (int check = 0; check < item.Count; check++)
+                {
+                    if (Data_Transit.escape) break;
+                    if (check == kf)
+                    {
+                        if (await Compar_Color(item[check], Color.Red))
+                        { result.Add_Item(0, true); }
+                        else
+                        { result.Add_Item(0, false); result.test_result = false; result.All_Tests[result.All_Tests.Count - 1].test_result = false; }
+                    }
+                    else
+                    {
+                        if (await Compar_Color(item[check], Color.LightGray))
+                        { result.Add_Item(0, true); }
+                        else
+                        { result.Add_Item(0, false); result.test_result = false; result.All_Tests[result.All_Tests.Count - 1].test_result = false; }
+                    }
+                }
+                item[kf].Reset(); await Task.Delay(100);
+                if (Data_Transit.escape)
+                {
+                    return result;
+                }
+            }
+            await Task.Delay(250);
+            return result;
+        }
+
         async Task<Results_Test> All_TC_Test(string parameters, string test, Min_Max_None min_max)
         {
             Results_Test result = new Results_Test(test);
@@ -874,7 +1101,7 @@ namespace test_stand
              for (int kf = 0; kf < using_button.Count; kf++)
              {
                 await Task.Delay(250);
-                using_button[kf].PerformClick(); await Task.Delay(200);
+                using_button[kf].set_button(); await Task.Delay(200);
 
                 result.Add_Test($"{test} {kf + 1}");
                 for (int check = 0; check < using_button.Count; check++)
@@ -895,7 +1122,9 @@ namespace test_stand
                         { result.Add_Item(using_button[check].Result, false); result.test_result = false; result.All_Tests[result.All_Tests.Count - 1].test_result = false; }
                     }
                 }
-                using_button[kf].Reset(); await Task.Delay(200);
+                using_button[kf].Reset();
+                while (using_button[kf].BackColor == Color.Red) { await Task.Delay(100); }
+                await Task.Delay(100);
                 if (Data_Transit.escape)
                 {
                     await Task.Delay(250);
@@ -913,38 +1142,36 @@ namespace test_stand
             Results_Test result = new Results_Test("Проверка ТУ");
             result.test_result = true;
 
-            var co = Data_Transit.port_control_button.Where(c => c.name.Contains("tu_"));
-            var cr = Data_Transit.all_button_result.Where(c => c.name.Contains("tu voltage"));
+            List<My_Button> using_button = all_button.FindAll(x => x.name == "ТУ модуля" && x.Visible);
+            My_Button item = all_button.Find(x => x.name == "TC TU");
 
-            Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x10, 0, 0x51, 00, 02, 04, 0, 1, 0, 1 }); await Task.Delay(1000);
-            while (Data_Transit.PortControl.Data_Interrupt != null) await Task.Delay(200);
+            PortControl.Interrupt(new byte[] { module_parameters.dout_control.Addres, 0x10, 0, 0x51, 00, 02, 04, 0, 1, 0, 1 }); await Task.Delay(1000);
 
-            foreach (Button_Send a in co) { if (a.button.BackColor == Color.Red) { while (a.button.BackColor == Color.Red) { a.Reset(); while (Data_Transit.PortChanelA.Data_Interrupt != null) await Task.Delay(200); } } }
+            foreach (My_Button mb in using_button) { mb.Reset(); await Task.Delay(250); }
             await Task.Delay(1000);
 
-            for (int kf = 0; kf < Data_Transit.Registers_Module["tu"][5]; kf++)
+            for (int kf = 0; kf < using_button.Count; kf++)
             {
-                //co.ToList()[kf].Trasmit_Data(); await Task.Delay(200); while (Data_Transit.PortChanelA.Data_Interrupt != null) await Task.Delay(1000);
-                co.ToList()[kf].Trasmit_Data(); while (Data_Transit.PortChanelA.Data_Interrupt != null) await Task.Delay(200);
+                using_button[kf].set_button(); await Task.Delay(1000);
                 result.Add_Test($"Тест ТУ {kf + 1}");
 
-                //if (await Compar(cr.ToList()[0], 200, 250))
-                //{ result.Add_Item(cr.ToList()[0].Result, true); }
-                //else
-                //{ result.Add_Item(cr.ToList()[0].Result, false); result.test_result = false; result.All_Tests[result.All_Tests.Count - 1].test_result = false; }
+                if (await Compar(item, 200, 250))
+                { result.Add_Item(item.Result, true); }
+                else
+                { result.Add_Item(item.Result, false); result.test_result = false; result.All_Tests[result.All_Tests.Count - 1].test_result = false; }
 
+
+                using_button[kf].Reset();
+                while (using_button[kf].BackColor == Color.Red) { await Task.Delay(100); }
                 await Task.Delay(1000);
-                //while (co.ToList()[kf].button.BackColor == Color.Red) { co.ToList()[kf].Reset(); while (Data_Transit.PortChanelA.Data_Interrupt != null) await Task.Delay(1000); }
-                co.ToList()[kf].Reset(); while (Data_Transit.PortChanelA.Data_Interrupt != null) await Task.Delay(200);
                 if (Data_Transit.escape)
                 {
-                    Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x10, 0, 0x51, 00, 02, 04, 0, 0, 0, 0 });
-                    while (Data_Transit.PortControl.Data_Interrupt != null) await Task.Delay(200);
+                    PortControl.Interrupt(new byte[] { module_parameters.dout_control.Addres, 0x10, 0, 0x51, 00, 02, 04, 0, 0, 0, 0 });
+                    await Task.Delay(200);
                     return result;
                 }
             }
-            Data_Transit.PortControl.Interrupt(new byte[] { Data_Transit.Dout_Control.Addres, 0x10, 0, 0x51, 00, 02, 04, 0, 0, 0, 0 }); await Task.Delay(100);
-            while (Data_Transit.PortControl.Data_Interrupt != null) await Task.Delay(200);
+            PortControl.Interrupt(new byte[] { module_parameters.dout_control.Addres, 0x10, 0, 0x51, 00, 02, 04, 0, 0, 0, 0 }); await Task.Delay(200);
             return result;
         }
 
@@ -974,12 +1201,19 @@ namespace test_stand
 
         private async void MyTest()
         {
-            setup.Remove(setup[0]);
+            PortControl.Interrupt(new byte[] { module_parameters.dout_control.Addres, 0x10, 0, 0x51, 00, 02, 04, 0, 1, 0, 1 });
+            await Task.Delay(10000);
+            PortControl.Interrupt(new byte[] { module_parameters.dout_control.Addres, 0x10, 0, 0x51, 00, 02, 04, 0, 0, 0, 0 });
+        }
 
-            using (StreamWriter sw = new StreamWriter(@"C:\Users\d.shcherbachenya\Desktop\projects\test stand\JSon\module_setup.txt", false, Encoding.UTF8))
-                sw.Write(JsonConvert.SerializeObject(setup));
-            all_module_buttons();
-            
+        private void ToolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+        private void ToolTip1_Popup_1(object sender, PopupEventArgs e)
+        {
+            //toolTip1.SetToolTip(panel5, "hello");
         }
     }
 }

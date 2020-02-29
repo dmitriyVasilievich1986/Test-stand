@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.btnPower1 = new System.Windows.Forms.Button();
             this.btnPower2 = new System.Windows.Forms.Button();
@@ -53,7 +54,12 @@
             this.BtnPort1 = new System.Windows.Forms.Button();
             this.BtnComPortMenu = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.HW = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.PBCloseWindow = new System.Windows.Forms.PictureBox();
+            this.PBMinimizeWindow = new System.Windows.Forms.PictureBox();
+            this.PBMaximizeWindow = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnHW = new System.Windows.Forms.Button();
             this.PnlTC12V = new System.Windows.Forms.Panel();
@@ -62,24 +68,20 @@
             this.PnlMain = new System.Windows.Forms.Panel();
             this.pnlRight = new System.Windows.Forms.Panel();
             this.pnlLeft = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.HW = new System.Windows.Forms.PictureBox();
-            this.PBCloseWindow = new System.Windows.Forms.PictureBox();
-            this.PBMinimizeWindow = new System.Windows.Forms.PictureBox();
-            this.PBMaximizeWindow = new System.Windows.Forms.PictureBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.PnlSideMenu.SuspendLayout();
             this.PnlTests.SuspendLayout();
             this.PnlParameters.SuspendLayout();
             this.PnlComPort.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.PnlChildForm.SuspendLayout();
-            this.PnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HW)).BeginInit();
+            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBCloseWindow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBMinimizeWindow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBMaximizeWindow)).BeginInit();
+            this.panel8.SuspendLayout();
+            this.PnlChildForm.SuspendLayout();
+            this.PnlMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnPower1
@@ -463,6 +465,15 @@
             this.panel4.Size = new System.Drawing.Size(250, 120);
             this.panel4.TabIndex = 0;
             // 
+            // HW
+            // 
+            this.HW.Image = global::test_stand.Properties.Resources.HW3;
+            this.HW.Location = new System.Drawing.Point(38, 3);
+            this.HW.Name = "HW";
+            this.HW.Size = new System.Drawing.Size(106, 108);
+            this.HW.TabIndex = 0;
+            this.HW.TabStop = false;
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.DarkGray;
@@ -477,6 +488,53 @@
             this.panel5.TabIndex = 74;
             this.panel5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseDown);
             this.panel5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseMove);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(505, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 4;
+            // 
+            // PBCloseWindow
+            // 
+            this.PBCloseWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PBCloseWindow.BackColor = System.Drawing.Color.LightGray;
+            this.PBCloseWindow.Image = ((System.Drawing.Image)(resources.GetObject("PBCloseWindow.Image")));
+            this.PBCloseWindow.Location = new System.Drawing.Point(1260, 11);
+            this.PBCloseWindow.Name = "PBCloseWindow";
+            this.PBCloseWindow.Size = new System.Drawing.Size(20, 20);
+            this.PBCloseWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PBCloseWindow.TabIndex = 3;
+            this.PBCloseWindow.TabStop = false;
+            this.PBCloseWindow.Click += new System.EventHandler(this.Close_Window);
+            // 
+            // PBMinimizeWindow
+            // 
+            this.PBMinimizeWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PBMinimizeWindow.BackColor = System.Drawing.Color.LightGray;
+            this.PBMinimizeWindow.Image = ((System.Drawing.Image)(resources.GetObject("PBMinimizeWindow.Image")));
+            this.PBMinimizeWindow.Location = new System.Drawing.Point(1234, 11);
+            this.PBMinimizeWindow.Name = "PBMinimizeWindow";
+            this.PBMinimizeWindow.Size = new System.Drawing.Size(20, 20);
+            this.PBMinimizeWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PBMinimizeWindow.TabIndex = 2;
+            this.PBMinimizeWindow.TabStop = false;
+            this.PBMinimizeWindow.Click += new System.EventHandler(this.PictureBox1_Click);
+            // 
+            // PBMaximizeWindow
+            // 
+            this.PBMaximizeWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PBMaximizeWindow.BackColor = System.Drawing.Color.LightGray;
+            this.PBMaximizeWindow.Image = ((System.Drawing.Image)(resources.GetObject("PBMaximizeWindow.Image")));
+            this.PBMaximizeWindow.Location = new System.Drawing.Point(1234, 11);
+            this.PBMaximizeWindow.Name = "PBMaximizeWindow";
+            this.PBMaximizeWindow.Size = new System.Drawing.Size(20, 20);
+            this.PBMaximizeWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PBMaximizeWindow.TabIndex = 1;
+            this.PBMaximizeWindow.TabStop = false;
+            this.PBMaximizeWindow.Click += new System.EventHandler(this.PBMaximizeWindow_Click);
             // 
             // panel8
             // 
@@ -563,61 +621,14 @@
             this.pnlLeft.Size = new System.Drawing.Size(515, 706);
             this.pnlLeft.TabIndex = 0;
             // 
-            // label1
+            // toolTip1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(505, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
-            this.label1.TabIndex = 4;
-            // 
-            // HW
-            // 
-            this.HW.Image = global::test_stand.Properties.Resources.HW3;
-            this.HW.Location = new System.Drawing.Point(38, 3);
-            this.HW.Name = "HW";
-            this.HW.Size = new System.Drawing.Size(106, 108);
-            this.HW.TabIndex = 0;
-            this.HW.TabStop = false;
-            // 
-            // PBCloseWindow
-            // 
-            this.PBCloseWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PBCloseWindow.BackColor = System.Drawing.Color.LightGray;
-            this.PBCloseWindow.Image = ((System.Drawing.Image)(resources.GetObject("PBCloseWindow.Image")));
-            this.PBCloseWindow.Location = new System.Drawing.Point(1260, 11);
-            this.PBCloseWindow.Name = "PBCloseWindow";
-            this.PBCloseWindow.Size = new System.Drawing.Size(20, 20);
-            this.PBCloseWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PBCloseWindow.TabIndex = 3;
-            this.PBCloseWindow.TabStop = false;
-            this.PBCloseWindow.Click += new System.EventHandler(this.Close_Window);
-            // 
-            // PBMinimizeWindow
-            // 
-            this.PBMinimizeWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PBMinimizeWindow.BackColor = System.Drawing.Color.LightGray;
-            this.PBMinimizeWindow.Image = ((System.Drawing.Image)(resources.GetObject("PBMinimizeWindow.Image")));
-            this.PBMinimizeWindow.Location = new System.Drawing.Point(1234, 11);
-            this.PBMinimizeWindow.Name = "PBMinimizeWindow";
-            this.PBMinimizeWindow.Size = new System.Drawing.Size(20, 20);
-            this.PBMinimizeWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PBMinimizeWindow.TabIndex = 2;
-            this.PBMinimizeWindow.TabStop = false;
-            this.PBMinimizeWindow.Click += new System.EventHandler(this.PictureBox1_Click);
-            // 
-            // PBMaximizeWindow
-            // 
-            this.PBMaximizeWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PBMaximizeWindow.BackColor = System.Drawing.Color.LightGray;
-            this.PBMaximizeWindow.Image = ((System.Drawing.Image)(resources.GetObject("PBMaximizeWindow.Image")));
-            this.PBMaximizeWindow.Location = new System.Drawing.Point(1234, 11);
-            this.PBMaximizeWindow.Name = "PBMaximizeWindow";
-            this.PBMaximizeWindow.Size = new System.Drawing.Size(20, 20);
-            this.PBMaximizeWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PBMaximizeWindow.TabIndex = 1;
-            this.PBMaximizeWindow.TabStop = false;
-            this.PBMaximizeWindow.Click += new System.EventHandler(this.PBMaximizeWindow_Click);
+            this.toolTip1.AutoPopDelay = 0;
+            this.toolTip1.InitialDelay = 500;
+            this.toolTip1.IsBalloon = true;
+            this.toolTip1.ReshowDelay = 100;
+            this.toolTip1.Tag = "";
+            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.ToolTip1_Popup_1);
             // 
             // FormMain
             // 
@@ -639,15 +650,15 @@
             this.PnlParameters.ResumeLayout(false);
             this.PnlComPort.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.HW)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.PnlChildForm.ResumeLayout(false);
-            this.PnlMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.HW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBCloseWindow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBMinimizeWindow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBMaximizeWindow)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.PnlChildForm.ResumeLayout(false);
+            this.PnlMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -691,6 +702,7 @@
         private System.Windows.Forms.Panel pnlRight;
         private System.Windows.Forms.Panel pnlLeft;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

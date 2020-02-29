@@ -19,6 +19,8 @@ namespace test_stand
         {
             InitializeComponent();
 
+            FormClosing += (s, e) => { Dispose(); };
+
             port.Receive_Event += () =>
             {
                 if (this.Visible)

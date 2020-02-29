@@ -56,12 +56,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1480, 610);
+            this.ClientSize = new System.Drawing.Size(1480, 815);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "Module_Setup_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Module_Setup";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 

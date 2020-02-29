@@ -100,11 +100,97 @@ namespace test_stand
             }
         }
 
+        private async Task<string> open_input_form(string label_text, string textbox_text)
+        {
+            Input input = new Input(label_text, textbox_text);
+            Data_Transit.shift_is_down = false;
+            this.Enabled = false;
+            string output_string = Convert.ToString(await input.return_result());
+            this.Enabled = true;
+            input.Dispose();
+            return output_string;
+        }
+
+        void initial()
+        {
+
+        }
+
+        List<string> admin = new List<string>();
+        bool cntrl_pressed = false;
+
         public Module_Setup_Form(Module_Parameters module_parameters, List<Module_Setup> setup)
         {
             mp = module_parameters;
             InitializeComponent();
             label2.Text += mp.using_module.name;
+
+            this.KeyDown += async (s, e) =>
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.ControlKey:
+                        cntrl_pressed = true;
+                        break;
+                    case Keys.N:
+                        if(cntrl_pressed) admin.Add("n");
+                        break;
+                    case Keys.D:
+                        if(cntrl_pressed) admin.Add("d");
+                        break;
+                    case Keys.L:
+                        if(cntrl_pressed) admin.Add("l");
+                        break;
+                    case Keys.T:
+                        if(cntrl_pressed) admin.Add("t");
+                        break;
+                    case Keys.E:
+                        if (cntrl_pressed) admin.Add("e");
+                        //if (String.Join("", admin.ToArray()) == "delete")
+                        //{
+                        //    Dictionary<string, byte[]> new_dict = new Dictionary<string, byte[]>();
+                        //    foreach(string a in module_parameters.using_module.all_registers.Keys)
+                        //    {
+                        //        new_dict.Add(a, module_parameters.using_module.all_registers[a]);
+                        //    }
+                            
+                        //    string new_position = Convert.ToString(await open_input_form("Введите название адреса для удаления", "название адреса"));
+
+                        //    module_parameters.using_module.all_registers = new Dictionary<string, byte[]>();
+                        //    //foreach(string a in new_dict.Keys)
+                        //    //{
+                        //    //    if (a != new_position) module_parameters.using_module.all_registers.Add(a, new_dict[a]);
+                        //    //}                            
+                        //}
+                        break;
+                    case Keys.W:
+                        if (cntrl_pressed) admin.Add("w");
+                        if(String.Join("", admin.ToArray()) == "new")
+                        {
+                            string new_position = Convert.ToString(await open_input_form("Введите название новой посылки адреса", "название адреса"));
+                            foreach(Module_Setup ms in setup)
+                                { if(!ms.all_registers.ContainsKey(new_position)) ms.all_registers.Add(new_position, new byte[6]); }
+                            //module_parameters.using_module.all_registers.Add(new_position, new byte[6]);
+                        }
+                        break;
+                    default:
+                        admin.Clear();
+                        break;
+                }
+            };
+
+            this.KeyUp+= (s, e) =>
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.ControlKey:
+                        cntrl_pressed = false;
+                        admin.Clear();
+                        break;
+                }
+            };
+
+
 
             List<my_text_box> my_tb = new List<my_text_box>();
             List<my_combobox> my_cb = new List<my_combobox>();

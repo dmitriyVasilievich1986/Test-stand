@@ -63,6 +63,7 @@
             this.ClientSize = new System.Drawing.Size(494, 265);
             this.Controls.Add(this.Test_Condition);
             this.Controls.Add(this.Serial_Number);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form5";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form5";
